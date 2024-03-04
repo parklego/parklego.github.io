@@ -12,4 +12,4 @@ permalink: /
 
 궁금하신 점이나 소통을 희망하시는 분들은 언제든지 연락주시기 바랍니다.
 
-[이메일 : hbd9425@gmail.com](hbd9425@gmail.com)
+이메일 : hbd9425@gmail.com
