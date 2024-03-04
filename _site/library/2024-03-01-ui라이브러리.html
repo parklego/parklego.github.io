@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head><meta charset="UTF-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>2024-02-TIL · dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>UI Library · dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
 "><meta name="generator" content="Jekyll (using style of GitBook 3.2.3)"><meta name="author" content="parklego"><link rel="stylesheet" href="//assets/gitbook/style.css">
 <link rel="stylesheet" href="//assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
@@ -25,11 +25,11 @@
 
 
 
-            <link rel="prev" href="//" />
+            <link rel="prev" href="//til/2024-03-01-til.html" />
         
 
         
-            <link rel="next" href="//til/2024-03-01-til.html" />
+            <link rel="next" href="//library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" />
         
     </head>
     <body>
@@ -100,15 +100,12 @@
 
                     
                         
-                        <li class="chapter active" data-level="1.2" data-path="//til/2024-02-01-til.html">
+                        <li class="chapter" data-level="1.1" data-path="//til/2024-02-01-til.html">
                         
                             <a href="//til/2024-02-01-til.html" onclick="pageScrollToTop(this)">
                                 2024-02-TIL
                             </a>
                             
-                                
-                                    <ul><li><a href="#라이트다크-모드" onclick="mobilePageScrollToAnchor(this)" >라이트/다크 모드</a></li><li><a href="#input-컴포넌트-만들기" onclick="mobilePageScrollToAnchor(this)" >Input 컴포넌트 만들기</a></li><li><a href="#input-컴포넌트-만들-때-주의사항" onclick="mobilePageScrollToAnchor(this)" >Input 컴포넌트 만들 때 주의사항</a></li></ul>
-
                                 
                             
                         </li>
@@ -125,12 +122,15 @@
                         </li>
                     
                         
-                        <li class="chapter" data-level="1.1" data-path="//library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html">
+                        <li class="chapter active" data-level="1.2" data-path="//library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html">
                         
                             <a href="//library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" onclick="pageScrollToTop(this)">
                                 UI Library
                             </a>
                             
+                                
+                                    <ul><li><a href="#hamburger-react" onclick="mobilePageScrollToAnchor(this)" >Hamburger-react</a></li><li><a href="#react-spinners" onclick="mobilePageScrollToAnchor(this)" >React Spinners</a></li><li><a href="#react-toastify" onclick="mobilePageScrollToAnchor(this)" >React-toastify</a></li><li><a href="#react-icons" onclick="mobilePageScrollToAnchor(this)" >React-icons</a></li><li><a href="#sweetalert2" onclick="mobilePageScrollToAnchor(this)" >SweetAlert2</a></li><li><a href="#frogress" onclick="mobilePageScrollToAnchor(this)" >Frogress</a></li><li><a href="#tui-editor" onclick="mobilePageScrollToAnchor(this)" >Tui-editor</a></li></ul>
+
                                 
                             
                         </li>
@@ -161,7 +161,7 @@
                     <h1>
                         <i class="fa fa-circle-o-notch fa-spin"></i>
                         
-                            <a href="." >2024-02-TIL</a>
+                            <a href="." >UI Library</a>
                         
                     </h1>
                 </div>
@@ -174,58 +174,50 @@
             <div class="search-noresults">
                 <section class="normal markdown-section">
                     
-                        <h1 id="/til/til">2024-02-TIL</h1>
+                        <h1 id="/library/ui라이브러리">UI Library</h1>
                     
 
-                    <h2 id="라이트다크-모드">라이트/다크 모드</h2>
+                    <h2 id="hamburger-react">Hamburger-react</h2>
 
-<p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
+<p>햄버거 버튼 라이브러리</p>
 
-<p>새로 해보는 만큼 라이브러리도 써보지 않은 다양한 것을 사용해보고 싶었다. 그래서 shadcn도 설정하였다.</p>
+<p><a href="https://hamburger-react.netlify.app/">공식문서</a></p>
 
-<p>설정하는 단계가 조금 귀찮다. 그리고 문서가 자세하지가 않다. 그렇지만 이쁘다.</p>
+<h2 id="react-spinners">React Spinners</h2>
 
-<p>그리고 상태관리로는 최근에 가장 가파른 상승세를 타고 있는 zustand를 사용해보기로 했다.</p>
+<p>spinners and loader 라이브러리</p>
 
-<p>처음에 해보고 싶었던 것은 라이트/다크모드를 설정해보는 기능을 구현해보고 싶었다.</p>
+<p><a href="https://mhnpd.github.io/react-loader-spinner/docs/intro/">공식문서</a></p>
 
-<p>localstorage를 이용해서 구현할 것이고, styled-component의 themeProvider로 구현하고자 하였다.</p>
+<h2 id="react-toastify">React-toastify</h2>
 
-<p>그런데 zustand에 localstorage가 있었다. 그래서 persist middleware와 함께 이용하기로 했다.</p>
+<p>간단한 toast 라이브러리</p>
 
-<p>shadcn의 switch 컴포넌트를 이용해 토글기능으로 다크모드를 on/off 하였다. 그러다 ux측면도 고려해보게 되었다.</p>
+<p><a href="https://fkhadra.github.io/react-toastify/introduction/">공식문서</a></p>
 
-<p>내가 주로 검색하는데 사용하는 phind와 shadcn의 다크모드 기능을 살펴보았다.</p>
+<h2 id="react-icons">React-icons</h2>
 
-<ul>
-  <li>phind의 경우에는 처음에 os의 테마를 바탕으로 사이트를 변경해준다. 이때 localstorage에는 테마의 키-벨류가 없다. 그리고 유저가 테마를 건드리면 그때 키-벨류값이 생기고 이에따라 테마가 변경된다.</li>
-  <li>shadcn의 경우 처음부터 라이트/다크/시스템 이렇게 선택할 수 있게 설정이 되어 있다.</li>
-</ul>
+<p>간단한 icons 라이브러리</p>
 
-<p>다크모드 구현이 단순한 기능인줄 알았는데 생각보다 다양한 방법도 있다는 것을 알았다. UX도 생각보다 빠르게 발전하고 있구나 싶었다.</p>
+<p><a href="https://react-icons.github.io/react-icons/">공식문서</a></p>
 
-<p>os 테마변경에 따른 실시간 변경을 위해 커스텀훅을 만들어서 구현하였다.</p>
+<h2 id="sweetalert2">SweetAlert2</h2>
 
-<h2 id="input-컴포넌트-만들기">Input 컴포넌트 만들기</h2>
+<p>아이콘, 애니메이션 등 예쁜 alert 라이브러리</p>
 
-<p>공용 컴포넌트 중 Input 컴포넌트를 만들어 보기로 했다.</p>
+<p><a href="https://fkhadra.github.io/react-toastify/introduction/">공식문서</a></p>
 
-<p>처음에는 input에 필요한 속성값들을 하나하나 다 넣어주어야 싶었다. input 컴포넌트를 어떤 식으로 개발하면 좋을까 찾아보다가 2023년에 유행했던 ui 라이브러리인 shadcn의 소스를 까보기로 하였다.</p>
+<h2 id="frogress">Frogress</h2>
 
-<p>shadcn과 같이 input에 여러 속성 값이 있는데 타입스크립트에서 지원하는 <em>InputHTMLAttributes을 이용하여 넣어주고, 필요한 props는 interface로 추가해서 보완하였다.</em></p>
+<p>1% 이하의 수를 표현하거나 그라디언트를 넣을 경우 자연스럽게 보이게 하기 위한 progress bar 라이브러리</p>
 
-<p>이렇게 만든 Input 컴포넌트들을 유효성을 검사하기 위해 Input form 컴포넌트를 react-hook-form과 zod를 엮어서 만들었다.</p>
+<p><a href="https://frogress.vercel.app/">공식문서</a></p>
 
-<p>react-hook-form의 기능들을 자식 컴포넌트에 접근 가능케 하기위해 forwardRef로 감싸야 한다는 것을 알았다.</p>
+<h2 id="tui-editor">Tui-editor</h2>
 
-<h2 id="input-컴포넌트-만들-때-주의사항">Input 컴포넌트 만들 때 주의사항</h2>
+<p>편집기를 사용하면 텍스트 또는 WYSIWYG를 사용하여 Markdown 문서를 편집할 수 있으며 구문 강조, 스크롤 동기화, 실시간 미리 보기 및 차트 기능이 함께 제공하는 라이브러리</p>
 
-<ul>
-  <li>label 태그를 꼭 넣어주자. 그리고 label태그를 다음 input 컴포넌트와 연결해주어야 한다.</li>
-  <li>그러면 label을 눌렀을때 input 컴포넌트로 포커싱이 되어 접근성 측면에서도 좋다.</li>
-  <li>리액트에서는 for대신 htmlFor을 사용한다. 값은 input 컴포넌트의 id값을 따라간다.</li>
-  <li>autofocus속성도 있다.</li>
-</ul>
+<p><a href="https://ui.toast.com/tui-editor">공식문서</a></p>
 </section>
             </div><div class="search-results">
     <div class="has-results">
@@ -282,13 +274,13 @@ window.MathJax = {
 </script>
 
 
-                        <a href="//" class="navigation navigation-prev navigation-unique" aria-label="Previous page: dev log">
+                        <a href="//til/2024-03-01-til.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2024-03-TIL">
                             <i class="fa fa-angle-left"></i>
                         </a>
                     
 
                     
-                        <a href="//til/2024-03-01-til.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 2024-03-TIL">
+                        <a href="//library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" class="navigation navigation-next navigation-unique" aria-label="Next page: ETC library">
                             <i class="fa fa-angle-right"></i>
                         </a>
                     
@@ -305,11 +297,11 @@ window.MathJax = {
         "depth": 1,
         
         "next": {
-            "title": "2024-03-TIL",
+            "title": "ETC library",
             "level": "1.2",
             "depth": 1,
-            "path": "_posts/2024-03-01-til.md",
-            "ref": "_posts/2024-03-01-til.md",
+            "path": "_posts/2024-03-01-그외라이브러리.md",
+            "ref": "_posts/2024-03-01-그외라이브러리.md",
             "articles": []
         },
         
@@ -401,8 +393,8 @@ window.MathJax = {
         "gitbook": "*"
     },
     "file": {
-        "path": "_posts/2024-02-01-til.md",
-        "mtime": "2024-02-01 00:00:00 +0900",
+        "path": "_posts/2024-03-01-ui라이브러리.md",
+        "mtime": "2024-03-01 00:00:00 +0900",
         "type": "markdown"
     },
     "gitbook": {

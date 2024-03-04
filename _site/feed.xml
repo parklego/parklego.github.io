@@ -1,5 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-05T01:05:10+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">dev log</title><subtitle>Build Jekyll site with the GitBook style.
-</subtitle><author><name>parklego</name></author><entry><title type="html">2024-03-TIL</title><link href="http://localhost:4000/til/2024-03-01-til.html" rel="alternate" type="text/html" title="2024-03-TIL" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-til.html"><![CDATA[]]></content><author><name>parklego</name></author><category term="TIL" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">2024-02-TIL</title><link href="http://localhost:4000/til/2024-02-01-til.html" rel="alternate" type="text/html" title="2024-02-TIL" /><published>2024-02-01T00:00:00+09:00</published><updated>2024-02-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-02-01-til.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-05T01:59:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">dev log</title><subtitle>Build Jekyll site with the GitBook style.
+</subtitle><author><name>parklego</name></author><entry><title type="html">2024-03-TIL</title><link href="http://localhost:4000/til/2024-03-01-til.html" rel="alternate" type="text/html" title="2024-03-TIL" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-til.html"><![CDATA[]]></content><author><name>parklego</name></author><category term="TIL" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">UI Library</title><link href="http://localhost:4000/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" rel="alternate" type="text/html" title="UI Library" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/library/ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html"><![CDATA[<h2 id="hamburger-react">Hamburger-react</h2>
+
+<p>햄버거 버튼 라이브러리</p>
+
+<p><a href="https://hamburger-react.netlify.app/">공식문서</a></p>
+
+<h2 id="react-spinners">React Spinners</h2>
+
+<p>spinners and loader 라이브러리</p>
+
+<p><a href="https://mhnpd.github.io/react-loader-spinner/docs/intro/">공식문서</a></p>
+
+<h2 id="react-toastify">React-toastify</h2>
+
+<p>간단한 toast 라이브러리</p>
+
+<p><a href="https://fkhadra.github.io/react-toastify/introduction/">공식문서</a></p>
+
+<h2 id="react-icons">React-icons</h2>
+
+<p>간단한 icons 라이브러리</p>
+
+<p><a href="https://react-icons.github.io/react-icons/">공식문서</a></p>
+
+<h2 id="sweetalert2">SweetAlert2</h2>
+
+<p>아이콘, 애니메이션 등 예쁜 alert 라이브러리</p>
+
+<p><a href="https://fkhadra.github.io/react-toastify/introduction/">공식문서</a></p>
+
+<h2 id="frogress">Frogress</h2>
+
+<p>1% 이하의 수를 표현하거나 그라디언트를 넣을 경우 자연스럽게 보이게 하기 위한 progress bar 라이브러리</p>
+
+<p><a href="https://frogress.vercel.app/">공식문서</a></p>
+
+<h2 id="tui-editor">Tui-editor</h2>
+
+<p>편집기를 사용하면 텍스트 또는 WYSIWYG를 사용하여 Markdown 문서를 편집할 수 있으며 구문 강조, 스크롤 동기화, 실시간 미리 보기 및 차트 기능이 함께 제공하는 라이브러리</p>
+
+<p><a href="https://ui.toast.com/tui-editor">공식문서</a></p>]]></content><author><name>parklego</name></author><category term="library" /><summary type="html"><![CDATA[Hamburger-react]]></summary></entry><entry><title type="html">ETC library</title><link href="http://localhost:4000/library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" rel="alternate" type="text/html" title="ETC library" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/library/%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html"><![CDATA[<h2 id="zod">Zod</h2>
+
+<p>스키마 선언 및 유효성 검사 라이브러리</p>
+
+<p><a href="https://zod.dev/">공식문서</a></p>
+
+<h2 id="react-hook-form">React-hook-form</h2>
+
+<p>검증 기능을 갖춘 유연하고 확장 가능한 form 라이브러리</p>
+
+<p><a href="https://react-hook-form.com/">공식문서</a></p>]]></content><author><name>parklego</name></author><category term="library" /><summary type="html"><![CDATA[Zod]]></summary></entry><entry><title type="html">2024-02-TIL</title><link href="http://localhost:4000/til/2024-02-01-til.html" rel="alternate" type="text/html" title="2024-02-TIL" /><published>2024-02-01T00:00:00+09:00</published><updated>2024-02-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-02-01-til.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
 
@@ -33,34 +83,6 @@
 <p>공용 컴포넌트 중 Input 컴포넌트를 만들어 보기로 했다.</p>
 
 <p>처음에는 input에 필요한 속성값들을 하나하나 다 넣어주어야 싶었다. input 컴포넌트를 어떤 식으로 개발하면 좋을까 찾아보다가 2023년에 유행했던 ui 라이브러리인 shadcn의 소스를 까보기로 하였다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span>
-
-<span class="k">import</span> <span class="p">{</span> <span class="nx">cn</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@/lib/utils</span><span class="dl">"</span>
-
-<span class="k">export</span> <span class="kr">interface</span> <span class="nx">InputProps</span>
-  <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">InputHTMLAttributes</span><span class="o">&lt;</span><span class="nx">HTMLInputElement</span><span class="o">&gt;</span> <span class="p">{}</span>
-
-<span class="kd">const</span> <span class="nx">Input</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">forwardRef</span><span class="o">&lt;</span><span class="nx">HTMLInputElement</span><span class="p">,</span> <span class="nx">InputProps</span><span class="o">&gt;</span><span class="p">(</span>
-  <span class="p">({</span> <span class="nx">className</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">},</span> <span class="nx">ref</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="o">&lt;</span><span class="nx">input</span>
-        <span class="nx">type</span><span class="o">=</span><span class="p">{</span><span class="nx">type</span><span class="p">}</span>
-        <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">cn</span><span class="p">(</span>
-          <span class="dl">"</span><span class="s2">flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50</span><span class="dl">"</span><span class="p">,</span>
-          <span class="nx">className</span>
-        <span class="p">)}</span>
-        <span class="nx">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">ref</span><span class="p">}</span>
-        <span class="p">{...</span><span class="nx">props</span><span class="p">}</span>
-      <span class="sr">/</span><span class="err">&gt;
-</span>    <span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">)</span>
-<span class="nx">Input</span><span class="p">.</span><span class="nx">displayName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Input</span><span class="dl">"</span>
-
-<span class="k">export</span> <span class="p">{</span> <span class="nx">Input</span> <span class="p">}</span>
-
-</code></pre></div></div>
 
 <p>shadcn과 같이 input에 여러 속성 값이 있는데 타입스크립트에서 지원하는 <em>InputHTMLAttributes을 이용하여 넣어주고, 필요한 props는 interface로 추가해서 보완하였다.</em></p>
 
