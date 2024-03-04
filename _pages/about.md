@@ -1,9 +1,9 @@
 ---
 title: About
 author: Tao He
-date: 2022-02-04
+date: 2024-03-04
 category: Jekyll
 layout: post
 ---
 
-This is an about page.
+프론트엔드 개발자 박동건입니다.
