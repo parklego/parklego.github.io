@@ -118,7 +118,7 @@
                             </a>
                             
                                 
-                                    
+                                    <ul><li><a href="#jekyll을-사용하여-github-pages-배포-및-테마적용" onclick="mobilePageScrollToAnchor(this)" >Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</a></li></ul>
 
                                 
                             
@@ -139,7 +139,7 @@
                         <li class="chapter" data-level="1.1" data-path="//library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html">
                         
                             <a href="//library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" onclick="pageScrollToTop(this)">
-                                ETC library
+                                ETC Library
                             </a>
                             
                                 
@@ -177,7 +177,49 @@
                         <h1 id="/til/til">2024-03-TIL</h1>
                     
 
-                    
+                    <h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
+
+<blockquote>
+  <p>사전 준비</p>
+</blockquote>
+
+<ul>
+  <li>Ruby 설치</li>
+  <li>Jekyll 설치</li>
+  <li>테마 선택
+    <ul>
+      <li><a href="jamstackthemes.dev">jamstackthemes.dev</a></li>
+      <li><a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a></li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>배포 및 테마 적용하기</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>github repository 생성</p>
+
+    <ul>
+      <li>repository명은 github 아이디.github.io로 생성할 것</li>
+      <li>repository는 public 으로 할 것</li>
+      <li>ex) parklego.github.io</li>
+    </ul>
+  </li>
+  <li>bundle 명령어 실행
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+bundle exec jekyll serve
+</code></pre></div>    </div>
+  </li>
+  <li>블로그 설정
+    <ul>
+      <li>_conif.yml 파일에서 제목이나 이름 등을 변경</li>
+      <li>_posts 폴더에 원하는 게시글 작성 (yyy-mm-dd 형태)</li>
+    </ul>
+  </li>
+</ol>
 </section>
             </div><div class="search-results">
     <div class="has-results">
@@ -359,7 +401,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-05 01:59:07 +0900"
+        "time": "2024-03-05 02:23:23 +0900"
     },
     "basePath": "/",
     "book": {
