@@ -1,11 +1,11 @@
 ---
 layout: home
-title: parklego dev log
+title: 박레고의 개발일지
 permalink: /
 ---
 
-Hello, I am Park Lego, a front-end developer. Nice to meet you! 😊
+안녕하세요, 프론트엔드 개발사 박레고입니다. 반갑습니다! 😊
 
-This place is where I record content related to development.
+이곳은 제가 개발과 관련된 내용을 간단히 기록하는 곳입니다.
 
-If you have any questions or wish to communicate, please feel free to contact me anytime.
+궁금하신 점이나 소통을 희망하시는 분들은 언제든지 연락주시기 바랍니다.
