@@ -1,6 +1,6 @@
 ---
 title: About
-author: Tao He
+author: parklego
 date: 2024-03-04
 category: Jekyll
 layout: post

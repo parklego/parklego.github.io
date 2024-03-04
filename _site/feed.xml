@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-05T00:09:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jekyll Gitbook</title><subtitle>Build Jekyll site with the GitBook style.
-</subtitle><author><name>HE Tao</name></author><entry><title type="html">2024-03-TIL</title><link href="http://localhost:4000/til/2024-03-01-til.html" rel="alternate" type="text/html" title="2024-03-TIL" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-til.html"><![CDATA[]]></content><author><name>parklego</name></author><category term="TIL" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">2024-02-TIL</title><link href="http://localhost:4000/til/2024-02-01-til.html" rel="alternate" type="text/html" title="2024-02-TIL" /><published>2024-02-01T00:00:00+09:00</published><updated>2024-02-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-02-01-til.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-05T00:51:11+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">dev log</title><subtitle>Build Jekyll site with the GitBook style.
+</subtitle><author><name>parklego</name></author><entry><title type="html">2024-03-TIL</title><link href="http://localhost:4000/til/2024-03-01-til.html" rel="alternate" type="text/html" title="2024-03-TIL" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-til.html"><![CDATA[]]></content><author><name>parklego</name></author><category term="TIL" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">2024-02-TIL</title><link href="http://localhost:4000/til/2024-02-01-til.html" rel="alternate" type="text/html" title="2024-02-TIL" /><published>2024-02-01T00:00:00+09:00</published><updated>2024-02-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-02-01-til.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
 
@@ -34,7 +34,7 @@
 
 <p>처음에는 input에 필요한 속성값들을 하나하나 다 넣어주어야 싶었다. input 컴포넌트를 어떤 식으로 개발하면 좋을까 찾아보다가 2023년에 유행했던 ui 라이브러리인 shadcn의 소스를 까보기로 하였다.</p>
 
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span>
 
 <span class="k">import</span> <span class="p">{</span> <span class="nx">cn</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@/lib/utils</span><span class="dl">"</span>
 
@@ -44,16 +44,16 @@
 <span class="kd">const</span> <span class="nx">Input</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">forwardRef</span><span class="o">&lt;</span><span class="nx">HTMLInputElement</span><span class="p">,</span> <span class="nx">InputProps</span><span class="o">&gt;</span><span class="p">(</span>
   <span class="p">({</span> <span class="nx">className</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="p">...</span><span class="nx">props</span> <span class="p">},</span> <span class="nx">ref</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span>
-      <span class="p">&lt;</span><span class="nt">input</span>
-        <span class="na">type</span><span class="p">=</span><span class="si">{</span><span class="nx">type</span><span class="si">}</span>
-        <span class="na">className</span><span class="p">=</span><span class="si">{</span><span class="nx">cn</span><span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">input</span>
+        <span class="nx">type</span><span class="o">=</span><span class="p">{</span><span class="nx">type</span><span class="p">}</span>
+        <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">cn</span><span class="p">(</span>
           <span class="dl">"</span><span class="s2">flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50</span><span class="dl">"</span><span class="p">,</span>
           <span class="nx">className</span>
-        <span class="p">)</span><span class="si">}</span>
-        <span class="na">ref</span><span class="p">=</span><span class="si">{</span><span class="nx">ref</span><span class="si">}</span>
-        <span class="si">{</span><span class="p">...</span><span class="nx">props</span><span class="si">}</span>
-      <span class="p">/&gt;</span>
-    <span class="p">)</span>
+        <span class="p">)}</span>
+        <span class="nx">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">ref</span><span class="p">}</span>
+        <span class="p">{...</span><span class="nx">props</span><span class="p">}</span>
+      <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="p">)</span>
   <span class="p">}</span>
 <span class="p">)</span>
 <span class="nx">Input</span><span class="p">.</span><span class="nx">displayName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Input</span><span class="dl">"</span>
