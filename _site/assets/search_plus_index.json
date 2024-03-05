@@ -1,0 +1,26 @@
+{"/pages/about/": {
+    "title": "About",
+    "keywords": "Jekyll",
+    "url": "/pages/about/",
+    "body": "안녕하세요, 프론트엔드 개발자 박레고입니다. 반갑습니다! 😊 이곳은 제가 개발과 관련된 내용을 간단히 기록하는 곳입니다. 주로 TIL에 대한 내용입니다. 그리고 사용해본 라이브러리 중 엄청 좋았다고 생각드는 라이브러리들도 엄선해보았습니다. 궁금하신 점이나 소통을 희망하시는 분들은 언제든지 연락주시기 바랍니다. 이메일 : hbd9425@gmail.com"
+  },"/library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html": {
+    "title": "ETC Library",
+    "keywords": "library",
+    "url": "/library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html",
+    "body": "Zod 스키마 선언 및 유효성 검사 라이브러리 공식문서 React-hook-form 검증 기능을 갖춘 유연하고 확장 가능한 form 라이브러리 공식문서"
+  },"/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html": {
+    "title": "UI Library",
+    "keywords": "library",
+    "url": "/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html",
+    "body": "Tui-editor 편집기를 사용하면 텍스트 또는 WYSIWYG를 사용하여 Markdown 문서를 편집할 수 있으며 구문 강조, 스크롤 동기화, 실시간 미리 보기 및 차트 기능이 함께 제공하는 라이브러리 공식문서 Frogress 1% 이하의 수를 표현하거나 그라디언트를 넣을 경우 자연스럽게 보이게 하기 위한 progress bar 라이브러리 공식문서 SweetAlert2 아이콘, 애니메이션 등 예쁜 alert 라이브러리 공식문서 Hamburger-react 햄버거 버튼 라이브러리 공식문서 React Spinners spinners and loader 라이브러리 공식문서 React-toastify 간단한 toast 라이브러리 공식문서 React-icons 간단한 icons 라이브러리 공식문서"
+  },"/til/2024-03-01-til.html": {
+    "title": "2024-03-TIL",
+    "keywords": "TIL",
+    "url": "/til/2024-03-01-til.html",
+    "body": "Jekyll을 사용하여 GitHub Pages 배포 및 테마적용 사전 준비 Ruby 설치 Jekyll 설치 테마 선택 jamstackthemes.dev http://jekyllthemes.org/ 코드블럭 선택 https://spsarolkar.github.io/rouge-theme-preview/ 배포 및 테마 적용하기 github repository 생성 repository명은 github 아이디.github.io로 생성할 것 repository는 public 으로 할 것 ex) parklego.github.io bundle 명령어 실행 bundle install bundle exec jekyll serve 블로그 설정 _conif.yml 파일에서 제목이나 이름 등을 변경 _posts 폴더에 원하는 게시글 작성 (yyy-mm-dd 형태) 웹 접근성 웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다. wai-aria란? aria 사용방법 리액트 jsx에서 wai-aria를 지원한다. aria-\\* 과 같은 어트리뷰트는 kebab-case로 작성해야한다. role 태그의 역할을 알려주는 속성 정해진 값만 사용하여야 한다. aria-label 스크린 리더기에 전달할 내용을 알려주는 속성 예를들어, 어코디언이 있으면 펼치기와 같이 aria-label를 통해 알려줄 수 있다. 주의할 점은 시멘틱 태그이거나, role 속성 값이 상호작용(interactive)을 하는 값일 때 aria-label을 붙일 수 있다는 것이다. aria-label과 role을 쓰기 위한 규칙 tabindex 0 : 상호작용 가능한 요소 처럼 포커싱이 된다. -1 : 포커싱에서 제외 된다. 양수 : 강제로 순서를 정한다. 그 이후에 브라우저의 포커싱 순서대로 잡힌다. 무조건 피해야함. img alt 이미지가 나오지 않을 때, 이미지에 대한 설명 aria-required true인 경우, 스크린 리더기에 필수요소임을 알려주는 속성"
+  },"/til/2024-02-01-til.html": {
+    "title": "2024-02-TIL",
+    "keywords": "TIL",
+    "url": "/til/2024-02-01-til.html",
+    "body": "라이트/다크 모드 최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다. 새로 해보는 만큼 라이브러리도 써보지 않은 다양한 것을 사용해보고 싶었다. 그래서 shadcn도 설정하였다. 설정하는 단계가 조금 귀찮다. 그리고 문서가 자세하지가 않다. 그렇지만 이쁘다. 그리고 상태관리로는 최근에 가장 가파른 상승세를 타고 있는 zustand를 사용해보기로 했다. 처음에 해보고 싶었던 것은 라이트/다크모드를 설정해보는 기능을 구현해보고 싶었다. localstorage를 이용해서 구현할 것이고, styled-component의 themeProvider로 구현하고자 하였다. 그런데 zustand에 localstorage가 있었다. 그래서 persist middleware와 함께 이용하기로 했다. shadcn의 switch 컴포넌트를 이용해 토글기능으로 다크모드를 on/off 하였다. 그러다 ux측면도 고려해보게 되었다. 내가 주로 검색하는데 사용하는 phind와 shadcn의 다크모드 기능을 살펴보았다. phind의 경우에는 처음에 os의 테마를 바탕으로 사이트를 변경해준다. 이때 localstorage에는 테마의 키-벨류가 없다. 그리고 유저가 테마를 건드리면 그때 키-벨류값이 생기고 이에따라 테마가 변경된다. shadcn의 경우 처음부터 라이트/다크/시스템 이렇게 선택할 수 있게 설정이 되어 있다. 다크모드 구현이 단순한 기능인줄 알았는데 생각보다 다양한 방법도 있다는 것을 알았다. UX도 생각보다 빠르게 발전하고 있구나 싶었다. os 테마변경에 따른 실시간 변경을 위해 커스텀훅을 만들어서 구현하였다. Input 컴포넌트 만들기 공용 컴포넌트 중 Input 컴포넌트를 만들어 보기로 했다. 처음에는 input에 필요한 속성값들을 하나하나 다 넣어주어야 싶었다. input 컴포넌트를 어떤 식으로 개발하면 좋을까 찾아보다가 2023년에 유행했던 ui 라이브러리인 shadcn의 소스를 까보기로 하였다. shadcn과 같이 input에 여러 속성 값이 있는데 타입스크립트에서 지원하는 InputHTMLAttributes을 이용하여 넣어주고, 필요한 props는 interface로 추가해서 보완하였다. 이렇게 만든 Input 컴포넌트들을 유효성을 검사하기 위해 Input form 컴포넌트를 react-hook-form과 zod를 엮어서 만들었다. react-hook-form의 기능들을 자식 컴포넌트에 접근 가능케 하기위해 forwardRef로 감싸야 한다는 것을 알았다. Input 컴포넌트 만들 때 주의사항 label 태그를 꼭 넣어주자. 그리고 label태그를 다음 input 컴포넌트와 연결해주어야 한다. 그러면 label을 눌렀을때 input 컴포넌트로 포커싱이 되어 접근성 측면에서도 좋다. 리액트에서는 for대신 htmlFor을 사용한다. 값은 input 컴포넌트의 id값을 따라간다. autofocus속성도 있다."
+  }}
