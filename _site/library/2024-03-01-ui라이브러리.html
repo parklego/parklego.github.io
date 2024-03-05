@@ -1,157 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><meta charset="UTF-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>UI Library · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <head><meta charset="UTF-8" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>UI Library · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
-"><meta name="generator" content="Jekyll (using style of GitBook 3.2.3)"><meta name="author" content="parklego"><link rel="stylesheet" href="/assets/gitbook/style.css">
-<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
-<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
-<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
-<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
-<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-splitter/splitter.css">
+" /><meta
+  name="generator"
+  content="Jekyll (using style of GitBook 3.2.3)"
+/><meta name="author" content="parklego" /><link rel="stylesheet" href="/assets/gitbook/style.css" />
+<link
+  rel="stylesheet"
+  href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css"
+/>
+<link
+  rel="stylesheet"
+  href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css"
+/>
+<link
+  rel="stylesheet"
+  href="/assets/gitbook/gitbook-plugin-fontsettings/website.css"
+/>
+<link
+  rel="stylesheet"
+  href="/assets/gitbook/gitbook-plugin-search-pro/search.css"
+/>
+<link
+  rel="stylesheet"
+  href="/assets/gitbook/gitbook-plugin-splitter/splitter.css"
+/>
 
-<link rel="stylesheet" href="/assets/gitbook/rouge/syntax.css">
+<link
+  rel="stylesheet"
+  href="/assets/gitbook/rouge/syntax.css"
+/>
 
-<link rel="stylesheet" href="/assets/gitbook/custom.css">
-<link rel="stylesheet" href="/assets/gitbook/custom-local.css">
+<link rel="stylesheet" href="/assets/gitbook/custom.css" />
+<link
+  rel="stylesheet"
+  href="/assets/gitbook/custom-local.css"
+/>
 
-<meta name="HandheldFriendly" content="true"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
-<link rel="shortcut icon" href="//assets/gitbook/images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, user-scalable=no"
+/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="152x152"
+  href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png"
+/>
+<link
+  rel="shortcut icon"
+  href="//assets/gitbook/images/favicon.ico"
+  type="image/x-icon"
+/>
 
-
-
-
+ 
     <link rel="prev" href="/til/2024-03-01-til.html" />
      
     <link rel="next" href="/library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" />
     
   </head>
+
   <body>
     <div class="book"><div class="book-summary">
-    <script type="text/javascript">
-        // Fixes the page links scroll problem on both desktop and mobile browsers
-        function pageScrollToTop(element) {
-            // both mobile and non-mobile
-            $('div.body-inner').animate({scrollTop: 0});
-            $(element).parent().find('li>ul>li').removeClass('active');
-            return true;  // propagate
-        }
-        // Fixes the anchor links scroll problem on mobile browsers
-        function mobilePageScrollToAnchor(element) {
-            $(element).closest('li.chapter').find('ul>li').removeClass('active');
-            $(element).parent().addClass('active');
-            if ($(document).width() <= 1240) {
-                $('div.body-inner').animate({scrollTop: $($(element).attr('href')).get(0).offsetTop});
-            }
-            return true;
-        }
-    </script>
+  <script type="text/javascript">
+    // Fixes the page links scroll problem on both desktop and mobile browsers
+    function pageScrollToTop(element) {
+      // both mobile and non-mobile
+      $("div.body-inner").animate({ scrollTop: 0 });
+      $(element).parent().find("li>ul>li").removeClass("active");
+      return true; // propagate
+    }
+    // Fixes the anchor links scroll problem on mobile browsers
+    function mobilePageScrollToAnchor(element) {
+      $(element).closest("li.chapter").find("ul>li").removeClass("active");
+      $(element).parent().addClass("active");
+      if ($(document).width() <= 1240) {
+        $("div.body-inner").animate({
+          scrollTop: $($(element).attr("href")).get(0).offsetTop,
+        });
+      }
+      return true;
+    }
+  </script>
 
-    <nav role="navigation">
-        <div id="book-search-input" role="search">
-            <input type="text" placeholder="Type to search" />
-        </div>
-        <div id="book-search-input-link" role="search">
-            <a href="/assets/search.html">Click to Search</a>
-        </div>
-        <ul class="summary">
-            
-            <li class="chapter" data-level="1.1" data-path="">
-            
-                <a href="/" onclick="pageScrollToTop(this)">
-                    parklego dev log
-                </a>
-            </li>
+  <nav role="navigation">
+    <div id="book-search-input" role="search">
+      <input type="text" placeholder="Type to search" />
+    </div>
+    <div id="book-search-input-link" role="search">
+      <a href="/assets/search.html">Click to Search</a>
+    </div>
+    <ul class="summary">
+      
+      </li>
 
-            <li class="divider"></li>
+      <li class="chapter" data-level="1.1" data-path="">
+        
+        <a href="/" onclick="pageScrollToTop(this)">
+          parklego dev log
+        </a>
+      </li>
 
-            
-                <!-- <p>pages</p> -->
-                
-                    
+      <li class="divider"></li>
 
-                    
-                        
-                        <li class="chapter" data-level="1.1" data-path="/pages/about/">
-                        
-                            <a href="/pages/about/" onclick="pageScrollToTop(this)">
-                                About
-                            </a>
-                            
-                                
-                            
-                        </li>
-                    
+      
+      <!-- <p>pages</p> -->
+         
+      </li>
 
-                    
-                        <li class="divider"></li>
-                    
-                
-            
-                <!-- <p>posts</p> -->
-                
-                    
+      <li
+        class="chapter"
+        data-level="1.1"
+        data-path="/pages/about/"
+      >
+        
+        <a href="/pages/about/" onclick="pageScrollToTop(this)">
+          About
+        </a>
+          
+      </li>
+       
+      <li class="divider"></li>
+        
+      <!-- <p>posts</p> -->
+         
+      </li>
 
-                    
-                        
-                        <li class="chapter" data-level="1.1" data-path="/til/2024-02-01-til.html">
-                        
-                            <a href="/til/2024-02-01-til.html" onclick="pageScrollToTop(this)">
-                                2024-02-TIL
-                            </a>
-                            
-                                
-                            
-                        </li>
-                    
-                        
-                        <li class="chapter" data-level="1.1" data-path="/til/2024-03-01-til.html">
-                        
-                            <a href="/til/2024-03-01-til.html" onclick="pageScrollToTop(this)">
-                                2024-03-TIL
-                            </a>
-                            
-                                
-                            
-                        </li>
-                    
-                        
-                        <li class="chapter active" data-level="1.2" data-path="/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html">
-                        
-                            <a href="/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" onclick="pageScrollToTop(this)">
-                                UI Library
-                            </a>
-                            
-                                
-                                    <ul><li><a href="#tui-editor" onclick="mobilePageScrollToAnchor(this)" >Tui-editor</a></li><li><a href="#frogress" onclick="mobilePageScrollToAnchor(this)" >Frogress</a></li><li><a href="#sweetalert2" onclick="mobilePageScrollToAnchor(this)" >SweetAlert2</a></li><li><a href="#hamburger-react" onclick="mobilePageScrollToAnchor(this)" >Hamburger-react</a></li><li><a href="#react-spinners" onclick="mobilePageScrollToAnchor(this)" >React Spinners</a></li><li><a href="#react-toastify" onclick="mobilePageScrollToAnchor(this)" >React-toastify</a></li><li><a href="#react-icons" onclick="mobilePageScrollToAnchor(this)" >React-icons</a></li></ul>
+      <li
+        class="chapter"
+        data-level="1.1"
+        data-path="/til/2024-02-01-til.html"
+      >
+        
+        <a href="/til/2024-02-01-til.html" onclick="pageScrollToTop(this)">
+          2024-02-TIL
+        </a>
+          
+      </li>
+       
+      </li>
 
-                                
-                            
-                        </li>
-                    
-                        
-                        <li class="chapter" data-level="1.1" data-path="/library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html">
-                        
-                            <a href="/library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" onclick="pageScrollToTop(this)">
-                                ETC Library
-                            </a>
-                            
-                                
-                            
-                        </li>
-                    
+      <li
+        class="chapter"
+        data-level="1.1"
+        data-path="/til/2024-03-01-til.html"
+      >
+        
+        <a href="/til/2024-03-01-til.html" onclick="pageScrollToTop(this)">
+          2024-03-TIL
+        </a>
+          
+      </li>
+       
+      <li
+        class="chapter active"
+        data-level="1.2"
+        data-path="/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html"
+      >
+        
+        <a href="/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" onclick="pageScrollToTop(this)">
+          UI Library
+        </a>
+          <ul><li><a href="#tui-editor" onclick="mobilePageScrollToAnchor(this)" >Tui-editor</a></li><li><a href="#frogress" onclick="mobilePageScrollToAnchor(this)" >Frogress</a></li><li><a href="#sweetalert2" onclick="mobilePageScrollToAnchor(this)" >SweetAlert2</a></li><li><a href="#hamburger-react" onclick="mobilePageScrollToAnchor(this)" >Hamburger-react</a></li><li><a href="#react-spinners" onclick="mobilePageScrollToAnchor(this)" >React Spinners</a></li><li><a href="#react-toastify" onclick="mobilePageScrollToAnchor(this)" >React-toastify</a></li><li><a href="#react-icons" onclick="mobilePageScrollToAnchor(this)" >React-icons</a></li></ul>
+  
+      </li>
+       
+      </li>
 
-                    
-                        <li class="divider"></li>
-                    
-                
-            
-        </ul>
-    </nav>
+      <li
+        class="chapter"
+        data-level="1.1"
+        data-path="/library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html"
+      >
+        
+        <a href="/library/2024-03-01-%EA%B7%B8%EC%99%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" onclick="pageScrollToTop(this)">
+          ETC Library
+        </a>
+          
+      </li>
+       
+      <li class="divider"></li>
+        
+    </ul>
+  </nav>
 </div>
 <div class="book-body">
         <div class="book-header" role="navigation">
@@ -165,17 +200,15 @@
         </div>
 
         <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
-    
+  
 
-    <div class="page-inner">
-        <div id="book-search-results">
-            <div class="search-noresults">
-                <section class="normal markdown-section">
-                    
-                        <h1 id="/library/ui라이브러리">UI Library</h1>
-                    
-
-                    <h2 id="tui-editor">Tui-editor</h2>
+  <div class="page-inner">
+    <div id="book-search-results">
+      <div class="search-noresults">
+        <section class="normal markdown-section">
+          
+          <h1 id="/library/ui라이브러리">UI Library</h1>
+           <h2 id="tui-editor">Tui-editor</h2>
 
 <p>편집기를 사용하면 텍스트 또는 WYSIWYG를 사용하여 Markdown 문서를 편집할 수 있으며 구문 강조, 스크롤 동기화, 실시간 미리 보기 및 차트 기능이 함께 제공하는 라이브러리</p>
 
@@ -217,7 +250,7 @@
 
 <p><a href="https://react-icons.github.io/react-icons/">공식문서</a></p>
 </section>
-            </div><div class="search-results">
+      </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
@@ -226,7 +259,23 @@
         <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
     </div>
 </div></div>
-    </div>
+    <div id="comments-section" style="margin-top: 50px"></div>
+
+    <script>
+      var currentUrl = window.location.href;
+      if (currentUrl.includes("til") || currentUrl.includes("library")) {
+        var scriptTag = document.createElement("script");
+        scriptTag.src = "https://utteranc.es/client.js";
+        scriptTag.setAttribute("repo", "parklego/parklego.github.io");
+        scriptTag.setAttribute("issue-term", "url");
+        scriptTag.setAttribute("theme", "github-light");
+        scriptTag.setAttribute("crossorigin", "anonymous");
+        scriptTag.async = true;
+
+        document.getElementById("comments-section").appendChild(scriptTag);
+      }
+    </script>
+  </div>
 </div>
 
 <!-- introduce mathjax support -->
@@ -403,7 +452,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-05 19:53:07 +0900"
+        "time": "2024-03-05 20:52:53 +0900"
     },
     "basePath": "",
     "book": {
@@ -412,14 +461,6 @@ window.MathJax = {
 });
         });
       </script>
-      <script
-        src="https://utteranc.es/client.js"
-        repo="parklego/parklego.github.io"
-        issue-term="url"
-        theme="github-light"
-        crossorigin="anonymous"
-        async
-      ></script>
     </div><script src="/assets/gitbook/gitbook.js"></script>
 <script src="/assets/gitbook/theme.js"></script>
 

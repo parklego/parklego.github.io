@@ -1,43 +1,52 @@
 <div class="page-wrapper" tabindex="-1" role="main">
-    {% if page.cover %}
-        <img src="{{ page.cover }}"
-             width="100%"
-             height="{{ page.cover_height | default: '100%' }}"
-             alt="{{ page.title | escape }}"
-             style="object-fit: cover;"
-        />
-    {% endif %}
+  {% if page.cover %}
+  <img
+    src="{{ page.cover }}"
+    width="100%"
+    height="{{ page.cover_height | default: '100%' }}"
+    alt="{{ page.title | escape }}"
+    style="object-fit: cover"
+  />
+  {% endif %}
 
-    <div class="page-inner">
-        <div id="book-search-results">
-            <div class="search-noresults">
-                <section class="normal markdown-section">
-                    {% if page.title %}
-                        <h1 id="{{ page.id }}">{{ page.title | escape }}</h1>
-                    {% else %}
-                        <h1 id="{{ page.id }}">{{ site.title | escape }}</h1>
-                    {% endif %}
-
-                    {{ content }}
-
-                    {%- if jekyll.environment != 'dev' and site.disqushandler -%}
-                        {%- include disqus.html -%}
-                    {%- endif -%}
-                </section>
-            </div>
-
-            {%- include search.html -%}
-        </div>
+  <div class="page-inner">
+    <div id="book-search-results">
+      <div class="search-noresults">
+        <section class="normal markdown-section">
+          {% if page.title %}
+          <h1 id="{{ page.id }}">{{ page.title | escape }}</h1>
+          {% else %}
+          <h1 id="{{ page.id }}">{{ site.title | escape }}</h1>
+          {% endif %} {{ content }} {%- if jekyll.environment != 'dev' and
+          site.disqushandler -%} {%- include disqus.html -%} {%- endif -%}
+        </section>
+      </div>
+      {%- include search.html -%}
     </div>
+    <div id="comments-section" style="margin-top: 50px"></div>
+
+    <script>
+      var currentUrl = window.location.href;
+      if (currentUrl.includes("til") || currentUrl.includes("library")) {
+        var scriptTag = document.createElement("script");
+        scriptTag.src = "https://utteranc.es/client.js";
+        scriptTag.setAttribute("repo", "parklego/parklego.github.io");
+        scriptTag.setAttribute("issue-term", "url");
+        scriptTag.setAttribute("theme", "github-light");
+        scriptTag.setAttribute("crossorigin", "anonymous");
+        scriptTag.async = true;
+
+        document.getElementById("comments-section").appendChild(scriptTag);
+      }
+    </script>
+  </div>
 </div>
 
 <!-- introduce mathjax support -->
 {% include mathjax.html %}
 
 <!-- introduce per-page mermaid support -->
-{% if page.mermaid %}
-    {% include mermaid.html %}
-{% endif %}
+{% if page.mermaid %} {% include mermaid.html %} {% endif %}
 
 <!-- introduce mathjax support -->
 {% include fixes-chrome-anchors.html %}
