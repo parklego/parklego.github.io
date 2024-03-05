@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-05T20:52:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-05T21:03:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">2024-03-TIL</title><link href="http://localhost:4000/til/2024-03-01-til.html" rel="alternate" type="text/html" title="2024-03-TIL" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-til.html"><![CDATA[<h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
 
 <blockquote>
@@ -159,7 +159,7 @@
 
 <p>처음에 해보고 싶었던 것은 라이트/다크모드를 설정해보는 기능을 구현해보고 싶었다.</p>
 
-<p>localstorage를 이용해서 구현할 것이고, styled-component의 themeProvider로 구현하고자 하였다.</p>
+<p>localstorage를 이용해서 구현할 것이고, styled-component의 <code class="language-plaintext highlighter-rouge">themeProvider</code>로 구현하고자 하였다.</p>
 
 <p>그런데 zustand에 localstorage가 있었다. 그래서 persist middleware와 함께 이용하기로 했다.</p>
 
@@ -186,13 +186,13 @@
 
 <p>이렇게 만든 Input 컴포넌트들을 유효성을 검사하기 위해 Input form 컴포넌트를 react-hook-form과 zod를 엮어서 만들었다.</p>
 
-<p>react-hook-form의 기능들을 자식 컴포넌트에 접근 가능케 하기위해 forwardRef로 감싸야 한다는 것을 알았다.</p>
+<p>react-hook-form의 기능들을 자식 컴포넌트에 접근 가능케 하기위해 <code class="language-plaintext highlighter-rouge">forwardRef</code>로 감싸야 한다는 것을 알았다.</p>
 
 <h3 id="input-컴포넌트-만들-때-주의사항">Input 컴포넌트 만들 때 주의사항</h3>
 
 <ul>
-  <li>label 태그를 꼭 넣어주자. 그리고 label태그를 다음 input 컴포넌트와 연결해주어야 한다.</li>
+  <li>label 태그를 꼭 넣어주자. 그리고 <code class="language-plaintext highlighter-rouge">label</code>태그를 다음 input 컴포넌트와 연결해주어야 한다.</li>
   <li>그러면 label을 눌렀을때 input 컴포넌트로 포커싱이 되어 접근성 측면에서도 좋다.</li>
-  <li>리액트에서는 for대신 htmlFor을 사용한다. 값은 input 컴포넌트의 id값을 따라간다.</li>
-  <li>autofocus속성도 있다.</li>
+  <li>리액트에서는 <code class="language-plaintext highlighter-rouge">for</code>대신 <code class="language-plaintext highlighter-rouge">htmlFor</code>을 사용한다. 값은 input 컴포넌트의 <code class="language-plaintext highlighter-rouge">id</code>값을 따라간다.</li>
+  <li><code class="language-plaintext highlighter-rouge">autofocus</code>속성도 있다.</li>
 </ul>]]></content><author><name>parklego</name></author><category term="TIL" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry></feed>
