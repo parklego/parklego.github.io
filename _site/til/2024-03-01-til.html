@@ -454,19 +454,19 @@
 <p><br />
 <br /></p>
 
-<p>token의 저장 위치에 관하여는 언제나 말이 많았다. 예전에 나는 localstorage에 저장을 해서 이번에는 cookie에 한 번 담아 본 것이다.</p>
+<p>token의 저장 위치에 관하여는 언제나 말이 많았다. 예전에 나는 localstorage에 저장해서 이번에는 cookie에 한 번 담아 본 것이다.</p>
 
-<p>리액트같은 경우에 access token을 private 변수로 저장해놓고 사용해도 된다고 한다. 왜냐하면 어짜피 refresh token이 있으니까 재발급받으면 된다는 의미인 것 같았다.</p>
+<p>리액트같은 경우에 access token을 private 변수로 저장해놓고 사용해도 된다고 한다. 왜냐하면 어차피 refresh token이 있으니까 재발급받으면 된다는 의미인 것 같았다.</p>
 
 <p>refresh token을 일회성으로 사용하는 RTR (Refresh Token Rotation)이라는 방법도 있다.</p>
 
-<p>그러고보니 access token을 헤더에 실어보낼 때 어떻게 했더라 싶어서 다시 찾아봤다.</p>
+<p>그러고 보니 access token을 헤더에 실어 보낼 때 어떻게 했더라 싶어서 다시 찾아봤다.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">accessToken</span><span class="dl">"</span><span class="p">)</span> <span class="o">||</span> <span class="dl">""</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">requestData</span> <span class="o">=</span> <span class="p">{};</span>
 
-<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://localhost:8000/like/</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestData</span><span class="p">,</span> <span class="p">{</span>
+<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://localhost:8000/like</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestData</span><span class="p">,</span> <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
@@ -682,7 +682,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-08 05:55:57 +0900"
+        "time": "2024-03-08 05:57:52 +0900"
     },
     "basePath": "",
     "book": {
