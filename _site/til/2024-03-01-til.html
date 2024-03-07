@@ -151,7 +151,7 @@
         <a href="/til/2024-03-01-til.html" onclick="pageScrollToTop(this)">
           2024-03-TIL
         </a>
-          <ul><li><a href="#jekyll을-사용하여-github-pages-배포-및-테마적용" onclick="mobilePageScrollToAnchor(this)" >Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</a></li><li><a href="#웹-접근성" onclick="mobilePageScrollToAnchor(this)" >웹 접근성</a><ul><li><a href="#role" onclick="mobilePageScrollToAnchor(this)" >role</a></li><li><a href="#aria-label" onclick="mobilePageScrollToAnchor(this)" >aria-label</a></li><li><a href="#tabindex" onclick="mobilePageScrollToAnchor(this)" >tabindex</a></li><li><a href="#img-alt" onclick="mobilePageScrollToAnchor(this)" >img alt</a></li><li><a href="#aria-required" onclick="mobilePageScrollToAnchor(this)" >aria-required</a></li></ul></li><li><a href="#ssr과-csr-차이" onclick="mobilePageScrollToAnchor(this)" >SSR과 CSR 차이</a></li><li><a href="#검색엔진-최적화seo" onclick="mobilePageScrollToAnchor(this)" >검색엔진 최적화(SEO)</a><ul><li><a href="#ssr" onclick="mobilePageScrollToAnchor(this)" >SSR</a></li><li><a href="#메타태그" onclick="mobilePageScrollToAnchor(this)" >메타태그</a></li><li><a href="#robotstxt" onclick="mobilePageScrollToAnchor(this)" >robots.txt</a></li><li><a href="#sitemapxml" onclick="mobilePageScrollToAnchor(this)" >sitemap.xml</a></li><li><a href="#서치콘솔-등록" onclick="mobilePageScrollToAnchor(this)" >서치콘솔 등록</a></li><li><a href="#https" onclick="mobilePageScrollToAnchor(this)" >https</a></li><li><a href="#모바일-친화성-갖추기" onclick="mobilePageScrollToAnchor(this)" >모바일 친화성 갖추기</a></li><li><a href="#react-snap" onclick="mobilePageScrollToAnchor(this)" >react-snap</a></li><li><a href="#react-helmet" onclick="mobilePageScrollToAnchor(this)" >react-helmet</a></li></ul></li></ul>
+          <ul><li><a href="#jekyll을-사용하여-github-pages-배포-및-테마적용" onclick="mobilePageScrollToAnchor(this)" >Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</a></li><li><a href="#웹-접근성" onclick="mobilePageScrollToAnchor(this)" >웹 접근성</a><ul><li><a href="#role" onclick="mobilePageScrollToAnchor(this)" >role</a></li><li><a href="#aria-label" onclick="mobilePageScrollToAnchor(this)" >aria-label</a></li><li><a href="#tabindex" onclick="mobilePageScrollToAnchor(this)" >tabindex</a></li><li><a href="#img-alt" onclick="mobilePageScrollToAnchor(this)" >img alt</a></li><li><a href="#aria-required" onclick="mobilePageScrollToAnchor(this)" >aria-required</a></li></ul></li><li><a href="#ssr과-csr-차이" onclick="mobilePageScrollToAnchor(this)" >SSR과 CSR 차이</a></li><li><a href="#검색엔진-최적화seo" onclick="mobilePageScrollToAnchor(this)" >검색엔진 최적화(SEO)</a><ul><li><a href="#ssr" onclick="mobilePageScrollToAnchor(this)" >SSR</a></li><li><a href="#메타태그" onclick="mobilePageScrollToAnchor(this)" >메타태그</a></li><li><a href="#robotstxt" onclick="mobilePageScrollToAnchor(this)" >robots.txt</a></li><li><a href="#sitemapxml" onclick="mobilePageScrollToAnchor(this)" >sitemap.xml</a></li><li><a href="#서치콘솔-등록" onclick="mobilePageScrollToAnchor(this)" >서치콘솔 등록</a></li><li><a href="#https" onclick="mobilePageScrollToAnchor(this)" >https</a></li><li><a href="#모바일-친화성-갖추기" onclick="mobilePageScrollToAnchor(this)" >모바일 친화성 갖추기</a></li><li><a href="#react-snap" onclick="mobilePageScrollToAnchor(this)" >react-snap</a></li><li><a href="#react-helmet" onclick="mobilePageScrollToAnchor(this)" >react-helmet</a></li></ul></li><li><a href="#jwt-적용기-cookie" onclick="mobilePageScrollToAnchor(this)" >JWT 적용기 (cookie)</a></li></ul>
   
       </li>
        
@@ -391,6 +391,65 @@
 <p><a href="https://www.youtube.com/watch?v=D71ByEIBWEs">SSR과 CSR 이 영상 하나로 끝내기</a></p>
 
 <p><a href="https://d2.naver.com/helloworld/7804182">SSR 도입</a></p>
+
+<h2 id="jwt-적용기-cookie">JWT 적용기 (cookie)</h2>
+
+<blockquote>
+  <p>사전 준비</p>
+</blockquote>
+
+<ol>
+  <li>cookie parser</li>
+  <li>cors
+    <ul>
+      <li>origin 설정</li>
+      <li>credentials true</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<blockquote>
+  <p>JWT 로직</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>로그인 시 인증 서버로부터 access token, refresh token을 쿠키에 넣어서 보내준다.</p>
+
+    <p>(중요) refresh token은 httpOnly / secure / SameSite 옵션을 준다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">maxAge</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span> <span class="c1">// 5m</span>
+  <span class="nx">httpOnly</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">secure</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">sameSite</span><span class="p">:</span> <span class="dl">"</span><span class="s2">strict</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>인증 체계를 다음과 같이 만든다.</p>
+
+    <ol>
+      <li>
+        <p>쿠키에 엑세스토큰이 있는지 확인한다.</p>
+
+        <ul>
+          <li>엑세스 토큰이 없다면 엑세스토큰을 재발급 절차를 받는다. (2번으로 이동)</li>
+          <li>엑세스 토큰 있다면 엑세스토큰을 확인 절차를 밟는다. (종료)</li>
+        </ul>
+      </li>
+      <li>
+        <p>재발급을 받는 절차에서 리프레시 토큰을 확인한다.</p>
+        <ul>
+          <li>리프레시 토큰이 없거나 유효하지 않으면 로그인 페이지로 이동시킨다. (종료)</li>
+          <li>리프레시 토큰이 유효하다면 새로운 엑세스토큰을 발급해준다.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -594,7 +653,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-05 23:24:18 +0900"
+        "time": "2024-03-08 05:14:35 +0900"
     },
     "basePath": "",
     "book": {
