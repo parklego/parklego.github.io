@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-08T05:14:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-08T05:55:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">2024-03-TIL</title><link href="http://localhost:4000/til/2024-03-01-til.html" rel="alternate" type="text/html" title="2024-03-TIL" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/til</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-til.html"><![CDATA[<h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
 
 <blockquote>
@@ -240,7 +240,36 @@
       </li>
     </ol>
   </li>
-</ul>]]></content><author><name>parklego</name></author><category term="TIL" /><summary type="html"><![CDATA[Jekyll을 사용하여 GitHub Pages 배포 및 테마적용]]></summary></entry><entry><title type="html">UI Library</title><link href="http://localhost:4000/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" rel="alternate" type="text/html" title="UI Library" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/library/ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html"><![CDATA[<h2 id="tui-editor">Tui-editor</h2>
+</ul>
+
+<p><br />
+<br /></p>
+
+<p>token의 저장 위치에 관하여는 언제나 말이 많았다. 예전에 나는 localstorage에 저장을 해서 이번에는 cookie에 한 번 담아 본 것이다.</p>
+
+<p>리액트같은 경우에 access token을 private 변수로 저장해놓고 사용해도 된다고 한다. 왜냐하면 어짜피 refresh token이 있으니까 재발급받으면 된다는 의미인 것 같았다.</p>
+
+<p>refresh token을 일회성으로 사용하는 RTR (Refresh Token Rotation)이라는 방법도 있다.</p>
+
+<p>그러고보니 access token을 헤더에 실어보낼 때 어떻게 했더라 싶어서 다시 찾아봤다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">accessToken</span><span class="dl">"</span><span class="p">)</span> <span class="o">||</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">requestData</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://localhost:8000/like/</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestData</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>아. 그리고 Bearer를 항상 붙였었는데 이건 일종의 약속이라서 그렇다고 한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Authorization: &lt;type&gt; &lt;credentials&gt;</code></p>
+
+<p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>]]></content><author><name>parklego</name></author><category term="TIL" /><summary type="html"><![CDATA[Jekyll을 사용하여 GitHub Pages 배포 및 테마적용]]></summary></entry><entry><title type="html">UI Library</title><link href="http://localhost:4000/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html" rel="alternate" type="text/html" title="UI Library" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/library/ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/library/2024-03-01-ui%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC.html"><![CDATA[<h2 id="tui-editor">Tui-editor</h2>
 
 <p>편집기를 사용하면 텍스트 또는 WYSIWYG를 사용하여 Markdown 문서를 편집할 수 있으며 구문 강조, 스크롤 동기화, 실시간 미리 보기 및 차트 기능이 함께 제공하는 라이브러리</p>
 
