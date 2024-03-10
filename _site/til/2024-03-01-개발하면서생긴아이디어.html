@@ -1,7 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="en" >
-    <head><meta charset="UTF-8" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>생각정리 · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
 " /><meta
   name="generator"
@@ -58,13 +58,12 @@
 />
 
  
+    <link rel="prev" href="/til/2024-03-01-%EC%9B%B9-%EC%A0%91%EA%B7%BC%EC%84%B1.html" />
+     
+  </head>
 
-        
-            <link rel="next" href="/til/2024-03-01-git-github.html" />
-        
-    </head>
-    <body>
-        <div class="book"><div class="book-summary">
+  <body>
+    <div class="book"><div class="book-summary">
   <script type="text/javascript">
     // Fixes the page links scroll problem on both desktop and mobile browsers
     function pageScrollToTop(element) {
@@ -197,18 +196,17 @@
           
       </li>
        
-      </li>
-
       <li
-        class="chapter"
-        data-level="1.1"
+        class="chapter active"
+        data-level="1.2"
         data-path="/til/2024-03-01-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B4%EC%84%9C%EC%83%9D%EA%B8%B4%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4.html"
       >
         
         <a href="/til/2024-03-01-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B4%EC%84%9C%EC%83%9D%EA%B8%B4%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4.html" onclick="pageScrollToTop(this)">
           생각정리
         </a>
-          
+          <ul><li><a href="#라이트다크-모드" onclick="mobilePageScrollToAnchor(this)" >라이트/다크 모드</a></li></ul>
+  
       </li>
        
       <li class="divider"></li>
@@ -217,17 +215,17 @@
   </nav>
 </div>
 <div class="book-body">
-                <div class="book-header" role="navigation">
-                    <!-- Title -->
-                    <h1>
-                        <i class="fa fa-circle-o-notch fa-spin"></i>
-                        
-                            <a href="." >parklego dev log</a>
-                        
-                    </h1>
-                </div>
+        <div class="book-header" role="navigation">
+          <!-- Title -->
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+            
+            <a href=".">생각정리</a>
+            
+          </h1>
+        </div>
 
-                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+        <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
   
 
   <div class="page-inner">
@@ -235,27 +233,35 @@
       <div class="search-noresults">
         <section class="normal markdown-section">
           
-          <h1 id="">parklego dev log</h1>
-           <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+          <h1 id="/til/개발하면서생긴아이디어">생각정리</h1>
+           <h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
-<div class="container">
-  <h1>404</h1>
+<p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<p>새로 해보는 만큼 라이브러리도 써보지 않은 다양한 것을 사용해보고 싶었다. 그래서 shadcn도 설정하였다.</p>
+
+<p>설정하는 단계가 조금 귀찮다. 그리고 문서가 자세하지가 않다. 그렇지만 이쁘다.</p>
+
+<p>그리고 상태관리로는 최근에 가장 가파른 상승세를 타고 있는 zustand를 사용해보기로 했다.</p>
+
+<p>처음에 해보고 싶었던 것은 라이트/다크모드를 설정해보는 기능을 구현해보고 싶었다.</p>
+
+<p>localstorage를 이용해서 구현할 것이고, styled-component의 <code class="language-plaintext highlighter-rouge">themeProvider</code>로 구현하고자 하였다.</p>
+
+<p>그런데 zustand에 localstorage가 있었다. 그래서 persist middleware와 함께 이용하기로 했다.</p>
+
+<p>shadcn의 switch 컴포넌트를 이용해 토글기능으로 다크모드를 on/off 하였다. 그러다 ux측면도 고려해보게 되었다.</p>
+
+<p>내가 주로 검색하는데 사용하는 phind와 shadcn의 다크모드 기능을 살펴보았다.</p>
+
+<ul>
+  <li>phind의 경우에는 처음에 os의 테마를 바탕으로 사이트를 변경해준다. 이때 localstorage에는 테마의 키-벨류가 없다. 그리고 유저가 테마를 건드리면 그때 키-벨류값이 생기고 이에따라 테마가 변경된다.</li>
+  <li>shadcn의 경우 처음부터 라이트/다크/시스템 이렇게 선택할 수 있게 설정이 되어 있다.</li>
+</ul>
+
+<p>다크모드 구현이 단순한 기능인줄 알았는데 생각보다 다양한 방법도 있다는 것을 알았다. UX도 생각보다 빠르게 발전하고 있구나 싶었다.</p>
+
+<p>os 테마변경에 따른 실시간 변경을 위해 커스텀훅을 만들어서 구현하였다.</p>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -327,37 +333,26 @@ window.MathJax = {
     }
 </script>
 
-<a href="/" class="navigation navigation-pre navigation-unique">
-                        <i class="fa"></i>
-                    </a>
 
-                    
-                        <a href="/til/2024-03-01-git-github.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Git/Github">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    
-                </div>
-            </div>
+          <a
+            href="/til/2024-03-01-%EC%9B%B9-%EC%A0%91%EA%B7%BC%EC%84%B1.html"
+            class="navigation navigation-prev navigation-unique"
+            aria-label="Previous page: 웹 접근성"
+          >
+            <i class="fa fa-angle-left"></i>
+          </a>
+           
+        </div>
+      </div>
 
-            <script>
-            var gitbook = gitbook || [];
-            gitbook.push(function() {
-                gitbook.page.hasChanged({
+      <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({
     "page": {
         "title": "Introduction",
         "level": "1.1",
         "depth": 1,
-        
-
-        
-        "next": {
-            "title": "Git/Github",
-            "level": "1.2",
-            "depth": 1,
-            "path": "_posts/2024-03-01-git github.md",
-            "ref": "_posts/2024-03-01-git github.md",
-            "articles": []
-        },
         
         "dir": "ltr"
     },    "config": {
@@ -447,8 +442,8 @@ window.MathJax = {
         "gitbook": "*"
     },
     "file": {
-        "path": "404.html",
-        "mtime": "",
+        "path": "_posts/2099-03-01-개발하면서생긴아이디어.md",
+        "mtime": "2024-03-01 00:00:00 +0900",
         "type": "markdown"
     },
     "gitbook": {
@@ -460,9 +455,9 @@ window.MathJax = {
         "language": ""
     }
 });
-            });
-            </script>
-        </div><script src="/assets/gitbook/gitbook.js"></script>
+        });
+      </script>
+    </div><script src="/assets/gitbook/gitbook.js"></script>
 <script src="/assets/gitbook/theme.js"></script>
 
 <script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>

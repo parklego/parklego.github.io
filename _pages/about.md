@@ -1,8 +1,8 @@
 ---
 title: About
 author: parklego
-date: 2024-03-04
-category: Jekyll
+date: 2024-03-01
+category: self
 layout: post
 ---
 
@@ -11,7 +11,3 @@ layout: post
 이곳은 제가 개발과 관련된 내용을 간단히 기록하는 곳입니다. 주로 TIL에 대한 내용입니다.
 
 그리고 사용해본 라이브러리 중 엄청 좋았다고 생각드는 라이브러리들도 엄선해보았습니다.
-
-궁금하신 점이나 소통을 희망하시는 분들은 언제든지 연락주시기 바랍니다.
-
-이메일 : hbd9425@gmail.com
