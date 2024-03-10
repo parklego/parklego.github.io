@@ -3,10 +3,10 @@
     "keywords": "self",
     "url": "/pages/about/",
     "body": "안녕하세요, 프론트엔드 개발자 박레고입니다. 반갑습니다! 😊 이곳은 제가 개발과 관련된 내용을 간단히 기록하는 곳입니다. 주로 TIL에 대한 내용입니다. 그리고 사용해본 라이브러리 중 엄청 좋았다고 생각드는 라이브러리들도 엄선해보았습니다."
-  },"/pages/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%20%EC%B6%94%EC%B2%9C/": {
+  },"/pages/library/": {
     "title": "라이브러리 추천",
     "keywords": "library",
-    "url": "/pages/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%20%EC%B6%94%EC%B2%9C/",
+    "url": "/pages/library/",
     "body": "Zod 스키마 선언 및 유효성 검사 라이브러리 공식문서 React-hook-form 검증 기능을 갖춘 유연하고 확장 가능한 form 라이브러리 공식문서 Tui-editor 편집기를 사용하면 텍스트 또는 WYSIWYG를 사용하여 Markdown 문서를 편집할 수 있으며 구문 강조, 스크롤 동기화, 실시간 미리 보기 및 차트 기능이 함께 제공하는 라이브러리 공식문서 Frogress 1% 이하의 수를 표현하거나 그라디언트를 넣을 경우 자연스럽게 보이게 하기 위한 progress bar 라이브러리 공식문서 SweetAlert2 아이콘, 애니메이션 등 예쁜 alert 라이브러리 공식문서 Hamburger-react 햄버거 버튼 라이브러리 공식문서 React Spinners spinners and loader 라이브러리 공식문서 React-toastify 간단한 toast 라이브러리 공식문서 React-icons 간단한 icons 라이브러리 공식문서"
   },"/til/2024-03-01-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B4%EC%84%9C%EC%83%9D%EA%B8%B4%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4.html": {
     "title": "생각정리",
