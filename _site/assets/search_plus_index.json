@@ -37,5 +37,5 @@
     "title": "Git/Github",
     "keywords": "til",
     "url": "/til/git-github.html",
-    "body": "Jekyll을 사용하여 GitHub Pages 배포 및 테마적용 사전 준비 Ruby 설치 Jekyll 설치 테마 선택 jamstackthemes.dev http://jekyllthemes.org/ 코드블럭 선택 https://spsarolkar.github.io/rouge-theme-preview/ 배포 및 테마 적용하기 github repository 생성 repository명은 github 아이디.github.io로 생성할 것 repository는 public 으로 할 것 ex) parklego.github.io bundle 명령어 실행 bundle install bundle exec jekyll serve 블로그 설정 _conif.yml 파일에서 제목이나 이름 등을 변경 Gemfile 플러그인 설치하는 곳"
+    "body": "Jekyll을 사용하여 GitHub Pages 배포 및 테마적용 사전 준비 Ruby 설치 Jekyll 설치 테마 선택 jamstackthemes.dev http://jekyllthemes.org/ 코드블럭 선택 https://spsarolkar.github.io/rouge-theme-preview/ 배포 및 테마 적용하기 github repository 생성 repository명은 github 아이디.github.io로 생성할 것 repository는 public 으로 할 것 ex) parklego.github.io bundle 명령어 실행 bundle install bundle exec jekyll serve 블로그 설정 _conif.yml 파일에서 제목이나 이름 등을 변경 Gemfile 플러그인 설치하는 곳 siteamp 파일 생성 Gemfile 파일에서 아래 코드 추가 gem 'jekyll-sitemap' _config.yml 파일에서 아래 코드 추가 plugins: -jekyll - sitemap; Terminal 에서 bundle 입력. Terminal 에서 아래 명령어 입력 gem install jekyll-sitemap 지킬 서버 재실행 bundle exec jekyll serve"
   }}

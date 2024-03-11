@@ -151,7 +151,7 @@
         <a href="/til/git-github.html" onclick="pageScrollToTop(this)">
           Git/Github
         </a>
-          <ul><li><a href="#jekyll을-사용하여-github-pages-배포-및-테마적용" onclick="mobilePageScrollToAnchor(this)" >Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</a></li></ul>
+          <ul><li><a href="#jekyll을-사용하여-github-pages-배포-및-테마적용" onclick="mobilePageScrollToAnchor(this)" >Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</a></li><li><a href="#siteamp-파일-생성" onclick="mobilePageScrollToAnchor(this)" >siteamp 파일 생성</a></li></ul>
   
       </li>
        
@@ -290,8 +290,8 @@
   <li>
     <p>bundle 명령어 실행</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">bundle</span> <span class="nx">install</span>
-<span class="nx">bundle</span> <span class="nx">exec</span> <span class="nx">jekyll</span> <span class="nx">serve</span>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+bundle exec jekyll serve
 </code></pre></div>    </div>
   </li>
   <li>
@@ -300,6 +300,37 @@
       <li>_conif.yml 파일에서 제목이나 이름 등을 변경</li>
       <li>Gemfile 플러그인 설치하는 곳</li>
     </ul>
+  </li>
+</ol>
+
+<h2 id="siteamp-파일-생성">siteamp 파일 생성</h2>
+
+<ol>
+  <li>
+    <p>Gemfile 파일에서 아래 코드 추가</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-sitemap'
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>_config.yml 파일에서 아래 코드 추가</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
+   -jekyll - sitemap;
+</code></pre></div>    </div>
+  </li>
+  <li>Terminal 에서 <code class="language-plaintext highlighter-rouge">bundle</code> 입력.</li>
+  <li>
+    <p>Terminal 에서 아래 명령어 입력</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll-sitemap
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>지킬 서버 재실행</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre></div>    </div>
   </li>
 </ol>
 </section>
@@ -505,7 +536,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-11 21:27:58 +0900"
+        "time": "2024-03-11 21:38:48 +0900"
     },
     "basePath": "",
     "book": {

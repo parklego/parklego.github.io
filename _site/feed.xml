@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-11T21:27:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-11T21:38:48+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
 
 <blockquote>
@@ -39,8 +39,8 @@
   <li>
     <p>bundle 명령어 실행</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">bundle</span> <span class="nx">install</span>
-<span class="nx">bundle</span> <span class="nx">exec</span> <span class="nx">jekyll</span> <span class="nx">serve</span>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+bundle exec jekyll serve
 </code></pre></div>    </div>
   </li>
   <li>
@@ -49,6 +49,37 @@
       <li>_conif.yml 파일에서 제목이나 이름 등을 변경</li>
       <li>Gemfile 플러그인 설치하는 곳</li>
     </ul>
+  </li>
+</ol>
+
+<h2 id="siteamp-파일-생성">siteamp 파일 생성</h2>
+
+<ol>
+  <li>
+    <p>Gemfile 파일에서 아래 코드 추가</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-sitemap'
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>_config.yml 파일에서 아래 코드 추가</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
+   -jekyll - sitemap;
+</code></pre></div>    </div>
+  </li>
+  <li>Terminal 에서 <code class="language-plaintext highlighter-rouge">bundle</code> 입력.</li>
+  <li>
+    <p>Terminal 에서 아래 명령어 입력</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll-sitemap
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>지킬 서버 재실행</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre></div>    </div>
   </li>
 </ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Jekyll을 사용하여 GitHub Pages 배포 및 테마적용]]></summary></entry><entry><title type="html">JWT 적용기</title><link href="http://localhost:4000/til/jwt.html" rel="alternate" type="text/html" title="JWT 적용기" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/jwt</id><content type="html" xml:base="http://localhost:4000/til/jwt.html"><![CDATA[<blockquote>
   <p>사전 준비</p>
