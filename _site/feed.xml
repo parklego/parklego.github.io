@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-11T21:03:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
-</subtitle><author><name>parklego</name></author><entry><title type="html">Next.js</title><link href="http://localhost:4000/til/2024-03-01-Next.html" rel="alternate" type="text/html" title="Next.js" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/Next</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-Next.html"><![CDATA[]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/2024-03-01-Web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/Web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-Web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-11T21:23:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+</subtitle><author><name>parklego</name></author><entry><title type="html">Next.js</title><link href="http://localhost:4000/til/Next.html" rel="alternate" type="text/html" title="Next.js" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/Next</id><content type="html" xml:base="http://localhost:4000/til/Next.html"><![CDATA[<h2 id="basic">basic</h2>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[basic]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/Web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/Web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/Web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
 
 <ul>
   <li><a href="https://story.pxd.co.kr/1588">wai-aria란?</a></li>
@@ -44,7 +44,7 @@
   <li><code class="language-plaintext highlighter-rouge">true</code>인 경우, 스크린 리더기에 필수요소임을 알려주는 속성</li>
 </ul>
 
-<p><br /></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/2024-03-01-git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-git-github.html"><![CDATA[<h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
+<p><br /></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
 
 <blockquote>
   <p>사전 준비</p>
@@ -92,10 +92,10 @@
     <p>블로그 설정</p>
     <ul>
       <li>_conif.yml 파일에서 제목이나 이름 등을 변경</li>
-      <li>_posts 폴더에 원하는 게시글 작성 (yyy-mm-dd 형태)</li>
+      <li>Gemfile 플러그인 설치하는 곳</li>
     </ul>
   </li>
-</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Jekyll을 사용하여 GitHub Pages 배포 및 테마적용]]></summary></entry><entry><title type="html">JWT 적용기</title><link href="http://localhost:4000/til/2024-03-01-jwt.html" rel="alternate" type="text/html" title="JWT 적용기" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/jwt</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-jwt.html"><![CDATA[<blockquote>
+</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Jekyll을 사용하여 GitHub Pages 배포 및 테마적용]]></summary></entry><entry><title type="html">JWT 적용기</title><link href="http://localhost:4000/til/jwt.html" rel="alternate" type="text/html" title="JWT 적용기" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/jwt</id><content type="html" xml:base="http://localhost:4000/til/jwt.html"><![CDATA[<blockquote>
   <p>사전 준비</p>
 </blockquote>
 
@@ -179,7 +179,7 @@
 
 <p><code class="language-plaintext highlighter-rouge">Authorization: &lt;type&gt; &lt;credentials&gt;</code></p>
 
-<p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[사전 준비]]></summary></entry><entry><title type="html">네트워크</title><link href="http://localhost:4000/til/2024-03-01-network.html" rel="alternate" type="text/html" title="네트워크" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/network</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-network.html"><![CDATA[<h2 id="rest-api란-무엇인가">REST API란 무엇인가?</h2>
+<p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[사전 준비]]></summary></entry><entry><title type="html">네트워크</title><link href="http://localhost:4000/til/network.html" rel="alternate" type="text/html" title="네트워크" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/network</id><content type="html" xml:base="http://localhost:4000/til/network.html"><![CDATA[<h2 id="rest-api란-무엇인가">REST API란 무엇인가?</h2>
 
 <p>REST API란 REST를 기반으로 만들어진 API를 의미한다. REST API를 알기 위해 REST부터 알아야 한다.</p>
 
@@ -305,7 +305,7 @@
 
 <p><a href="https://meetup.nhncloud.com/posts/92">REST API 제대로 알고 사용하기</a></p>
 
-<p><a href="https://hongong.hanbit.co.kr/http-%EC%83%81%ED%83%9C-%EC%BD%94%EB%93%9C-%ED%91%9C-1xx-5xx-%EC%A0%84%EC%B2%B4-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%A6%AC/">http 상태코드</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[REST API란 무엇인가?]]></summary></entry><entry><title type="html">생각정리</title><link href="http://localhost:4000/til/2024-03-01-think.html" rel="alternate" type="text/html" title="생각정리" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/2024-03-01-think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
+<p><a href="https://hongong.hanbit.co.kr/http-%EC%83%81%ED%83%9C-%EC%BD%94%EB%93%9C-%ED%91%9C-1xx-5xx-%EC%A0%84%EC%B2%B4-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%A6%AC/">http 상태코드</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[REST API란 무엇인가?]]></summary></entry><entry><title type="html">생각정리</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="생각정리" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
 

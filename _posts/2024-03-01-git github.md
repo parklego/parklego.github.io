@@ -36,4 +36,4 @@ layout: post
 
 3. 블로그 설정
    - \_conif.yml 파일에서 제목이나 이름 등을 변경
-   - \_posts 폴더에 원하는 게시글 작성 (yyy-mm-dd 형태)
+   - Gemfile 플러그인 설치하는 곳

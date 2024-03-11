@@ -8,5 +8,12 @@ gem 'jekyll-feed'
 gem 'jekyll-readme-index'
 gem 'jemoji'
 gem 'webrick'
+gem 'jekyll-sitemap'
 
-# gem "rails"
+group :jekyll_plugins do
+    gem 'jekyll-paginate'
+    gem 'jekyll-gist'
+    gem 'jekyll-include-cache'
+    gem 'jekyll-seo-tag'
+    gem 'jekyll-sitemap'
+end

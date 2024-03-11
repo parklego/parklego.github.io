@@ -1,41 +1,41 @@
-{"/pages/about/": {
+{"/pages/about": {
     "title": "About",
     "keywords": "self",
-    "url": "/pages/about/",
+    "url": "/pages/about",
     "body": "안녕하세요, 프론트엔드 개발자 박레고입니다. 반갑습니다! 😊 이곳은 제가 개발과 관련된 내용을 간단히 기록하는 곳입니다. 주로 TIL에 대한 내용입니다. 그리고 사용해본 라이브러리 중 엄청 좋았다고 생각드는 라이브러리들도 엄선해보았습니다."
-  },"/pages/library/": {
+  },"/pages/library": {
     "title": "라이브러리 추천",
     "keywords": "library",
-    "url": "/pages/library/",
+    "url": "/pages/library",
     "body": "Zod 스키마 선언 및 유효성 검사 라이브러리 공식문서 React-hook-form 검증 기능을 갖춘 유연하고 확장 가능한 form 라이브러리 공식문서 Tui-editor 편집기를 사용하면 텍스트 또는 WYSIWYG를 사용하여 Markdown 문서를 편집할 수 있으며 구문 강조, 스크롤 동기화, 실시간 미리 보기 및 차트 기능이 함께 제공하는 라이브러리 공식문서 Frogress 1% 이하의 수를 표현하거나 그라디언트를 넣을 경우 자연스럽게 보이게 하기 위한 progress bar 라이브러리 공식문서 SweetAlert2 아이콘, 애니메이션 등 예쁜 alert 라이브러리 공식문서 Hamburger-react 햄버거 버튼 라이브러리 공식문서 React Spinners spinners and loader 라이브러리 공식문서 React-toastify 간단한 toast 라이브러리 공식문서 React-icons 간단한 icons 라이브러리 공식문서"
-  },"/til/2024-03-01-think.html": {
+  },"/til/think.html": {
     "title": "생각정리",
     "keywords": "til",
-    "url": "/til/2024-03-01-think.html",
+    "url": "/til/think.html",
     "body": "라이트/다크 모드 최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다. 새로 해보는 만큼 라이브러리도 써보지 않은 다양한 것을 사용해보고 싶었다. 그래서 shadcn도 설정하였다. 설정하는 단계가 조금 귀찮다. 그리고 문서가 자세하지가 않다. 그렇지만 이쁘다. 그리고 상태관리로는 최근에 가장 가파른 상승세를 타고 있는 zustand를 사용해보기로 했다. 처음에 해보고 싶었던 것은 라이트/다크모드를 설정해보는 기능을 구현해보고 싶었다. localstorage를 이용해서 구현할 것이고, styled-component의 themeProvider로 구현하고자 하였다. 그런데 zustand에 localstorage가 있었다. 그래서 persist middleware와 함께 이용하기로 했다. shadcn의 switch 컴포넌트를 이용해 토글기능으로 다크모드를 on/off 하였다. 그러다 ux측면도 고려해보게 되었다. 내가 주로 검색하는데 사용하는 phind와 shadcn의 다크모드 기능을 살펴보았다. phind의 경우에는 처음에 os의 테마를 바탕으로 사이트를 변경해준다. 이때 localstorage에는 테마의 키-벨류가 없다. 그리고 유저가 테마를 건드리면 그때 키-벨류값이 생기고 이에따라 테마가 변경된다. shadcn의 경우 처음부터 라이트/다크/시스템 이렇게 선택할 수 있게 설정이 되어 있다. 다크모드 구현이 단순한 기능인줄 알았는데 생각보다 다양한 방법도 있다는 것을 알았다. UX도 생각보다 빠르게 발전하고 있구나 싶었다. os 테마변경에 따른 실시간 변경을 위해 커스텀훅을 만들어서 구현하였다."
-  },"/til/2024-03-01-network.html": {
+  },"/til/network.html": {
     "title": "네트워크",
     "keywords": "til",
-    "url": "/til/2024-03-01-network.html",
+    "url": "/til/network.html",
     "body": "REST API란 무엇인가? REST API란 REST를 기반으로 만들어진 API를 의미한다. REST API를 알기 위해 REST부터 알아야 한다. REST REST(Representational State Transfer)의 약자로 자원을 이름으로 구분하여 해당 자원의 상태를 주고받는 모든 것을 의미. HTTP URI를 통해 자원을 명시하고, HTTP Method (POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD OPERATION을 적용하는 것을 의미한다. 참고 : PUT vs PATCH PUT : 리소스의 모든 것을 업데이트 한다. 덮어씌운다는 느낌. 보내지 않은 데이터는 null로 반환. PATCH : 리소스의 일부를 업데이트 한다. 일부를 수정하는 느낌. 보낸 데이터만 수정됨. REST API REST의 원리를 따르는 API. URL은 동사보다는 명사, 대문자보다는 소문자를 사용한다. 슬래시(/)는 계층 관계를 나타내는데 사용한다. 마지막은 슬래시(/)를 포함하지 않는다. 언더바(_)대신 하이픈(-)을 사용한다. 파일확장자는 URL에 포함하지 않는다. 또한, REST API는 URI만 잘 설계된 것이 아닌 그 리소스에 대한 응답을 잘 내어주는 것까지 포함되어야 한다. 자주 사용되는 상태코드 상태코드 상태 설명 200 OK 서버가 요청을 성공적으로 처리하였다. 201 Created 요청이 처리되어서 새로운 리소스가 생성되었다. 202 Accepted 요청은 접수하였지만, 처리가 완료되지 않았다. 400 Bad Request 서버가 요청을 성공적으로 처리하였다. 401 Unauthorized 지정한 리소스에 대한 액세스 권한이 없다. 403 Forbidden 지정한 리소스에 대한 액세스가 금지되었다. 404 Not Found 지정한 리소스를 찾을 수 없다. 500 Internal Server Error 서버에 에러가 발생하였다. 501 Not Implemented 요청한 URI의 메소드에 대해 서버가 구현하고 있지 않다. 502 Bad Gateway 웹서버가 다른 서버로부터의 잘못된 응답을 받았을 때 발생한다. 참고 : 4xx vs 5xx 4xx : 클라이언트 에러 5xx : 서버 에러 RESTful REST API의 모든 설계 규칙을 올바르게 지킨 시스템을 RESTful하다 라고 한다. REST API란 RESTful API란 REST API 제대로 알고 사용하기 http 상태코드"
-  },"/til/2024-03-01-jwt.html": {
+  },"/til/jwt.html": {
     "title": "JWT 적용기",
     "keywords": "til",
-    "url": "/til/2024-03-01-jwt.html",
+    "url": "/til/jwt.html",
     "body": "사전 준비 cookie parser cors origin 설정 credentials true JWT 로직 로그인 시 인증 서버로부터 access token, refresh token을 쿠키에 넣어서 보내준다. (중요) refresh token은 httpOnly / secure / SameSite 옵션을 준다. { maxAge: 300000, // 5m httpOnly: true, secure: true, sameSite: \"strict\" } 인증 체계를 다음과 같이 만든다. 쿠키에 엑세스토큰이 있는지 확인한다. 엑세스 토큰이 없다면 엑세스토큰을 재발급 절차를 받는다. (2번으로 이동) 엑세스 토큰 있다면 엑세스토큰을 확인 절차를 밟는다. (종료) 재발급을 받는 절차에서 리프레시 토큰을 확인한다. 리프레시 토큰이 없거나 유효하지 않으면 로그인 페이지로 이동시킨다. (종료) 리프레시 토큰이 유효하다면 새로운 엑세스토큰을 발급해준다. token의 저장 위치에 관하여는 언제나 말이 많았다. 예전에 나는 localstorage에 저장해서 이번에는 cookie에 한 번 담아 본 것이다. 리액트같은 경우에 access token을 private 변수로 저장해놓고 사용해도 된다고 한다. 왜냐하면 어차피 refresh token이 있으니까 재발급받으면 된다는 의미인 것 같았다. refresh token을 일회성으로 사용하는 RTR (Refresh Token Rotation)이라는 방법도 있다. 그러고 보니 access token을 헤더에 실어 보낼 때 어떻게 했더라 싶어서 다시 찾아봤다. const accessToken = localStorage.getItem(\"accessToken\") || \"\"; const requestData = {}; axios.post(\"http://localhost:8000/like\", requestData, { headers: { Authorization: `Bearer ${accessToken}`, \"Content-Type\": \"application/json\", }, }); 아. 그리고 Bearer를 항상 붙였었는데 이건 일종의 약속이라서 그렇다고 한다. Authorization: &lt;type&gt; &lt;credentials&gt; Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻."
-  },"/til/2024-03-01-git-github.html": {
+  },"/til/git-github.html": {
     "title": "Git/Github",
     "keywords": "til",
-    "url": "/til/2024-03-01-git-github.html",
-    "body": "Jekyll을 사용하여 GitHub Pages 배포 및 테마적용 사전 준비 Ruby 설치 Jekyll 설치 테마 선택 jamstackthemes.dev http://jekyllthemes.org/ 코드블럭 선택 https://spsarolkar.github.io/rouge-theme-preview/ 배포 및 테마 적용하기 github repository 생성 repository명은 github 아이디.github.io로 생성할 것 repository는 public 으로 할 것 ex) parklego.github.io bundle 명령어 실행 bundle install bundle exec jekyll serve 블로그 설정 _conif.yml 파일에서 제목이나 이름 등을 변경 _posts 폴더에 원하는 게시글 작성 (yyy-mm-dd 형태)"
-  },"/til/2024-03-01-Web-Accessibility.html": {
+    "url": "/til/git-github.html",
+    "body": "Jekyll을 사용하여 GitHub Pages 배포 및 테마적용 사전 준비 Ruby 설치 Jekyll 설치 테마 선택 jamstackthemes.dev http://jekyllthemes.org/ 코드블럭 선택 https://spsarolkar.github.io/rouge-theme-preview/ 배포 및 테마 적용하기 github repository 생성 repository명은 github 아이디.github.io로 생성할 것 repository는 public 으로 할 것 ex) parklego.github.io bundle 명령어 실행 bundle install bundle exec jekyll serve 블로그 설정 _conif.yml 파일에서 제목이나 이름 등을 변경 Gemfile 플러그인 설치하는 곳"
+  },"/til/Web-Accessibility.html": {
     "title": "웹 접근성",
     "keywords": "til",
-    "url": "/til/2024-03-01-Web-Accessibility.html",
+    "url": "/til/Web-Accessibility.html",
     "body": "웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다. wai-aria란? aria 사용방법 리액트 jsx에서 wai-aria를 지원한다. aria-\\* 과 같은 어트리뷰트는 kebab-case로 작성해야한다. role 태그의 역할을 알려주는 속성 정해진 값만 사용하여야 한다. aria-label 스크린 리더기에 전달할 내용을 알려주는 속성 예를들어, 어코디언이 있으면 펼치기와 같이 aria-label를 통해 알려줄 수 있다. 주의할 점은 시멘틱 태그이거나, role 속성 값이 상호작용(interactive)을 하는 값일 때 aria-label을 붙일 수 있다는 것이다. aria-label과 role을 쓰기 위한 규칙 tabindex 0 : 상호작용 가능한 요소 처럼 포커싱이 된다. -1 : 포커싱에서 제외 된다. 양수 : 강제로 순서를 정한다. 그 이후에 브라우저의 포커싱 순서대로 잡힌다. 무조건 피해야함. img alt 이미지가 나오지 않을 때, 이미지에 대한 설명 aria-required true인 경우, 스크린 리더기에 필수요소임을 알려주는 속성"
-  },"/til/2024-03-01-Next.html": {
+  },"/til/Next.html": {
     "title": "Next.js",
     "keywords": "til",
-    "url": "/til/2024-03-01-Next.html",
-    "body": ""
+    "url": "/til/Next.html",
+    "body": "basic"
   }}
