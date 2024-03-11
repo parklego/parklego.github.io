@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-11T22:44:41+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-11T22:50:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
 
 <blockquote>
@@ -291,7 +291,15 @@ bundle exec jekyll serve
 
 <p><a href="https://meetup.nhncloud.com/posts/92">REST API 제대로 알고 사용하기</a></p>
 
-<p><a href="https://hongong.hanbit.co.kr/http-%EC%83%81%ED%83%9C-%EC%BD%94%EB%93%9C-%ED%91%9C-1xx-5xx-%EC%A0%84%EC%B2%B4-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%A6%AC/">http 상태코드</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[REST API란 무엇인가?]]></summary></entry><entry><title type="html">Next.js</title><link href="http://localhost:4000/til/next.html" rel="alternate" type="text/html" title="Next.js" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/next</id><content type="html" xml:base="http://localhost:4000/til/next.html"><![CDATA[<h2 id="basic">basic</h2>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[basic]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
+<p><a href="https://hongong.hanbit.co.kr/http-%EC%83%81%ED%83%9C-%EC%BD%94%EB%93%9C-%ED%91%9C-1xx-5xx-%EC%A0%84%EC%B2%B4-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%A6%AC/">http 상태코드</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[REST API란 무엇인가?]]></summary></entry><entry><title type="html">Next.js</title><link href="http://localhost:4000/til/next.html" rel="alternate" type="text/html" title="Next.js" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/next</id><content type="html" xml:base="http://localhost:4000/til/next.html"><![CDATA[<h2 id="nextjs를-사용해야-하는-이유">Next.js를 사용해야 하는 이유</h2>
+
+<ol>
+  <li>폴더를 사용하여 페이지를 만들 수 있다.</li>
+  <li>자체 api를 생성할 수 있다.</li>
+  <li>SSR과 CSR을 함께 사용 할 수 있다.</li>
+  <li>최적화가 잘 되어 있다.</li>
+  <li>리액트 팀에서도 next.js 프레임워크를 사용하기를 권장한다.</li>
+</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Next.js를 사용해야 하는 이유]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
 
 <ul>
   <li><a href="https://story.pxd.co.kr/1588">wai-aria란?</a></li>

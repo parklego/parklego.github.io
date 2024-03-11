@@ -22,7 +22,7 @@
     "title": "Next.js",
     "keywords": "til",
     "url": "/til/next.html",
-    "body": "basic"
+    "body": "Next.js를 사용해야 하는 이유 폴더를 사용하여 페이지를 만들 수 있다. 자체 api를 생성할 수 있다. SSR과 CSR을 함께 사용 할 수 있다. 최적화가 잘 되어 있다. 리액트 팀에서도 next.js 프레임워크를 사용하기를 권장한다."
   },"/til/network.html": {
     "title": "네트워크",
     "keywords": "til",
