@@ -54,6 +54,12 @@ spinners and loader 라이브러리
 
 [공식문서](https://fkhadra.github.io/react-toastify/introduction/)
 
+## React-hot-toast
+
+간단한 toast 라이브러리2
+
+[공식문서](https://react-hot-toast.com/)
+
 ## React-icons
 
 간단한 icons 라이브러리
