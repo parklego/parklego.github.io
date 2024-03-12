@@ -193,7 +193,7 @@
         <a href="/til/next.html" onclick="pageScrollToTop(this)">
           Next.js
         </a>
-          <ul><li><a href="#nextjs를-사용해야-하는-이유" onclick="mobilePageScrollToAnchor(this)" >Next.js를 사용해야 하는 이유</a></li></ul>
+          <ul><li><a href="#nextjs를-사용해야-하는-이유" onclick="mobilePageScrollToAnchor(this)" >Next.js를 사용해야 하는 이유</a></li><li><a href="#라우팅" onclick="mobilePageScrollToAnchor(this)" >라우팅</a></li></ul>
   
       </li>
        
@@ -253,12 +253,50 @@
            <h2 id="nextjs를-사용해야-하는-이유">Next.js를 사용해야 하는 이유</h2>
 
 <ol>
-  <li>폴더를 사용하여 페이지를 만들 수 있다.</li>
+  <li>폴더를 사용하여 페이지를 간단하게 만들 수 있다.
+    <ul>
+      <li>리액트의 경우, <code class="language-plaintext highlighter-rouge">react-router-dom</code>을 사용하여 하나하나 만들어줘야 함</li>
+    </ul>
+  </li>
   <li>자체 api를 생성할 수 있다.</li>
   <li>SSR과 CSR을 함께 사용 할 수 있다.</li>
-  <li>최적화가 잘 되어 있다.</li>
+  <li>최적화가 잘 되어 있다.
+    <ul>
+      <li>코드 분할, 이미지 최적화 등 추가적인 작업을 안해도 되서 편하다.</li>
+    </ul>
+  </li>
   <li>리액트 팀에서도 next.js 프레임워크를 사용하기를 권장한다.</li>
 </ol>
+
+<p><br /></p>
+
+<blockquote>
+  <p>런타임 에러</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(node:29569) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+</code></pre></div></div>
+
+<p><br /></p>
+
+<blockquote>
+  <p>해결책</p>
+</blockquote>
+
+<p>nvm을 사용하여, node 18버전으로 다운그레이드</p>
+
+<h2 id="라우팅">라우팅</h2>
+
+<ol>
+  <li>app폴더 하위 폴더에 라우팅하고 싶은 페이지명을 폴더명으로 만든다.</li>
+  <li>그 폴더에는 page.js로 파일을 만든다.</li>
+</ol>
+
+<ul>
+  <li>동적라우팅의 경우 [id] 와 같이 대괄호 안에 넣어준다.</li>
+  <li>그룹화 하고 싶은 경우 (auth) 와 같이 소괄호 안에 넣어준다. 이때 라우팅에서 그룹화 부분은 무시된다.</li>
+</ul>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -462,7 +500,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-11 22:50:29 +0900"
+        "time": "2024-03-13 01:58:38 +0900"
     },
     "basePath": "",
     "book": {
