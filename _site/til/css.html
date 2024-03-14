@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head><meta charset="UTF-8" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>About · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>CSS · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
 " /><meta
   name="generator"
@@ -60,7 +60,7 @@
  
     <link rel="prev" href="/" />
      
-    <link rel="next" href="/pages/library" />
+    <link rel="next" href="/til/git-github.html" />
     
   </head>
 
@@ -110,9 +110,11 @@
       
       <!-- <p>pages</p> -->
          
+      </li>
+
       <li
-        class="chapter active"
-        data-level="1.2"
+        class="chapter"
+        data-level="1.1"
         data-path="/pages/about"
       >
         
@@ -120,7 +122,6 @@
           About
         </a>
           
-  
       </li>
        
       </li>
@@ -141,18 +142,17 @@
         
       <!-- <p>posts</p> -->
          
-      </li>
-
       <li
-        class="chapter"
-        data-level="1.1"
+        class="chapter active"
+        data-level="1.2"
         data-path="/til/css.html"
       >
         
         <a href="/til/css.html" onclick="pageScrollToTop(this)">
           CSS
         </a>
-          
+          <ul><li><a href="#텍스트에-자연스럽게-gradient-넣기" onclick="mobilePageScrollToAnchor(this)" >텍스트에 자연스럽게 gradient 넣기</a></li></ul>
+  
       </li>
        
       </li>
@@ -250,7 +250,7 @@
           <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i>
             
-            <a href=".">About</a>
+            <a href=".">CSS</a>
             
           </h1>
         </div>
@@ -263,21 +263,24 @@
       <div class="search-noresults">
         <section class="normal markdown-section">
           
-          <h1 id="/pages/about">About</h1>
-           <p>안녕하세요, 프론트엔드 개발자 박레고입니다. 반갑습니다! 😊</p>
+          <h1 id="/til/css">CSS</h1>
+           <h2 id="텍스트에-자연스럽게-gradient-넣기">텍스트에 자연스럽게 gradient 넣기</h2>
 
-<p>이곳은 제가 개발과 관련된 내용을 간단히 기록하는 곳입니다. 주로 TIL에 대한 내용입니다.</p>
+<ol>
+  <li>
+    <p>백그라운드 영역에 먼저 그라디언트를 넣어준다.</p>
 
-<p>그리고 사용해본 라이브러리 중 엄청 좋았다고 생각드는 라이브러리들도 엄선해보았습니다.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> background: linear-gradient(to bottom, #194c33, #bbb); // 예시
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>아래와 같이 속성을 넣어준다.</p>
 
-<p><br />
-아래는 개발하면서 보면 좋은 자료들 링크 모음입니다.</p>
-
-<p><a href="https://2022.stateofjs.com/ko-KR/">stateofjs</a>
-<a href="https://programmers.co.kr/pages/survey">프로그래머스리포트</a>
-<a href="https://fe-developers.kakaoent.com/">카카오FE기술블로그</a>
-<a href="https://techblog.woowahan.com/">우아한기술블로그</a>
-<a href="https://ui.toast.com/posts/ko">toastUI</a></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-webkit-background-clip: text; // 텍스트 내부에만 배경 이미지를 적용하도록 지정
+-webkit-text-fill-color: transparent; // 글씨 투명하게 지정
+</code></pre></div>    </div>
+  </li>
+</ol>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -359,9 +362,9 @@ window.MathJax = {
           </a>
            
           <a
-            href="/pages/library"
+            href="/til/git-github.html"
             class="navigation navigation-next navigation-unique"
-            aria-label="Next page: 라이브러리 추천"
+            aria-label="Next page: Git/Github"
           >
             <i class="fa fa-angle-right"></i>
           </a>
@@ -379,11 +382,11 @@ window.MathJax = {
         "depth": 1,
         
         "next": {
-            "title": "라이브러리 추천",
+            "title": "Git/Github",
             "level": "1.2",
             "depth": 1,
-            "path": "_pages/library.md",
-            "ref": "_pages/library.md",
+            "path": "_posts/2024-03-01-git github.md",
+            "ref": "_posts/2024-03-01-git github.md",
             "articles": []
         },
         
@@ -475,7 +478,7 @@ window.MathJax = {
         "gitbook": "*"
     },
     "file": {
-        "path": "_pages/about.md",
+        "path": "_posts/2024-03-01-css.md",
         "mtime": "2024-03-01 00:00:00 +0900",
         "type": "markdown"
     },
