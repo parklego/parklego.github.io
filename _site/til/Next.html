@@ -464,37 +464,74 @@ NEXTAUTH_URL='https:localhost:3000'
   </li>
   <li>
     <p>layout.js 에서 provider로 감싸준다.
-단, provider는 서버 컴포넌트에서 사용못하므로 따로 빼주어야 한다.</p>
+(provider는 서버 컴포넌트에서 사용못하므로 따로 빼주어야 한다.)</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use client</span><span class="dl">"</span><span class="p">;</span>
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use client</span><span class="dl">"</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">SessionProvider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">AuthProvider</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">SessionProvider</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/SessionProvider&gt;</span><span class="err">;
-</span><span class="p">};</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nc">SessionProvider</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">children</span><span class="si">}</span><span class="p">&lt;/</span><span class="nc">SessionProvider</span><span class="p">&gt;;</span>
+<span class="p">};</span>
 
 <span class="k">export</span> <span class="k">default</span> <span class="nx">AuthProvider</span><span class="p">;</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>auth 페이지</p>
+    <p>로그인</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use client</span><span class="dl">"</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">signIn</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">signIn</span><span class="p">,</span> <span class="nx">useSession</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">Login</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">signIn</span><span class="p">(</span><span class="dl">"</span><span class="s2">google</span><span class="dl">"</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">login</span> <span class="kd">with</span> <span class="nx">google</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>  <span class="p">);</span>
-<span class="p">};</span>
+<span class="p">...</span>
 
-<span class="k">export</span> <span class="k">default</span> <span class="nx">Login</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">session</span> <span class="o">=</span> <span class="nx">useSession</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">useRouter</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">loading</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">return</span> <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>loading..<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span> <span class="c1">// spinner</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">authenticated</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nx">router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">"</span><span class="s2">/dashboard</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">...</span>
+<span class="k">return</span> <span class="p">(</span>
+ <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">signIn</span><span class="p">(</span><span class="dl">"</span><span class="s2">google</span><span class="dl">"</span><span class="p">)</span><span class="si">}</span><span class="p">&gt;</span>login with google<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">)</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>로그아웃</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">signOut</span><span class="p">,</span> <span class="nx">useSession</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="p">{</span>
+ <span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">authenticated</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="p">(</span>
+     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">signOut</span><span class="si">}</span><span class="p">&gt;</span>logout<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+ <span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>protected 페이지</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">...</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">loading</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>loading..<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">unauthenticated</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">"</span><span class="s2">/dashboard/login</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">authenticated</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// someting ..</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
   </li>
 </ol>
 </section>
@@ -700,7 +737,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-23 10:42:32 +0900"
+        "time": "2024-03-24 11:57:18 +0900"
     },
     "basePath": "",
     "book": {

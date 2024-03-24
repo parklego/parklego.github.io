@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-23T10:42:32+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-24T11:57:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">생각정리</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="생각정리" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -533,37 +533,74 @@ NEXTAUTH_URL='https:localhost:3000'
   </li>
   <li>
     <p>layout.js 에서 provider로 감싸준다.
-단, provider는 서버 컴포넌트에서 사용못하므로 따로 빼주어야 한다.</p>
+(provider는 서버 컴포넌트에서 사용못하므로 따로 빼주어야 한다.)</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use client</span><span class="dl">"</span><span class="p">;</span>
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use client</span><span class="dl">"</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">SessionProvider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">AuthProvider</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">SessionProvider</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/SessionProvider&gt;</span><span class="err">;
-</span><span class="p">};</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nc">SessionProvider</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">children</span><span class="si">}</span><span class="p">&lt;/</span><span class="nc">SessionProvider</span><span class="p">&gt;;</span>
+<span class="p">};</span>
 
 <span class="k">export</span> <span class="k">default</span> <span class="nx">AuthProvider</span><span class="p">;</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>auth 페이지</p>
+    <p>로그인</p>
 
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use client</span><span class="dl">"</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">signIn</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">signIn</span><span class="p">,</span> <span class="nx">useSession</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">Login</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">signIn</span><span class="p">(</span><span class="dl">"</span><span class="s2">google</span><span class="dl">"</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">login</span> <span class="kd">with</span> <span class="nx">google</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>  <span class="p">);</span>
-<span class="p">};</span>
+<span class="p">...</span>
 
-<span class="k">export</span> <span class="k">default</span> <span class="nx">Login</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">session</span> <span class="o">=</span> <span class="nx">useSession</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">useRouter</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">loading</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">return</span> <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>loading..<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span> <span class="c1">// spinner</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">authenticated</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nx">router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">"</span><span class="s2">/dashboard</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">...</span>
+<span class="k">return</span> <span class="p">(</span>
+ <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">signIn</span><span class="p">(</span><span class="dl">"</span><span class="s2">google</span><span class="dl">"</span><span class="p">)</span><span class="si">}</span><span class="p">&gt;</span>login with google<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">)</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>로그아웃</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">signOut</span><span class="p">,</span> <span class="nx">useSession</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="p">{</span>
+ <span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">authenticated</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="p">(</span>
+     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">signOut</span><span class="si">}</span><span class="p">&gt;</span>logout<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+ <span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>protected 페이지</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">...</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">loading</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>loading..<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">unauthenticated</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">"</span><span class="s2">/dashboard/login</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">authenticated</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// someting ..</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
   </li>
 </ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Next.js를 사용해야 하는 이유]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
 
