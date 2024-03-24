@@ -1,21 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-21T07:06:08+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
-</subtitle><author><name>parklego</name></author><entry><title type="html">CSS</title><link href="http://localhost:4000/til/css.html" rel="alternate" type="text/html" title="CSS" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/css</id><content type="html" xml:base="http://localhost:4000/til/css.html"><![CDATA[<h2 id="텍스트에-자연스럽게-gradient-넣기">텍스트에 자연스럽게 gradient 넣기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-23T10:42:32+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+</subtitle><author><name>parklego</name></author><entry><title type="html">생각정리</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="생각정리" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
-<ol>
-  <li>
-    <p>백그라운드 영역에 먼저 그라디언트를 넣어준다.</p>
+<p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> background: linear-gradient(to bottom, #194c33, #bbb); // 예시
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>아래와 같이 속성을 넣어준다.</p>
+<p>새로 해보는 만큼 라이브러리도 써보지 않은 다양한 것을 사용해보고 싶었다. 그래서 shadcn도 설정하였다.</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-webkit-background-clip: text; // 텍스트 내부에만 배경 이미지를 적용하도록 지정
--webkit-text-fill-color: transparent; // 글씨 투명하게 지정
-</code></pre></div>    </div>
-  </li>
-</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[텍스트에 자연스럽게 gradient 넣기]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
+<p>설정하는 단계가 조금 귀찮다. 그리고 문서가 자세하지가 않다. 그렇지만 이쁘다.</p>
+
+<p>그리고 상태관리로는 최근에 가장 가파른 상승세를 타고 있는 zustand를 사용해보기로 했다.</p>
+
+<p>처음에 해보고 싶었던 것은 라이트/다크모드를 설정해보는 기능을 구현해보고 싶었다.</p>
+
+<p>localstorage를 이용해서 구현할 것이고, styled-component의 <code class="language-plaintext highlighter-rouge">themeProvider</code>로 구현하고자 하였다.</p>
+
+<p>그런데 zustand에 localstorage가 있었다. 그래서 persist middleware와 함께 이용하기로 했다.</p>
+
+<p>shadcn의 switch 컴포넌트를 이용해 토글기능으로 다크모드를 on/off 하였다. 그러다 ux측면도 고려해보게 되었다.</p>
+
+<p>내가 주로 검색하는데 사용하는 phind와 shadcn의 다크모드 기능을 살펴보았다.</p>
+
+<ul>
+  <li>phind의 경우에는 처음에 os의 테마를 바탕으로 사이트를 변경해준다. 이때 localstorage에는 테마의 키-벨류가 없다. 그리고 유저가 테마를 건드리면 그때 키-벨류값이 생기고 이에따라 테마가 변경된다.</li>
+  <li>shadcn의 경우 처음부터 라이트/다크/시스템 이렇게 선택할 수 있게 설정이 되어 있다.</li>
+</ul>
+
+<p>다크모드 구현이 단순한 기능인줄 알았는데 생각보다 다양한 방법도 있다는 것을 알았다. UX도 생각보다 빠르게 발전하고 있구나 싶었다.</p>
+
+<p>os 테마변경에 따른 실시간 변경을 위해 커스텀훅을 만들어서 구현하였다.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
 
 <blockquote>
   <p>사전 준비</p>
@@ -181,7 +192,25 @@ bundle exec jekyll serve
 
 <p><code class="language-plaintext highlighter-rouge">Authorization: &lt;type&gt; &lt;credentials&gt;</code></p>
 
-<p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[사전 준비]]></summary></entry><entry><title type="html">네트워크</title><link href="http://localhost:4000/til/network.html" rel="alternate" type="text/html" title="네트워크" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/network</id><content type="html" xml:base="http://localhost:4000/til/network.html"><![CDATA[<h2 id="rest-api란-무엇인가">REST API란 무엇인가?</h2>
+<p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[사전 준비]]></summary></entry><entry><title type="html">MongoDB</title><link href="http://localhost:4000/til/mongoDB.html" rel="alternate" type="text/html" title="MongoDB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/mongoDB</id><content type="html" xml:base="http://localhost:4000/til/mongoDB.html"><![CDATA[<h2 id="overwritemodelerror">OverwriteModelError</h2>
+
+<blockquote>
+  <p>런타임 에러</p>
+</blockquote>
+
+<p>⨯ OverwriteModelError: Cannot overwrite <code class="language-plaintext highlighter-rouge">Users</code> model once compiled.</p>
+
+<p><br /></p>
+
+<blockquote>
+  <p>해결책</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="kd">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Users</span> <span class="o">||</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="dl">"</span><span class="s2">Users</span><span class="dl">"</span><span class="p">,</span> <span class="nx">userSchema</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">User</span><span class="p">;</span>
+</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[OverwriteModelError]]></summary></entry><entry><title type="html">네트워크</title><link href="http://localhost:4000/til/network.html" rel="alternate" type="text/html" title="네트워크" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/network</id><content type="html" xml:base="http://localhost:4000/til/network.html"><![CDATA[<h2 id="rest-api란-무엇인가">REST API란 무엇인가?</h2>
 
 <p>REST API란 REST를 기반으로 만들어진 API를 의미한다. REST API를 알기 위해 REST부터 알아야 한다.</p>
 
@@ -316,7 +345,9 @@ bundle exec jekyll serve
 
 <p><a href="https://meetup.nhncloud.com/posts/92">REST API 제대로 알고 사용하기</a></p>
 
-<p><a href="https://hongong.hanbit.co.kr/http-%EC%83%81%ED%83%9C-%EC%BD%94%EB%93%9C-%ED%91%9C-1xx-5xx-%EC%A0%84%EC%B2%B4-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%A6%AC/">http 상태코드</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[REST API란 무엇인가?]]></summary></entry><entry><title type="html">Next.js</title><link href="http://localhost:4000/til/next.html" rel="alternate" type="text/html" title="Next.js" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/next</id><content type="html" xml:base="http://localhost:4000/til/next.html"><![CDATA[<h2 id="nextjs를-사용해야-하는-이유">Next.js를 사용해야 하는 이유</h2>
+<p><a href="https://hongong.hanbit.co.kr/http-%EC%83%81%ED%83%9C-%EC%BD%94%EB%93%9C-%ED%91%9C-1xx-5xx-%EC%A0%84%EC%B2%B4-%EC%9A%94%EC%95%BD-%EC%A0%95%EB%A6%AC/">http 상태코드</a></p>
+
+<p><a href="https://youtu.be/7LbylTMlj8M?si=3sIqGqs1GyTF_aLE">제대로 이해하는 REST API</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[REST API란 무엇인가?]]></summary></entry><entry><title type="html">Next.js</title><link href="http://localhost:4000/til/next.html" rel="alternate" type="text/html" title="Next.js" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/next</id><content type="html" xml:base="http://localhost:4000/til/next.html"><![CDATA[<h2 id="nextjs를-사용해야-하는-이유">Next.js를 사용해야 하는 이유</h2>
 
 <ol>
   <li>폴더를 사용하여 페이지를 간단하게 만들 수 있다.
@@ -397,7 +428,144 @@ bundle exec jekyll serve
 <span class="p">};</span>
 
 <span class="k">export</span> <span class="k">default</span> <span class="nx">nextConfig</span><span class="p">;</span>
-</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Next.js를 사용해야 하는 이유]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
+</code></pre></div></div>
+
+<h2 id="not-found">Not found</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">notFound</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/navigation</span><span class="dl">'</span>
+
+<span class="p">...</span>
+<span class="k">return</span> <span class="nx">notFound</span><span class="p">()</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<h2 id="api">API</h2>
+
+<ol>
+  <li>app폴더 하위 폴더에 api 폴더를 만들고, 라우팅하고 싶은 api를 폴더명으로 만든다.</li>
+  <li>그 폴더에는 route.js로 파일을 만든다.
+    <ul>
+      <li>동적라우팅의 경우 [id] 와 같이 대괄호 안에 넣어준다.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">NextResponse</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next/server</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">GET</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">params</span><span class="p">;</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="nx">connect</span><span class="p">();</span>
+
+    <span class="kd">const</span> <span class="nx">post</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">Post</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">NextResponse</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">post</span><span class="p">),</span> <span class="p">{</span>
+      <span class="na">status</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="p">});</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">NextResponse</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">status</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>params 가져오기</p>
+</blockquote>
+
+<p>Next.js의 API 라우트에서는 요청 객체가 res 매개변수를 통해 전달된다. 따라서 API 라우트에서는 res.params를 사용하여 경로 매개변수를 가져와야 한다.</p>
+
+<h2 id="metadata">Metadata</h2>
+
+<p>각 페이지에 해당 객체를 입력만 해도 간단하게 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">metadata</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">parklego</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">description</span><span class="p">:</span> <span class="dl">"</span><span class="s2">parklego next tutorial</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>동적 페이지 경우에는 아래와 같이 생성하면 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">generateMetadata</span> <span class="o">=</span> <span class="k">async</span> <span class="p">({</span> <span class="nx">params</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">post</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getData</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="nx">post</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="c1">// params someting..</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">post</span><span class="p">.</span><span class="nx">desc</span><span class="p">,</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="next-auth-authjs">Next-auth (Auth.js)</h2>
+
+<p><a href="https://authjs.dev/getting-started/providers/oauth-tutorial">OAuth authentication</a></p>
+
+<ol>
+  <li>
+    <p>핸들러 함수를 정의</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pages/api/auth/[...nextauth].js</span>
+
+<span class="kd">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="nx">NextAuth</span><span class="p">({</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">GoogleProvider</span><span class="p">({</span>
+      <span class="na">clientId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GOOGLE_CLIENT_ID</span><span class="p">,</span>
+      <span class="na">clientSecret</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GOOGLE_CLIENT_SECRET</span><span class="p">,</span>
+    <span class="p">}),</span>
+  <span class="p">],</span>
+<span class="p">});</span>
+
+<span class="k">export</span> <span class="p">{</span> <span class="nx">handler</span> <span class="k">as</span> <span class="nx">GET</span><span class="p">,</span> <span class="nx">handler</span> <span class="k">as</span> <span class="nx">POST</span> <span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>.env 파일에서 변수를 추가한다.</p>
+
+    <pre><code class="language-env">...
+NEXTAUTH_SECRET = 'next-tutorial'
+NEXTAUTH_URL='https:localhost:3000'
+...
+
+</code></pre>
+  </li>
+  <li>
+    <p>layout.js 에서 provider로 감싸준다.
+단, provider는 서버 컴포넌트에서 사용못하므로 따로 빼주어야 한다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use client</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SessionProvider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">AuthProvider</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">SessionProvider</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/SessionProvider&gt;</span><span class="err">;
+</span><span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">AuthProvider</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>auth 페이지</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use client</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">signIn</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/react</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">Login</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nx">signIn</span><span class="p">(</span><span class="dl">"</span><span class="s2">google</span><span class="dl">"</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">login</span> <span class="kd">with</span> <span class="nx">google</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Login</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>protected 페이지</p>
+  </li>
+</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Next.js를 사용해야 하는 이유]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
 
 <ul>
   <li><a href="https://story.pxd.co.kr/1588">wai-aria란?</a></li>
@@ -442,31 +610,20 @@ bundle exec jekyll serve
   <li><code class="language-plaintext highlighter-rouge">true</code>인 경우, 스크린 리더기에 필수요소임을 알려주는 속성</li>
 </ul>
 
-<p><br /></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.]]></summary></entry><entry><title type="html">생각정리</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="생각정리" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
+<p><br /></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.]]></summary></entry><entry><title type="html">CSS</title><link href="http://localhost:4000/til/css.html" rel="alternate" type="text/html" title="CSS" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/css</id><content type="html" xml:base="http://localhost:4000/til/css.html"><![CDATA[<h2 id="텍스트에-자연스럽게-gradient-넣기">텍스트에 자연스럽게 gradient 넣기</h2>
 
-<p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
+<ol>
+  <li>
+    <p>백그라운드 영역에 먼저 그라디언트를 넣어준다.</p>
 
-<p>새로 해보는 만큼 라이브러리도 써보지 않은 다양한 것을 사용해보고 싶었다. 그래서 shadcn도 설정하였다.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> background: linear-gradient(to bottom, #194c33, #bbb); // 예시
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>아래와 같이 속성을 넣어준다.</p>
 
-<p>설정하는 단계가 조금 귀찮다. 그리고 문서가 자세하지가 않다. 그렇지만 이쁘다.</p>
-
-<p>그리고 상태관리로는 최근에 가장 가파른 상승세를 타고 있는 zustand를 사용해보기로 했다.</p>
-
-<p>처음에 해보고 싶었던 것은 라이트/다크모드를 설정해보는 기능을 구현해보고 싶었다.</p>
-
-<p>localstorage를 이용해서 구현할 것이고, styled-component의 <code class="language-plaintext highlighter-rouge">themeProvider</code>로 구현하고자 하였다.</p>
-
-<p>그런데 zustand에 localstorage가 있었다. 그래서 persist middleware와 함께 이용하기로 했다.</p>
-
-<p>shadcn의 switch 컴포넌트를 이용해 토글기능으로 다크모드를 on/off 하였다. 그러다 ux측면도 고려해보게 되었다.</p>
-
-<p>내가 주로 검색하는데 사용하는 phind와 shadcn의 다크모드 기능을 살펴보았다.</p>
-
-<ul>
-  <li>phind의 경우에는 처음에 os의 테마를 바탕으로 사이트를 변경해준다. 이때 localstorage에는 테마의 키-벨류가 없다. 그리고 유저가 테마를 건드리면 그때 키-벨류값이 생기고 이에따라 테마가 변경된다.</li>
-  <li>shadcn의 경우 처음부터 라이트/다크/시스템 이렇게 선택할 수 있게 설정이 되어 있다.</li>
-</ul>
-
-<p>다크모드 구현이 단순한 기능인줄 알았는데 생각보다 다양한 방법도 있다는 것을 알았다. UX도 생각보다 빠르게 발전하고 있구나 싶었다.</p>
-
-<p>os 테마변경에 따른 실시간 변경을 위해 커스텀훅을 만들어서 구현하였다.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry></feed>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-webkit-background-clip: text; // 텍스트 내부에만 배경 이미지를 적용하도록 지정
+-webkit-text-fill-color: transparent; // 글씨 투명하게 지정
+</code></pre></div>    </div>
+  </li>
+</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[텍스트에 자연스럽게 gradient 넣기]]></summary></entry></feed>
