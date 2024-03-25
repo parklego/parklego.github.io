@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-24T11:57:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-24T15:07:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">생각정리</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="생각정리" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -428,15 +428,6 @@ bundle exec jekyll serve
 <span class="p">};</span>
 
 <span class="k">export</span> <span class="k">default</span> <span class="nx">nextConfig</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h2 id="not-found">Not found</h2>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">notFound</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/navigation</span><span class="dl">'</span>
-
-<span class="p">...</span>
-<span class="k">return</span> <span class="nx">notFound</span><span class="p">()</span>
-<span class="p">...</span>
 </code></pre></div></div>
 
 <h2 id="api">API</h2>
