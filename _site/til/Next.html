@@ -221,7 +221,7 @@
         <a href="/til/next.html" onclick="pageScrollToTop(this)">
           Next.js
         </a>
-          <ul><li><a href="#nextjs를-사용해야-하는-이유" onclick="mobilePageScrollToAnchor(this)" >Next.js를 사용해야 하는 이유</a></li><li><a href="#라우팅" onclick="mobilePageScrollToAnchor(this)" >라우팅</a></li><li><a href="#이미지" onclick="mobilePageScrollToAnchor(this)" >이미지</a></li><li><a href="#api" onclick="mobilePageScrollToAnchor(this)" >API</a></li><li><a href="#metadata" onclick="mobilePageScrollToAnchor(this)" >Metadata</a></li><li><a href="#next-auth-authjs" onclick="mobilePageScrollToAnchor(this)" >Next-auth (Auth.js)</a></li></ul>
+          <ul><li><a href="#nextjs를-사용해야-하는-이유" onclick="mobilePageScrollToAnchor(this)" >Next.js를 사용해야 하는 이유</a></li><li><a href="#라우팅" onclick="mobilePageScrollToAnchor(this)" >라우팅</a></li><li><a href="#이미지" onclick="mobilePageScrollToAnchor(this)" >이미지</a></li><li><a href="#api" onclick="mobilePageScrollToAnchor(this)" >API</a></li><li><a href="#metadata" onclick="mobilePageScrollToAnchor(this)" >Metadata</a></li><li><a href="#next-auth-authjs" onclick="mobilePageScrollToAnchor(this)" >Next-auth (Auth.js)</a></li><li><a href="#스트리밍" onclick="mobilePageScrollToAnchor(this)" >스트리밍</a></li><li><a href="#error" onclick="mobilePageScrollToAnchor(this)" >Error</a></li><li><a href="#접근성-향상" onclick="mobilePageScrollToAnchor(this)" >접근성 향상</a></li><li><a href="#deploy" onclick="mobilePageScrollToAnchor(this)" >Deploy</a></li></ul>
   
       </li>
        
@@ -525,6 +525,89 @@ NEXTAUTH_URL='https:localhost:3000'
 </code></pre></div>    </div>
   </li>
 </ol>
+
+<h2 id="스트리밍">스트리밍</h2>
+
+<ol>
+  <li>전체 스트리밍
+    <ul>
+      <li>loading.jsx 파일을 만들면 된다. 이 로딩은 같은 폴더 내 다른 페이지에도 영향을 끼친다.</li>
+      <li>그래서 로딩 스켈레톤을 만들려면 라우트를 그룹화 하여 만들면 된다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>구성요소 스트리밍</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Suspense</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+ <span class="p">...</span>
+ <span class="k">return</span> <span class="p">(</span>
+     <span class="p">&lt;&gt;</span>
+       <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nc">Suspense</span> <span class="na">fallback</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">CardsSkeleton</span> <span class="p">/&gt;</span><span class="si">}</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nc">CardWrapper</span> <span class="p">/&gt;</span>
+         <span class="p">&lt;/</span><span class="nc">Suspense</span><span class="p">&gt;</span>
+       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+       <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nc">Suspense</span> <span class="na">fallback</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">RevenueChartSkeleton</span> <span class="p">/&gt;</span><span class="si">}</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nc">RevenueChart</span> <span class="p">/&gt;</span>
+         <span class="p">&lt;/</span><span class="nc">Suspense</span><span class="p">&gt;</span>
+       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+     <span class="p">&lt;/&gt;</span>
+ <span class="p">)</span>
+
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="error">Error</h2>
+
+<ol>
+  <li>error.jsx는 모든 오류를 처리하는 페이지이다.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">use client</code> 사용</li>
+    </ul>
+  </li>
+  <li>
+    <p>not-found.jsx 페이지가 error.jsx 페이지보다 우선 순위가 높다.</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">notFound</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/navigation</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">invoice</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">notFound</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="p">...</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="접근성-향상">접근성 향상</h2>
+
+<p>기본적으로 <code class="language-plaintext highlighter-rouge">eslint-plugin-jsx-a11y</code>라는 플러그인이 포함되어 있다.
+이미지태그에서 alt가 빠진 경우나, aria-* 및 role 속성을 잘못 사용하는 경우 등을 경고해준다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">scripts</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="dl">"</span><span class="s2">lint</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">next lint</span><span class="dl">"</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run lint
+</code></pre></div></div>
+
+<h2 id="deploy">Deploy</h2>
+
+<p>Vercel로 간단하게 프로젝트를 배포할 수 있다. 놀라웠던 점은 Git 저장소를 연결하고 특정 브랜치에 변경 사항이 푸시되면 자동으로 배포를 하더라.
+그리고 무중단 배포를 하기때문에 걱정도 덜하다.</p>
+
+<p><a href="https://vercel.com/">vercel.com</a></p>
+
+<hr />
+
+<p><a href="https://nextjs.org/learn?utm_source=next-site&amp;utm_medium=homepage-cta&amp;utm_campaign=home">next.js learn</a></p>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -728,7 +811,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-24 15:07:57 +0900"
+        "time": "2024-03-26 06:54:57 +0900"
     },
     "basePath": "",
     "book": {

@@ -6,6 +6,12 @@ category: library
 layout: post
 ---
 
+## use-debounce
+
+hook 형태로 간단하게 디바운스 기능을 구현하는 라이브러리
+
+[공식문서](https://github.com/xnimorz/use-debounce#readme)
+
 ## Zod
 
 스키마 선언 및 유효성 검사 라이브러리

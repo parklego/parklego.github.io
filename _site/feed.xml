@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-24T15:07:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-26T06:54:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">생각정리</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="생각정리" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -593,7 +593,90 @@ NEXTAUTH_URL='https:localhost:3000'
 <span class="p">}</span>
 </code></pre></div>    </div>
   </li>
-</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Next.js를 사용해야 하는 이유]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
+</ol>
+
+<h2 id="스트리밍">스트리밍</h2>
+
+<ol>
+  <li>전체 스트리밍
+    <ul>
+      <li>loading.jsx 파일을 만들면 된다. 이 로딩은 같은 폴더 내 다른 페이지에도 영향을 끼친다.</li>
+      <li>그래서 로딩 스켈레톤을 만들려면 라우트를 그룹화 하여 만들면 된다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>구성요소 스트리밍</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Suspense</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+ <span class="p">...</span>
+ <span class="k">return</span> <span class="p">(</span>
+     <span class="p">&lt;&gt;</span>
+       <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nc">Suspense</span> <span class="na">fallback</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">CardsSkeleton</span> <span class="p">/&gt;</span><span class="si">}</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nc">CardWrapper</span> <span class="p">/&gt;</span>
+         <span class="p">&lt;/</span><span class="nc">Suspense</span><span class="p">&gt;</span>
+       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+       <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nc">Suspense</span> <span class="na">fallback</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">RevenueChartSkeleton</span> <span class="p">/&gt;</span><span class="si">}</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nc">RevenueChart</span> <span class="p">/&gt;</span>
+         <span class="p">&lt;/</span><span class="nc">Suspense</span><span class="p">&gt;</span>
+       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+     <span class="p">&lt;/&gt;</span>
+ <span class="p">)</span>
+
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="error">Error</h2>
+
+<ol>
+  <li>error.jsx는 모든 오류를 처리하는 페이지이다.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">use client</code> 사용</li>
+    </ul>
+  </li>
+  <li>
+    <p>not-found.jsx 페이지가 error.jsx 페이지보다 우선 순위가 높다.</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">notFound</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/navigation</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">invoice</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">notFound</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="p">...</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="접근성-향상">접근성 향상</h2>
+
+<p>기본적으로 <code class="language-plaintext highlighter-rouge">eslint-plugin-jsx-a11y</code>라는 플러그인이 포함되어 있다.
+이미지태그에서 alt가 빠진 경우나, aria-* 및 role 속성을 잘못 사용하는 경우 등을 경고해준다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">scripts</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="dl">"</span><span class="s2">lint</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">next lint</span><span class="dl">"</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run lint
+</code></pre></div></div>
+
+<h2 id="deploy">Deploy</h2>
+
+<p>Vercel로 간단하게 프로젝트를 배포할 수 있다. 놀라웠던 점은 Git 저장소를 연결하고 특정 브랜치에 변경 사항이 푸시되면 자동으로 배포를 하더라.
+그리고 무중단 배포를 하기때문에 걱정도 덜하다.</p>
+
+<p><a href="https://vercel.com/">vercel.com</a></p>
+
+<hr />
+
+<p><a href="https://nextjs.org/learn?utm_source=next-site&amp;utm_medium=homepage-cta&amp;utm_campaign=home">next.js learn</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Next.js를 사용해야 하는 이유]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
 
 <ul>
   <li><a href="https://story.pxd.co.kr/1588">wai-aria란?</a></li>
