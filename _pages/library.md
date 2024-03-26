@@ -12,18 +12,6 @@ hook 형태로 간단하게 디바운스 기능을 구현하는 라이브러리
 
 [공식문서](https://github.com/xnimorz/use-debounce#readme)
 
-## Zod
-
-스키마 선언 및 유효성 검사 라이브러리
-
-[공식문서](https://zod.dev/)
-
-## React-hook-form
-
-검증 기능을 갖춘 유연하고 확장 가능한 form 라이브러리
-
-[공식문서](https://react-hook-form.com/)
-
 ## Tui-editor
 
 편집기를 사용하면 텍스트 또는 WYSIWYG를 사용하여 Markdown 문서를 편집할 수 있으며 구문 강조, 스크롤 동기화, 실시간 미리 보기 및 차트 기능이 함께 제공하는 라이브러리
