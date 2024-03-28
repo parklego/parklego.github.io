@@ -6,7 +6,30 @@ category: til
 layout: post
 ---
 
-## Jekyll을 사용하여 GitHub Pages 배포 및 테마적용
+## git config 설정 확인 및 변경하기
+
+git config에 대한 리스트를 보고자 하는 경우에는 아래와 같은 커맨드를 입력한다.
+
+```bash
+git config --list
+```
+
+git config 설정하는 방법 중에 가장 많이 쓰이는 것이 이름과 이메일 변경이다. 이 경우에는 아래와 같이 수정한다.
+
+```bash
+git config --global user.name "고양이"
+git config --global user.email "hbd9425@gmail.com"
+```
+
+참고로 한글이 깨지는 경우에는 아래와 같이 입력한다.
+
+```bash
+git config --global core.quotepath false
+```
+
+## Jekyll
+
+### GitHub Pages 배포 및 테마적용
 
 > 사전 준비
 
@@ -38,7 +61,7 @@ layout: post
    - \_conif.yml 파일에서 제목이나 이름 등을 변경
    - Gemfile 플러그인 설치하는 곳
 
-## siteamp 파일 생성
+### siteamp 파일 생성
 
 1. Gemfile 파일에서 아래 코드 추가
 
@@ -202,3 +225,40 @@ merge를 사용하면 모든 commit을 남기게 되지만, rebase를 사용하�
     ```
     Successfully rebased and updated refs/heads/main.
     ```
+
+## ssh key 생성
+
+Git 서버들은 SSH 공개키로 인증을 한다.
+
+1. SSH 공개키 확인
+
+   ```bash
+   $ cd ~/.shh
+   $ ls
+   ```
+
+   id_dsa 혹은 id_dsa.pub 파일이 있으면 공개키가 생성된 적이 있는 것이다. 없다면 생성을 하자.
+
+   pub확장자를 가진 파일은 공개키이므로 공개되어도 괜찮지만, 다른 파일은 개인키이므로 각별히 주의하자.
+
+2. SSH 공개키 생성
+
+   ```bash
+   $ ssh-keygen
+   ```
+
+   생성할 때, 묻는 질문이 있는데 그냥 엔터를 계속 눌러서 진행하자. 그러면 생성 될 것이다.
+
+   위의 커맨드를 이용해서 잘 생성되었는지 확인하고, 넘어가자.
+
+3. Git에 SSH key 등록
+
+   ```bash
+   $ cat id_rsa.pub
+   ```
+
+   위의 커맨드를 이용해서 값을 복사한다.
+
+   그 이후, github setting으로 들어간다.
+
+   ssh and GPG keys라는 탭으로 들어가서, new ssh key 버튼을 눌러 복사한 값을 넣어주면 끝.

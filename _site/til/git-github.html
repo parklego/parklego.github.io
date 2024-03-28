@@ -165,7 +165,7 @@
         <a href="/til/git-github.html" onclick="pageScrollToTop(this)">
           Git/Github
         </a>
-          <ul><li><a href="#jekyll을-사용하여-github-pages-배포-및-테마적용" onclick="mobilePageScrollToAnchor(this)" >Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</a></li><li><a href="#siteamp-파일-생성" onclick="mobilePageScrollToAnchor(this)" >siteamp 파일 생성</a></li><li><a href="#commit-깔끔하게-남기기" onclick="mobilePageScrollToAnchor(this)" >commit 깔끔하게 남기기</a></li></ul>
+          <ul><li><a href="#git-config-설정-확인-및-변경하기" onclick="mobilePageScrollToAnchor(this)" >git config 설정 확인 및 변경하기</a></li><li><a href="#jekyll" onclick="mobilePageScrollToAnchor(this)" >Jekyll</a><ul><li><a href="#github-pages-배포-및-테마적용" onclick="mobilePageScrollToAnchor(this)" >GitHub Pages 배포 및 테마적용</a></li><li><a href="#siteamp-파일-생성" onclick="mobilePageScrollToAnchor(this)" >siteamp 파일 생성</a></li></ul></li><li><a href="#commit-깔끔하게-남기기" onclick="mobilePageScrollToAnchor(this)" >commit 깔끔하게 남기기</a></li><li><a href="#ssh-key-생성" onclick="mobilePageScrollToAnchor(this)" >ssh key 생성</a></li></ul>
   
       </li>
        
@@ -248,7 +248,7 @@
       >
         
         <a href="/til/think.html" onclick="pageScrollToTop(this)">
-          생각정리
+          개발일지
         </a>
           
       </li>
@@ -278,7 +278,27 @@
         <section class="normal markdown-section">
           
           <h1 id="/til/git github">Git/Github</h1>
-           <h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
+           <h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
+
+<p>git config에 대한 리스트를 보고자 하는 경우에는 아래와 같은 커맨드를 입력한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--list</span>
+</code></pre></div></div>
+
+<p>git config 설정하는 방법 중에 가장 많이 쓰이는 것이 이름과 이메일 변경이다. 이 경우에는 아래와 같이 수정한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"고양이"</span>
+git config <span class="nt">--global</span> user.email <span class="s2">"hbd9425@gmail.com"</span>
+</code></pre></div></div>
+
+<p>참고로 한글이 깨지는 경우에는 아래와 같이 입력한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> core.quotepath <span class="nb">false</span>
+</code></pre></div></div>
+
+<h2 id="jekyll">Jekyll</h2>
+
+<h3 id="github-pages-배포-및-테마적용">GitHub Pages 배포 및 테마적용</h3>
 
 <blockquote>
   <p>사전 준비</p>
@@ -331,7 +351,7 @@ bundle exec jekyll serve
   </li>
 </ol>
 
-<h2 id="siteamp-파일-생성">siteamp 파일 생성</h2>
+<h3 id="siteamp-파일-생성">siteamp 파일 생성</h3>
 
 <ol>
   <li>
@@ -502,6 +522,46 @@ test 추가 3
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Successfully rebased and updated refs/heads/main.
 </code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="ssh-key-생성">ssh key 생성</h2>
+
+<p>Git 서버들은 SSH 공개키로 인증을 한다.</p>
+
+<ol>
+  <li>
+    <p>SSH 공개키 확인</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/.shh
+<span class="nv">$ </span><span class="nb">ls</span>
+</code></pre></div>    </div>
+
+    <p>id_dsa 혹은 id_dsa.pub 파일이 있으면 공개키가 생성된 적이 있는 것이다. 없다면 생성을 하자.</p>
+
+    <p>pub확장자를 가진 파일은 공개키이므로 공개되어도 괜찮지만, 다른 파일은 개인키이므로 각별히 주의하자.</p>
+  </li>
+  <li>
+    <p>SSH 공개키 생성</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen
+</code></pre></div>    </div>
+
+    <p>생성할 때, 묻는 질문이 있는데 그냥 엔터를 계속 눌러서 진행하자. 그러면 생성 될 것이다.</p>
+
+    <p>위의 커맨드를 이용해서 잘 생성되었는지 확인하고, 넘어가자.</p>
+  </li>
+  <li>
+    <p>Git에 SSH key 등록</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>id_rsa.pub
+</code></pre></div>    </div>
+
+    <p>위의 커맨드를 이용해서 값을 복사한다.</p>
+
+    <p>그 이후, github setting으로 들어간다.</p>
+
+    <p>ssh and GPG keys라는 탭으로 들어가서, new ssh key 버튼을 눌러 복사한 값을 넣어주면 끝.</p>
   </li>
 </ol>
 </section>
@@ -707,7 +767,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-28 11:20:19 +0900"
+        "time": "2024-03-28 11:29:01 +0900"
     },
     "basePath": "",
     "book": {

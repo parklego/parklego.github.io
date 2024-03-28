@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-28T11:20:19+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
-</subtitle><author><name>parklego</name></author><entry><title type="html">생각정리</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="생각정리" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-28T11:29:01+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+</subtitle><author><name>parklego</name></author><entry><title type="html">개발일지</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="개발일지" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
 
@@ -110,7 +110,27 @@
 
 <p>Canvas 위에 Mesh라는 Object를 얹는다는 느낌으로 이해하면 된다. 3D 모델은 아래의 사이트에서 찾아서 불러왔다.</p>
 
-<p><a href="https://sketchfab.com/feed">https://sketchfab.com/feed</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="jekyll을-사용하여-github-pages-배포-및-테마적용">Jekyll을 사용하여 GitHub Pages 배포 및 테마적용</h2>
+<p><a href="https://sketchfab.com/feed">https://sketchfab.com/feed</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
+
+<p>git config에 대한 리스트를 보고자 하는 경우에는 아래와 같은 커맨드를 입력한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--list</span>
+</code></pre></div></div>
+
+<p>git config 설정하는 방법 중에 가장 많이 쓰이는 것이 이름과 이메일 변경이다. 이 경우에는 아래와 같이 수정한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"고양이"</span>
+git config <span class="nt">--global</span> user.email <span class="s2">"hbd9425@gmail.com"</span>
+</code></pre></div></div>
+
+<p>참고로 한글이 깨지는 경우에는 아래와 같이 입력한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> core.quotepath <span class="nb">false</span>
+</code></pre></div></div>
+
+<h2 id="jekyll">Jekyll</h2>
+
+<h3 id="github-pages-배포-및-테마적용">GitHub Pages 배포 및 테마적용</h3>
 
 <blockquote>
   <p>사전 준비</p>
@@ -163,7 +183,7 @@ bundle exec jekyll serve
   </li>
 </ol>
 
-<h2 id="siteamp-파일-생성">siteamp 파일 생성</h2>
+<h3 id="siteamp-파일-생성">siteamp 파일 생성</h3>
 
 <ol>
   <li>
@@ -335,7 +355,47 @@ test 추가 3
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Successfully rebased and updated refs/heads/main.
 </code></pre></div>    </div>
   </li>
-</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Jekyll을 사용하여 GitHub Pages 배포 및 테마적용]]></summary></entry><entry><title type="html">JWT 적용기</title><link href="http://localhost:4000/til/jwt.html" rel="alternate" type="text/html" title="JWT 적용기" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/jwt</id><content type="html" xml:base="http://localhost:4000/til/jwt.html"><![CDATA[<blockquote>
+</ol>
+
+<h2 id="ssh-key-생성">ssh key 생성</h2>
+
+<p>Git 서버들은 SSH 공개키로 인증을 한다.</p>
+
+<ol>
+  <li>
+    <p>SSH 공개키 확인</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/.shh
+<span class="nv">$ </span><span class="nb">ls</span>
+</code></pre></div>    </div>
+
+    <p>id_dsa 혹은 id_dsa.pub 파일이 있으면 공개키가 생성된 적이 있는 것이다. 없다면 생성을 하자.</p>
+
+    <p>pub확장자를 가진 파일은 공개키이므로 공개되어도 괜찮지만, 다른 파일은 개인키이므로 각별히 주의하자.</p>
+  </li>
+  <li>
+    <p>SSH 공개키 생성</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-keygen
+</code></pre></div>    </div>
+
+    <p>생성할 때, 묻는 질문이 있는데 그냥 엔터를 계속 눌러서 진행하자. 그러면 생성 될 것이다.</p>
+
+    <p>위의 커맨드를 이용해서 잘 생성되었는지 확인하고, 넘어가자.</p>
+  </li>
+  <li>
+    <p>Git에 SSH key 등록</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>id_rsa.pub
+</code></pre></div>    </div>
+
+    <p>위의 커맨드를 이용해서 값을 복사한다.</p>
+
+    <p>그 이후, github setting으로 들어간다.</p>
+
+    <p>ssh and GPG keys라는 탭으로 들어가서, new ssh key 버튼을 눌러 복사한 값을 넣어주면 끝.</p>
+  </li>
+</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[git config 설정 확인 및 변경하기]]></summary></entry><entry><title type="html">JWT 적용기</title><link href="http://localhost:4000/til/jwt.html" rel="alternate" type="text/html" title="JWT 적용기" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/jwt</id><content type="html" xml:base="http://localhost:4000/til/jwt.html"><![CDATA[<blockquote>
   <p>사전 준비</p>
 </blockquote>
 
