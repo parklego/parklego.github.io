@@ -247,7 +247,7 @@
         <a href="/til/think.html" onclick="pageScrollToTop(this)">
           생각정리
         </a>
-          <ul><li><a href="#라이트다크-모드" onclick="mobilePageScrollToAnchor(this)" >라이트/다크 모드</a></li></ul>
+          <ul><li><a href="#라이트다크-모드" onclick="mobilePageScrollToAnchor(this)" >라이트/다크 모드</a></li><li><a href="#인터렉티브" onclick="mobilePageScrollToAnchor(this)" >인터렉티브</a></li></ul>
   
       </li>
        
@@ -304,6 +304,90 @@
 <p>다크모드 구현이 단순한 기능인줄 알았는데 생각보다 다양한 방법도 있다는 것을 알았다. UX도 생각보다 빠르게 발전하고 있구나 싶었다.</p>
 
 <p>os 테마변경에 따른 실시간 변경을 위해 커스텀훅을 만들어서 구현하였다.</p>
+
+<h2 id="인터렉티브">인터렉티브</h2>
+
+<p>프론트엔드 개발자라면 인터렉티브한 웹사이트를 보게되면 이벤트를 발생시켜보면서 어떻게 구현했나? 궁금하고 신기해 한다. 간혹 채용 공고의 우대사항에서도 three.js 사용해본 경험이라던지 R3F에 대한 내용이 더러 있다.</p>
+
+<p>언젠가는 애플과 같은 (스크롤을 감지하여 배경화면을 랜더링) 이쁘고 깔끔한 개발을 해보고 싶다는 생각이 있었는데 최근에 다양한 기술로 가볍게 만들어본 프로젝트의 배경이 생각이 났다. 그래서 three.js를 찍먹이나 해보자는 생각으로 시도를 해보았다.</p>
+
+<p>아래는 우와! 소리가 절로 나올만한 사이트들이다.</p>
+
+<blockquote>
+  <p>드래그를 하면 마우스를 추적하여 꽃이 피어오른다.</p>
+
+  <p><a href="https://2019.makemepulse.com/">Nomadic Tribe — makemepulse</a></p>
+</blockquote>
+
+<blockquote>
+  <p>30종류의 동물들이 조각형태로 변환되는 것을 보여준다.</p>
+
+  <p><a href="http://species-in-pieces.com/#">In Pieces – 30 Species, 30 Pieces. 1 Fragmented Survival.</a></p>
+</blockquote>
+
+<p><br /></p>
+
+<p>그 외에 해외에서 다양한 인터렉티브한 사이트들을 한눈에 볼 수 있는 사이트이다. UI도 깔끔하고, 다양한 아이디어들을 볼 수 있어서 좋은 것 같다.</p>
+
+<ol>
+  <li>
+    <p><a href="https://www.cssdesignawards.com/">CSS Design Awards - Website Awards - Best Web Design Inspiration - CSS Awards</a></p>
+  </li>
+  <li>
+    <p><a href="https://thefwa.com/awards/page/1/">https://thefwa.com/awards/page/1/</a></p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<p>찍먹이기에 나는 모델이 마우스 커서를 주시하여 움직이는 정도로만 구현해보고자 했다.</p>
+
+<p>어느정도의 개념적인 부분은 아래에 블로그를 참고 하였고, 내가 구현한 코드를 설명하자면</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">...</span>
+
+<span class="kd">const</span> <span class="nx">sensitivity</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+
+<span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">handleMouseMove</span> <span class="o">=</span> <span class="p">(</span><span class="na">event</span><span class="p">:</span> <span class="nx">MouseEvent</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">setMousePosition</span><span class="p">({</span>
+        <span class="na">x</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">/</span> <span class="nx">sensitivity</span><span class="p">,</span>
+        <span class="na">y</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">/</span> <span class="nx">sensitivity</span><span class="p">,</span>
+      <span class="p">});</span>
+    <span class="p">};</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">mousemove</span><span class="dl">"</span><span class="p">,</span> <span class="nx">handleMouseMove</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">mousemove</span><span class="dl">"</span><span class="p">,</span> <span class="nx">handleMouseMove</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="nx">useFrame</span><span class="p">((</span><span class="nx">state</span><span class="p">,</span> <span class="nx">delta</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">meshRef</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">mousePosition</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+    <span class="nx">meshRef</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">mousePosition</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="mi">1000</span><span class="p">;</span>
+  <span class="p">});</span>
+
+<span class="p">...</span>
+
+
+
+</code></pre></div></div>
+
+<p>@react-three/fiber에서 제공하는 useFrame을 사용하여 매 프레임마다 rotation되게 하면 모델을 움직일 수 있게 할 수 있을 것 같았다.</p>
+
+<p>그러기 위해서 마우스의 움직임을 추적해야하는데 이를 위해 handleMouseMove 라는 함수를 만들어 주었다. (useFrame은 애니메이션을 처리하거나 실시간으로 변화하는 값을 관리할 때 주로 사용한다.)</p>
+
+<p>마우스를 좌,우(x축)로 움직였을 때 모델이 위아래로 움직였고 상,하로 움직였을 때 모델이 좌우로 움직였다.</p>
+
+<p>그래서 포지션을 반대로 해주면 될 것 같았다. 그러나 너무 빠르게 움직여서 미친듯이 움직였다. 그래서 민감도를 주기 위하여 그 값을 큰 값으로 나누어서 값의 크기를 줄였더니 원하는대로 움직였다.</p>
+
+<p>하지만 내가 개발한 페이지에서 모델은 오른쪽에 배치를 했기 때문에 가용범위를 고려하여 실제 회전을 할 때에 y값에 -값을 추가해보면서 자연스러운 값을 찾았다.</p>
+
+<p>Canvas 위에 Mesh라는 Object를 얹는다는 느낌으로 이해하면 된다. 3D 모델은 아래의 사이트에서 찾아서 불러왔다.</p>
+
+<p><a href="https://sketchfab.com/feed">https://sketchfab.com/feed</a></p>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -490,7 +574,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-27 04:56:53 +0900"
+        "time": "2024-03-28 10:59:00 +0900"
     },
     "basePath": "",
     "book": {
