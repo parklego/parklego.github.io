@@ -226,6 +226,16 @@ merge를 사용하면 모든 commit을 남기게 되지만, rebase를 사용하�
     Successfully rebased and updated refs/heads/main.
     ```
 
+<br/>
+
+> 간단하게
+
+<br/>
+
+       git switch main
+       git merge --squash 브랜치명
+       git commit -m '메세지'
+
 ## ssh key 생성
 
 Git 서버들은 SSH 공개키로 인증을 한다.
