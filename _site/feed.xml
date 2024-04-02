@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-02T17:32:08+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-02T17:34:36+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">개발일지</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="개발일지" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -110,7 +110,95 @@
 
 <p>Canvas 위에 Mesh라는 Object를 얹는다는 느낌으로 이해하면 된다. 3D 모델은 아래의 사이트에서 찾아서 불러왔다.</p>
 
-<p><a href="https://sketchfab.com/feed">https://sketchfab.com/feed</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
+<p><a href="https://sketchfab.com/feed">https://sketchfab.com/feed</a></p>
+
+<h2 id="jwt-적용기">JWT 적용기</h2>
+
+<blockquote>
+  <p>사전 준비</p>
+</blockquote>
+
+<ol>
+  <li>cookie parser</li>
+  <li>cors
+    <ul>
+      <li>origin 설정</li>
+      <li>credentials true</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<blockquote>
+  <p>JWT 로직</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>로그인 시 인증 서버로부터 access token, refresh token을 쿠키에 넣어서 보내준다.</p>
+
+    <p>(중요) refresh token은 httpOnly / secure / SameSite 옵션을 준다.</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">maxAge</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span> <span class="c1">// 5m</span>
+  <span class="nx">httpOnly</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">secure</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">sameSite</span><span class="p">:</span> <span class="dl">"</span><span class="s2">strict</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>인증 체계를 다음과 같이 만든다.</p>
+
+    <ol>
+      <li>
+        <p>쿠키에 엑세스토큰이 있는지 확인한다.</p>
+
+        <ul>
+          <li>엑세스 토큰이 없다면 엑세스토큰을 재발급 절차를 받는다. (2번으로 이동)</li>
+          <li>엑세스 토큰 있다면 엑세스토큰을 확인 절차를 밟는다. (종료)</li>
+        </ul>
+      </li>
+      <li>
+        <p>재발급을 받는 절차에서 리프레시 토큰을 확인한다.</p>
+        <ul>
+          <li>리프레시 토큰이 없거나 유효하지 않으면 로그인 페이지로 이동시킨다. (종료)</li>
+          <li>리프레시 토큰이 유효하다면 새로운 엑세스토큰을 발급해준다.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<p>token의 저장 위치에 관하여는 언제나 말이 많았다. 예전에 나는 localstorage에 저장해서 이번에는 cookie에 한 번 담아 본 것이다.</p>
+
+<p>리액트같은 경우에 access token을 private 변수로 저장해놓고 사용해도 된다고 한다. 왜냐하면 어차피 refresh token이 있으니까 재발급받으면 된다는 의미인 것 같았다.</p>
+
+<p>refresh token을 일회성으로 사용하는 RTR (Refresh Token Rotation)이라는 방법도 있다.</p>
+
+<p>그러고 보니 access token을 헤더에 실어 보낼 때 어떻게 했더라 싶어서 다시 찾아봤다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">accessToken</span><span class="dl">"</span><span class="p">)</span> <span class="o">||</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">requestData</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://localhost:8000/like</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestData</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>아. 그리고 Bearer를 항상 붙였었는데 이건 일종의 약속이라서 그렇다고 한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Authorization: &lt;type&gt; &lt;credentials&gt;</code></p>
+
+<p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
 
 <p>git config에 대한 리스트를 보고자 하는 경우에는 아래와 같은 커맨드를 입력한다.</p>
 
@@ -408,91 +496,7 @@ test 추가 3
 
     <p>ssh and GPG keys라는 탭으로 들어가서, new ssh key 버튼을 눌러 복사한 값을 넣어주면 끝.</p>
   </li>
-</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[git config 설정 확인 및 변경하기]]></summary></entry><entry><title type="html">JWT 적용기</title><link href="http://localhost:4000/til/jwt.html" rel="alternate" type="text/html" title="JWT 적용기" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/jwt</id><content type="html" xml:base="http://localhost:4000/til/jwt.html"><![CDATA[<blockquote>
-  <p>사전 준비</p>
-</blockquote>
-
-<ol>
-  <li>cookie parser</li>
-  <li>cors
-    <ul>
-      <li>origin 설정</li>
-      <li>credentials true</li>
-    </ul>
-  </li>
-</ol>
-
-<p><br /></p>
-
-<blockquote>
-  <p>JWT 로직</p>
-</blockquote>
-
-<ul>
-  <li>
-    <p>로그인 시 인증 서버로부터 access token, refresh token을 쿠키에 넣어서 보내준다.</p>
-
-    <p>(중요) refresh token은 httpOnly / secure / SameSite 옵션을 준다.</p>
-
-    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
-  <span class="nl">maxAge</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span> <span class="c1">// 5m</span>
-  <span class="nx">httpOnly</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">secure</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">sameSite</span><span class="p">:</span> <span class="dl">"</span><span class="s2">strict</span><span class="dl">"</span>
-<span class="p">}</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>인증 체계를 다음과 같이 만든다.</p>
-
-    <ol>
-      <li>
-        <p>쿠키에 엑세스토큰이 있는지 확인한다.</p>
-
-        <ul>
-          <li>엑세스 토큰이 없다면 엑세스토큰을 재발급 절차를 받는다. (2번으로 이동)</li>
-          <li>엑세스 토큰 있다면 엑세스토큰을 확인 절차를 밟는다. (종료)</li>
-        </ul>
-      </li>
-      <li>
-        <p>재발급을 받는 절차에서 리프레시 토큰을 확인한다.</p>
-        <ul>
-          <li>리프레시 토큰이 없거나 유효하지 않으면 로그인 페이지로 이동시킨다. (종료)</li>
-          <li>리프레시 토큰이 유효하다면 새로운 엑세스토큰을 발급해준다.</li>
-        </ul>
-      </li>
-    </ol>
-  </li>
-</ul>
-
-<p><br />
-<br /></p>
-
-<p>token의 저장 위치에 관하여는 언제나 말이 많았다. 예전에 나는 localstorage에 저장해서 이번에는 cookie에 한 번 담아 본 것이다.</p>
-
-<p>리액트같은 경우에 access token을 private 변수로 저장해놓고 사용해도 된다고 한다. 왜냐하면 어차피 refresh token이 있으니까 재발급받으면 된다는 의미인 것 같았다.</p>
-
-<p>refresh token을 일회성으로 사용하는 RTR (Refresh Token Rotation)이라는 방법도 있다.</p>
-
-<p>그러고 보니 access token을 헤더에 실어 보낼 때 어떻게 했더라 싶어서 다시 찾아봤다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="dl">"</span><span class="s2">accessToken</span><span class="dl">"</span><span class="p">)</span> <span class="o">||</span> <span class="dl">""</span><span class="p">;</span>
-
-<span class="kd">const</span> <span class="nx">requestData</span> <span class="o">=</span> <span class="p">{};</span>
-
-<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://localhost:8000/like</span><span class="dl">"</span><span class="p">,</span> <span class="nx">requestData</span><span class="p">,</span> <span class="p">{</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">});</span>
-</code></pre></div></div>
-
-<p>아. 그리고 Bearer를 항상 붙였었는데 이건 일종의 약속이라서 그렇다고 한다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">Authorization: &lt;type&gt; &lt;credentials&gt;</code></p>
-
-<p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[사전 준비]]></summary></entry><entry><title type="html">MongoDB</title><link href="http://localhost:4000/til/mongoDB.html" rel="alternate" type="text/html" title="MongoDB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/mongoDB</id><content type="html" xml:base="http://localhost:4000/til/mongoDB.html"><![CDATA[<h2 id="overwritemodelerror">OverwriteModelError</h2>
+</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[git config 설정 확인 및 변경하기]]></summary></entry><entry><title type="html">MongoDB</title><link href="http://localhost:4000/til/mongoDB.html" rel="alternate" type="text/html" title="MongoDB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/mongoDB</id><content type="html" xml:base="http://localhost:4000/til/mongoDB.html"><![CDATA[<h2 id="overwritemodelerror">OverwriteModelError</h2>
 
 <blockquote>
   <p>런타임 에러</p>
