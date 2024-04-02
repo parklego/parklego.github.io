@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-31T20:20:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-02T17:32:08+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">개발일지</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="개발일지" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -1062,7 +1062,8 @@ NEXTAUTH_URL='https:localhost:3000'
 
 <p>이럴때 아래의 코드만 입력해주면 바로 완성이다. 리액트에서 변수를 넣을때 <code class="language-plaintext highlighter-rouge">$</code>를 넣지만 scss에서는 대신 <code class="language-plaintext highlighter-rouge">#</code>을 사용한다.</p>
 
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@each</span> <span class="nv">$key</span><span class="o">,</span> <span class="nv">$val</span> <span class="n">in</span> <span class="nv">$colors</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @each 다음에 오는 첫번째 파라미터는 key값에 해당 두번째 파라미터는 value값에 해당한다.</span>
+<span class="k">@each</span> <span class="nv">$key</span><span class="o">,</span> <span class="nv">$val</span> <span class="n">in</span> <span class="nv">$colors</span> <span class="p">{</span>
   <span class="nc">.text-</span><span class="si">#{</span><span class="nv">$key</span><span class="si">}</span> <span class="p">{</span>
     <span class="nl">color</span><span class="p">:</span> <span class="nv">$val</span><span class="p">;</span>
   <span class="p">}</span>
@@ -1114,19 +1115,10 @@ NEXTAUTH_URL='https:localhost:3000'
 
 <h2 id="mixin">Mixin</h2>
 
-<p>class를 만들다 보면 중복되는 부분이 많은데 몇가지만 달라지는 경우가 있다. 이럴때, 사용하는 것이 믹스인이다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">btn</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="nl">border</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="nv">$base-padding</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">btn</span><span class="p">();</span> <span class="c1">// 사용할 곳에 추가</span>
-</code></pre></div></div>
-
-<p>모양이 함수 모양이지 않은가? 그렇다. 파라미터를 넘길 수도 있다.</p>
+<ul>
+  <li>Mixin은 스타일 블록을 정의하고, 필요할 때 호출하여 사용할 수 있는 기능이다.</li>
+  <li>@include 키워드를 사용하여 호출합니다.</li>
+</ul>
 
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">btn</span><span class="p">(</span><span class="nv">$bg-color</span><span class="o">:</span> <span class="mh">#e2e2e2</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// js 디폴트 파라미터 느낌</span>
@@ -1139,6 +1131,16 @@ NEXTAUTH_URL='https:localhost:3000'
 
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">btn</span><span class="p">(</span><span class="no">orange</span><span class="p">);</span> <span class="c1">// 사용할 곳에 추가</span>
 </code></pre></div></div>
+
+<h2 id="extend">@extend</h2>
+
+<p>기존 스타일을 상속받으면서 추가적인 스타일을 정의할 때 사용한다.</p>
+
+<blockquote>
+  <p>mixin vs extend</p>
+
+  <p>Mixin은 스타일 블록을 정의하고 호출하여 재사용할 때 사용되고, Extend는 기존 스타일을 다른 선택자에 확장하여 재사용할 때 사용됩니다. Mixin은 새로운 스타일을 생성하는 반면 Extend는 기존 스타일을 공유하여 사용합니다.</p>
+</blockquote>
 
 <h2 id="function">Function</h2>
 
@@ -1156,7 +1158,84 @@ NEXTAUTH_URL='https:localhost:3000'
 
 <h2 id="making-utility-classes">Making Utility Classes</h2>
 
-<p>…</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Install]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
+<p>bootstrap 이나 tailwind css를 보면 <code class="language-plaintext highlighter-rouge">w-100</code>, <code class="language-plaintext highlighter-rouge">p-3</code>과 같이 간단하게 클래스를 만드는 경우를 볼 수 있다.</p>
+
+<p>그걸 만들어 보는 것이다.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$utilities</span><span class="p">:</span> <span class="p">(</span>
+  <span class="s2">"padding"</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s2">"prefix"</span><span class="o">:</span> <span class="s2">"p"</span><span class="o">,</span>
+    <span class="s2">"values"</span><span class="o">:</span> <span class="p">(</span>
+      <span class="s2">"0"</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
+      <span class="s2">"1"</span><span class="o">:</span> <span class="nv">$base-padding</span><span class="o">,</span>
+      <span class="s2">"2"</span><span class="o">:</span> <span class="nv">$base-padding</span> <span class="o">*</span> <span class="m">2</span><span class="o">,</span>
+      <span class="s2">"3"</span><span class="o">:</span> <span class="nv">$base-padding</span> <span class="o">*</span> <span class="m">3</span><span class="o">,</span>
+      <span class="s2">"4"</span><span class="o">:</span> <span class="nv">$base-padding</span> <span class="o">*</span> <span class="m">4</span><span class="o">,</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s2">"margin"</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s2">"prefix"</span><span class="o">:</span> <span class="s2">"m"</span><span class="o">,</span>
+    <span class="s2">"values"</span><span class="o">:</span> <span class="p">(</span>
+      <span class="s2">"0"</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
+      <span class="s2">"1"</span><span class="o">:</span> <span class="nv">$base-margin</span><span class="o">,</span>
+      <span class="s2">"2"</span><span class="o">:</span> <span class="nv">$base-margin</span> <span class="o">*</span> <span class="m">2</span><span class="o">,</span>
+      <span class="s2">"3"</span><span class="o">:</span> <span class="nv">$base-margin</span> <span class="o">*</span> <span class="m">3</span><span class="o">,</span>
+      <span class="s2">"4"</span><span class="o">:</span> <span class="nv">$base-margin</span> <span class="o">*</span> <span class="m">4</span><span class="o">,</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="p">)</span><span class="o">,</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>루프를 통해서 만든다.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@each</span> <span class="nv">$property</span><span class="o">,</span> <span class="nv">$map</span> <span class="n">in</span> <span class="nv">$utilities</span> <span class="p">{</span>
+  <span class="nv">$prefix</span><span class="p">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$map</span><span class="o">,</span> <span class="s2">"prefix"</span><span class="p">);</span> <span class="c1">// p, m</span>
+  <span class="nv">$values</span><span class="p">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$map</span><span class="o">,</span> <span class="s2">"values"</span><span class="p">);</span>
+
+  <span class="k">@each</span> <span class="nv">$k</span><span class="o">,</span> <span class="nv">$v</span> <span class="n">in</span> <span class="nv">$values</span> <span class="p">{</span>
+    <span class="nc">.</span><span class="si">#{</span><span class="nv">$prefix</span><span class="si">}</span><span class="nc">-</span><span class="si">#{</span><span class="nv">$k</span><span class="si">}</span> <span class="p">{</span>
+      <span class="si">#{</span><span class="nv">$property</span><span class="si">}</span><span class="nd">:</span> <span class="si">#{</span><span class="nv">$v</span><span class="si">}</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="media-queries">Media Queries</h2>
+
+<p><code class="language-plaintext highlighter-rouge">@content</code>는 mixin 내에 추가적인 스타일을 전달할 수 있다.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breakpoint</span><span class="p">:</span> <span class="p">(</span>
+  <span class="s2">"xs"</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
+  <span class="s2">"sm"</span><span class="o">:</span> <span class="m">480px</span><span class="o">,</span>
+  <span class="s2">"md"</span><span class="o">:</span> <span class="m">720px</span><span class="o">,</span>
+  <span class="s2">"lg"</span><span class="o">:</span> <span class="m">960px</span><span class="o">,</span>
+  <span class="s2">"xl"</span><span class="o">:</span> <span class="m">1200px</span><span class="o">,</span>
+<span class="p">);</span>
+
+<span class="k">@mixin</span> <span class="nf">xs</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoint</span><span class="o">,</span> <span class="s2">"xs"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">@content</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">@mixin</span> <span class="nf">xl</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoint</span><span class="o">,</span> <span class="s2">"xl"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">@content</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>사용하고 싶은 클래스에 넣으면 된다.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">xl</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 참고로 매개변수가 없을 경우에 ()를 생략할 수 있다. 아래는 위와 동일한 코드</span>
+<span class="k">@include</span> <span class="nd">xl</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Install]]></summary></entry><entry><title type="html">웹 접근성</title><link href="http://localhost:4000/til/web-Accessibility.html" rel="alternate" type="text/html" title="웹 접근성" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/web%20Accessibility</id><content type="html" xml:base="http://localhost:4000/til/web-Accessibility.html"><![CDATA[<p>웹 접근성(a11y)는 정보에 동등하게 접근하고 이해 할 수 있도록 보장하기 위해 중요하다.</p>
 
 <ul>
   <li><a href="https://story.pxd.co.kr/1588">wai-aria란?</a></li>

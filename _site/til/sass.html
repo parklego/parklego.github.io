@@ -235,7 +235,7 @@
         <a href="/til/sass.html" onclick="pageScrollToTop(this)">
           Sass
         </a>
-          <ul><li><a href="#install" onclick="mobilePageScrollToAnchor(this)" >Install</a></li><li><a href="#variables" onclick="mobilePageScrollToAnchor(this)" >Variables</a></li><li><a href="#loop" onclick="mobilePageScrollToAnchor(this)" >Loop</a></li><li><a href="#conditional" onclick="mobilePageScrollToAnchor(this)" >Conditional</a></li><li><a href="#parent-selectors" onclick="mobilePageScrollToAnchor(this)" >Parent Selectors</a></li><li><a href="#mixin" onclick="mobilePageScrollToAnchor(this)" >Mixin</a></li><li><a href="#function" onclick="mobilePageScrollToAnchor(this)" >Function</a></li><li><a href="#making-utility-classes" onclick="mobilePageScrollToAnchor(this)" >Making Utility Classes</a></li></ul>
+          <ul><li><a href="#install" onclick="mobilePageScrollToAnchor(this)" >Install</a></li><li><a href="#variables" onclick="mobilePageScrollToAnchor(this)" >Variables</a></li><li><a href="#loop" onclick="mobilePageScrollToAnchor(this)" >Loop</a></li><li><a href="#conditional" onclick="mobilePageScrollToAnchor(this)" >Conditional</a></li><li><a href="#parent-selectors" onclick="mobilePageScrollToAnchor(this)" >Parent Selectors</a></li><li><a href="#mixin" onclick="mobilePageScrollToAnchor(this)" >Mixin</a></li><li><a href="#extend" onclick="mobilePageScrollToAnchor(this)" >@extend</a></li><li><a href="#function" onclick="mobilePageScrollToAnchor(this)" >Function</a></li><li><a href="#making-utility-classes" onclick="mobilePageScrollToAnchor(this)" >Making Utility Classes</a></li><li><a href="#media-queries" onclick="mobilePageScrollToAnchor(this)" >Media Queries</a></li></ul>
   
       </li>
        
@@ -370,7 +370,8 @@
 
 <p>이럴때 아래의 코드만 입력해주면 바로 완성이다. 리액트에서 변수를 넣을때 <code class="language-plaintext highlighter-rouge">$</code>를 넣지만 scss에서는 대신 <code class="language-plaintext highlighter-rouge">#</code>을 사용한다.</p>
 
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@each</span> <span class="nv">$key</span><span class="o">,</span> <span class="nv">$val</span> <span class="n">in</span> <span class="nv">$colors</span> <span class="p">{</span>
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @each 다음에 오는 첫번째 파라미터는 key값에 해당 두번째 파라미터는 value값에 해당한다.</span>
+<span class="k">@each</span> <span class="nv">$key</span><span class="o">,</span> <span class="nv">$val</span> <span class="n">in</span> <span class="nv">$colors</span> <span class="p">{</span>
   <span class="nc">.text-</span><span class="si">#{</span><span class="nv">$key</span><span class="si">}</span> <span class="p">{</span>
     <span class="nl">color</span><span class="p">:</span> <span class="nv">$val</span><span class="p">;</span>
   <span class="p">}</span>
@@ -422,19 +423,10 @@
 
 <h2 id="mixin">Mixin</h2>
 
-<p>class를 만들다 보면 중복되는 부분이 많은데 몇가지만 달라지는 경우가 있다. 이럴때, 사용하는 것이 믹스인이다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">btn</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="nl">border</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="nv">$base-padding</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">btn</span><span class="p">();</span> <span class="c1">// 사용할 곳에 추가</span>
-</code></pre></div></div>
-
-<p>모양이 함수 모양이지 않은가? 그렇다. 파라미터를 넘길 수도 있다.</p>
+<ul>
+  <li>Mixin은 스타일 블록을 정의하고, 필요할 때 호출하여 사용할 수 있는 기능이다.</li>
+  <li>@include 키워드를 사용하여 호출합니다.</li>
+</ul>
 
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">btn</span><span class="p">(</span><span class="nv">$bg-color</span><span class="o">:</span> <span class="mh">#e2e2e2</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// js 디폴트 파라미터 느낌</span>
@@ -447,6 +439,16 @@
 
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">btn</span><span class="p">(</span><span class="no">orange</span><span class="p">);</span> <span class="c1">// 사용할 곳에 추가</span>
 </code></pre></div></div>
+
+<h2 id="extend">@extend</h2>
+
+<p>기존 스타일을 상속받으면서 추가적인 스타일을 정의할 때 사용한다.</p>
+
+<blockquote>
+  <p>mixin vs extend</p>
+
+  <p>Mixin은 스타일 블록을 정의하고 호출하여 재사용할 때 사용되고, Extend는 기존 스타일을 다른 선택자에 확장하여 재사용할 때 사용됩니다. Mixin은 새로운 스타일을 생성하는 반면 Extend는 기존 스타일을 공유하여 사용합니다.</p>
+</blockquote>
 
 <h2 id="function">Function</h2>
 
@@ -464,7 +466,84 @@
 
 <h2 id="making-utility-classes">Making Utility Classes</h2>
 
-<p>…</p>
+<p>bootstrap 이나 tailwind css를 보면 <code class="language-plaintext highlighter-rouge">w-100</code>, <code class="language-plaintext highlighter-rouge">p-3</code>과 같이 간단하게 클래스를 만드는 경우를 볼 수 있다.</p>
+
+<p>그걸 만들어 보는 것이다.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$utilities</span><span class="p">:</span> <span class="p">(</span>
+  <span class="s2">"padding"</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s2">"prefix"</span><span class="o">:</span> <span class="s2">"p"</span><span class="o">,</span>
+    <span class="s2">"values"</span><span class="o">:</span> <span class="p">(</span>
+      <span class="s2">"0"</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
+      <span class="s2">"1"</span><span class="o">:</span> <span class="nv">$base-padding</span><span class="o">,</span>
+      <span class="s2">"2"</span><span class="o">:</span> <span class="nv">$base-padding</span> <span class="o">*</span> <span class="m">2</span><span class="o">,</span>
+      <span class="s2">"3"</span><span class="o">:</span> <span class="nv">$base-padding</span> <span class="o">*</span> <span class="m">3</span><span class="o">,</span>
+      <span class="s2">"4"</span><span class="o">:</span> <span class="nv">$base-padding</span> <span class="o">*</span> <span class="m">4</span><span class="o">,</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s2">"margin"</span><span class="o">:</span> <span class="p">(</span>
+    <span class="s2">"prefix"</span><span class="o">:</span> <span class="s2">"m"</span><span class="o">,</span>
+    <span class="s2">"values"</span><span class="o">:</span> <span class="p">(</span>
+      <span class="s2">"0"</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
+      <span class="s2">"1"</span><span class="o">:</span> <span class="nv">$base-margin</span><span class="o">,</span>
+      <span class="s2">"2"</span><span class="o">:</span> <span class="nv">$base-margin</span> <span class="o">*</span> <span class="m">2</span><span class="o">,</span>
+      <span class="s2">"3"</span><span class="o">:</span> <span class="nv">$base-margin</span> <span class="o">*</span> <span class="m">3</span><span class="o">,</span>
+      <span class="s2">"4"</span><span class="o">:</span> <span class="nv">$base-margin</span> <span class="o">*</span> <span class="m">4</span><span class="o">,</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="p">)</span><span class="o">,</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>루프를 통해서 만든다.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@each</span> <span class="nv">$property</span><span class="o">,</span> <span class="nv">$map</span> <span class="n">in</span> <span class="nv">$utilities</span> <span class="p">{</span>
+  <span class="nv">$prefix</span><span class="p">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$map</span><span class="o">,</span> <span class="s2">"prefix"</span><span class="p">);</span> <span class="c1">// p, m</span>
+  <span class="nv">$values</span><span class="p">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$map</span><span class="o">,</span> <span class="s2">"values"</span><span class="p">);</span>
+
+  <span class="k">@each</span> <span class="nv">$k</span><span class="o">,</span> <span class="nv">$v</span> <span class="n">in</span> <span class="nv">$values</span> <span class="p">{</span>
+    <span class="nc">.</span><span class="si">#{</span><span class="nv">$prefix</span><span class="si">}</span><span class="nc">-</span><span class="si">#{</span><span class="nv">$k</span><span class="si">}</span> <span class="p">{</span>
+      <span class="si">#{</span><span class="nv">$property</span><span class="si">}</span><span class="nd">:</span> <span class="si">#{</span><span class="nv">$v</span><span class="si">}</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="media-queries">Media Queries</h2>
+
+<p><code class="language-plaintext highlighter-rouge">@content</code>는 mixin 내에 추가적인 스타일을 전달할 수 있다.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breakpoint</span><span class="p">:</span> <span class="p">(</span>
+  <span class="s2">"xs"</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
+  <span class="s2">"sm"</span><span class="o">:</span> <span class="m">480px</span><span class="o">,</span>
+  <span class="s2">"md"</span><span class="o">:</span> <span class="m">720px</span><span class="o">,</span>
+  <span class="s2">"lg"</span><span class="o">:</span> <span class="m">960px</span><span class="o">,</span>
+  <span class="s2">"xl"</span><span class="o">:</span> <span class="m">1200px</span><span class="o">,</span>
+<span class="p">);</span>
+
+<span class="k">@mixin</span> <span class="nf">xs</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoint</span><span class="o">,</span> <span class="s2">"xs"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">@content</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">@mixin</span> <span class="nf">xl</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoint</span><span class="o">,</span> <span class="s2">"xl"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">@content</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>사용하고 싶은 클래스에 넣으면 된다.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">xl</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 참고로 매개변수가 없을 경우에 ()를 생략할 수 있다. 아래는 위와 동일한 코드</span>
+<span class="k">@include</span> <span class="nd">xl</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -668,7 +747,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-03-31 20:20:57 +0900"
+        "time": "2024-04-02 17:32:08 +0900"
     },
     "basePath": "",
     "book": {
