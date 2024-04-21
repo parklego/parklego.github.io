@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-03T15:06:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-22T00:58:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">개발일지</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="개발일지" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -69,7 +69,6 @@
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="p">...</span>
-
 <span class="kd">const</span> <span class="nx">sensitivity</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
 
 <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -79,7 +78,6 @@
         <span class="na">y</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">/</span> <span class="nx">sensitivity</span><span class="p">,</span>
       <span class="p">});</span>
     <span class="p">};</span>
-
     <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">mousemove</span><span class="dl">"</span><span class="p">,</span> <span class="nx">handleMouseMove</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -93,8 +91,6 @@
   <span class="p">});</span>
 
 <span class="p">...</span>
-
-
 
 </code></pre></div></div>
 
@@ -198,7 +194,89 @@
 
 <p><code class="language-plaintext highlighter-rouge">Authorization: &lt;type&gt; &lt;credentials&gt;</code></p>
 
-<p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
+<p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>
+
+<h2 id="oauth-20으로-youtube-api-호출하기">OAuth 2.0으로 Youtube API 호출하기</h2>
+
+<p>처음의 나의 로직은 이러했다.</p>
+
+<ol>
+  <li>next-auth를 이용하여 소셜로그인을 한다.</li>
+  <li>로그인 도중 oAuth 인증을 통해서 자격증명을 사용자에게 요청한다.</li>
+  <li>자격증명에 성공하면 Youtube API 접근 권한에 대한 access token을 획득한다.</li>
+  <li>클라이언트에서 Youtube API를 호출할때 header에 access token을 실어서 넘긴다.</li>
+</ol>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// app/api/auth/[...nextauth]/route.ts</span>
+
+<span class="k">import</span> <span class="nx">NextAuth</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">GoogleProvider</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/providers/google</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="nx">NextAuth</span><span class="p">({</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">GoogleProvider</span><span class="p">({</span>
+      <span class="na">clientId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GOOGLE_CLIENT_ID</span> <span class="o">??</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="na">clientSecret</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GOOGLE_CLIENT_SECRET</span> <span class="o">??</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="na">authorization</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">scope</span><span class="p">:</span>
+            <span class="dl">"</span><span class="s2">openid email profile https://www.googleapis.com/auth/youtube.readonly</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">prompt</span><span class="p">:</span> <span class="dl">"</span><span class="s2">consent</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">access_type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">offline</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">response_type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">,</span>
+        <span class="p">},</span>
+      <span class="p">},</span>
+    <span class="p">}),</span>
+  <span class="p">],</span>
+  <span class="na">pages</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">error</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">callbacks</span><span class="p">:</span> <span class="p">{</span>
+    <span class="k">async</span> <span class="nx">jwt</span><span class="p">({</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">account</span> <span class="p">})</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">account</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">token</span><span class="p">.</span><span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">access_token</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">token</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="k">async</span> <span class="nx">session</span><span class="p">({</span> <span class="nx">session</span><span class="p">,</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">user</span> <span class="p">})</span> <span class="p">{</span>
+      <span class="nx">session</span><span class="p">.</span><span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">token</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">;</span>
+
+      <span class="k">return</span> <span class="nx">session</span><span class="p">;</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="k">export</span> <span class="p">{</span> <span class="nx">handler</span> <span class="k">as</span> <span class="nx">GET</span><span class="p">,</span> <span class="nx">handler</span> <span class="k">as</span> <span class="nx">POST</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getChannel</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">keyword</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
+    <span class="s2">`https://www.googleapis.com/youtube/v3/search?part=snippet&amp;type=channel&amp;q=</span><span class="p">${</span><span class="nx">keyword</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="p">{</span>
+      <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">session</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>테스트를 해보니 내가 구독한 정보에 대해 잘 불러왔다.</p>
+
+<p>하지만, 문제점은 프로덕션 단계에서 이를 활용하려면 아래와 같이 조건들이 필요했다.</p>
+
+<p><img src="../assets/oAuth.png" alt="Untitled" /></p>
+
+<p>저러한 조건을 다 채우더라도 승인될지의 의문과 구독한 채널의 카테고리를 필터링해서 불러오는 API도 제공하지 않는다.</p>
+
+<p>Next-auth 자체가 oAuth를 사용하기때문에 youtube API와 같은 민감한 데이터로의 접근은 프로덕션단계에서만 원활하게 작동한다.</p>
+
+<p>테스트를 하더라도 인증된 이메일만 접근 가능하다.</p>
+
+<p>이는 포기하고 API key로 Youtube API를 호출하는 방식으로 바꿔야 할 듯 하다.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
 
 <p>git config에 대한 리스트를 보고자 하는 경우에는 아래와 같은 커맨드를 입력한다.</p>
 
@@ -496,7 +574,149 @@ test 추가 3
 
     <p>ssh and GPG keys라는 탭으로 들어가서, new ssh key 버튼을 눌러 복사한 값을 넣어주면 끝.</p>
   </li>
-</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[git config 설정 확인 및 변경하기]]></summary></entry><entry><title type="html">MongoDB</title><link href="http://localhost:4000/til/mongoDB.html" rel="alternate" type="text/html" title="MongoDB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/mongoDB</id><content type="html" xml:base="http://localhost:4000/til/mongoDB.html"><![CDATA[<h2 id="overwritemodelerror">OverwriteModelError</h2>
+</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[git config 설정 확인 및 변경하기]]></summary></entry><entry><title type="html">JavaScript</title><link href="http://localhost:4000/til/javascript.html" rel="alternate" type="text/html" title="JavaScript" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/javascript</id><content type="html" xml:base="http://localhost:4000/til/javascript.html"><![CDATA[<h2 id="for-in">for in</h2>
+
+<ul>
+  <li>객체 순환</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="na">c</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// key 값 접근</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span> <span class="c1">// a,b,c</span>
+<span class="p">}</span>
+
+<span class="c1">// value 값 접근</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">object</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span> <span class="c1">// 1,2,3</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="for-of">for of</h2>
+
+<ul>
+  <li>배열 순환</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 1,2,3</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="foreach">forEach</h2>
+
+<ul>
+  <li>배열 순환</li>
+  <li>return 값 X</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="nx">array</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span> <span class="c1">// 1,2,3</span>
+</code></pre></div></div>
+
+<h2 id="map">map</h2>
+
+<ul>
+  <li>배열 순환</li>
+  <li>return 값이 변형된 값(return값)들의 모음</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">double</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">item</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">double</span><span class="p">);</span> <span class="c1">// [1,2,3]</span>
+</code></pre></div></div>
+
+<h2 id="filter">filter</h2>
+
+<ul>
+  <li>배열 순환</li>
+  <li>return 값이 true인 값들의 모음</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">odd</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">item</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">odd</span><span class="p">);</span> <span class="c1">// [1,3]</span>
+</code></pre></div></div>
+
+<h2 id="reduce">reduce</h2>
+
+<ul>
+  <li>배열 순환</li>
+  <li>callback함수의 실행 값을 누적하여 하나의 결과값을 반환</li>
+  <li>초기값 설정 필요 (설정하지 않으면 배열 0번째 요소의 값)</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">curr</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">curr</span><span class="p">;</span>
+<span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 55</span>
+</code></pre></div></div>
+
+<h2 id="split">split</h2>
+
+<ul>
+  <li>문자열을 구분자 기준으로 나누어 배열로 변환</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">apple banana orange</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span> <span class="c1">// [ 'apple', 'banana', 'orange' ]</span>
+</code></pre></div></div>
+
+<h2 id="join">join</h2>
+
+<ul>
+  <li>배열의 모든 요소를 쉼표나 지정된 구분 문자열로 구분하여 연결한 새 문자열을 만들어 반환</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">elements</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Fire</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Air</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Water</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elements</span><span class="p">.</span><span class="nx">join</span><span class="p">());</span> <span class="c1">//  Fire,Air,Water</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elements</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">""</span><span class="p">));</span> <span class="c1">// FireAirWater</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elements</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// Fire-Air-Water</span>
+</code></pre></div></div>
+
+<h2 id="tosorted">toSorted</h2>
+
+<ul>
+  <li>요소들을 오름차순으로 정렬한 새로운 배열을 반환</li>
+</ul>
+
+<h2 id="toreversed">toReversed</h2>
+
+<ul>
+  <li>요소들을 내림차순으로 정렬한 새로운 배열을 반환</li>
+</ul>
+
+<h2 id="nullish-coalescing">nullish coalescing</h2>
+
+<ul>
+  <li>값이 null 이나 undefined 인지 체크</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">displayName</span> <span class="o">=</span> <span class="nx">name</span> <span class="o">??</span> <span class="dl">"</span><span class="s2">익명</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[for in]]></summary></entry><entry><title type="html">MongoDB</title><link href="http://localhost:4000/til/mongoDB.html" rel="alternate" type="text/html" title="MongoDB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/mongoDB</id><content type="html" xml:base="http://localhost:4000/til/mongoDB.html"><![CDATA[<h2 id="overwritemodelerror">OverwriteModelError</h2>
 
 <blockquote>
   <p>런타임 에러</p>

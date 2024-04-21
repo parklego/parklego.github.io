@@ -173,6 +173,20 @@
       <li
         class="chapter"
         data-level="1.1"
+        data-path="/til/javascript.html"
+      >
+        
+        <a href="/til/javascript.html" onclick="pageScrollToTop(this)">
+          JavaScript
+        </a>
+          
+      </li>
+       
+      </li>
+
+      <li
+        class="chapter"
+        data-level="1.1"
         data-path="/til/mongoDB.html"
       >
         
@@ -247,7 +261,7 @@
         <a href="/til/think.html" onclick="pageScrollToTop(this)">
           개발일지
         </a>
-          <ul><li><a href="#라이트다크-모드" onclick="mobilePageScrollToAnchor(this)" >라이트/다크 모드</a></li><li><a href="#인터렉티브" onclick="mobilePageScrollToAnchor(this)" >인터렉티브</a></li><li><a href="#jwt-적용기" onclick="mobilePageScrollToAnchor(this)" >JWT 적용기</a></li></ul>
+          <ul><li><a href="#라이트다크-모드" onclick="mobilePageScrollToAnchor(this)" >라이트/다크 모드</a></li><li><a href="#인터렉티브" onclick="mobilePageScrollToAnchor(this)" >인터렉티브</a></li><li><a href="#jwt-적용기" onclick="mobilePageScrollToAnchor(this)" >JWT 적용기</a></li><li><a href="#oauth-20으로-youtube-api-호출하기" onclick="mobilePageScrollToAnchor(this)" >OAuth 2.0으로 Youtube API 호출하기</a></li></ul>
   
       </li>
        
@@ -346,7 +360,6 @@
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="p">...</span>
-
 <span class="kd">const</span> <span class="nx">sensitivity</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
 
 <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -356,7 +369,6 @@
         <span class="na">y</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">/</span> <span class="nx">sensitivity</span><span class="p">,</span>
       <span class="p">});</span>
     <span class="p">};</span>
-
     <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">mousemove</span><span class="dl">"</span><span class="p">,</span> <span class="nx">handleMouseMove</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -370,8 +382,6 @@
   <span class="p">});</span>
 
 <span class="p">...</span>
-
-
 
 </code></pre></div></div>
 
@@ -476,6 +486,88 @@
 <p><code class="language-plaintext highlighter-rouge">Authorization: &lt;type&gt; &lt;credentials&gt;</code></p>
 
 <p>Bearer 타입은 JWT 혹은 OAuth에 대한 토큰을 사용한다는 뜻.</p>
+
+<h2 id="oauth-20으로-youtube-api-호출하기">OAuth 2.0으로 Youtube API 호출하기</h2>
+
+<p>처음의 나의 로직은 이러했다.</p>
+
+<ol>
+  <li>next-auth를 이용하여 소셜로그인을 한다.</li>
+  <li>로그인 도중 oAuth 인증을 통해서 자격증명을 사용자에게 요청한다.</li>
+  <li>자격증명에 성공하면 Youtube API 접근 권한에 대한 access token을 획득한다.</li>
+  <li>클라이언트에서 Youtube API를 호출할때 header에 access token을 실어서 넘긴다.</li>
+</ol>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// app/api/auth/[...nextauth]/route.ts</span>
+
+<span class="k">import</span> <span class="nx">NextAuth</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">GoogleProvider</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">next-auth/providers/google</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="nx">NextAuth</span><span class="p">({</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">GoogleProvider</span><span class="p">({</span>
+      <span class="na">clientId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GOOGLE_CLIENT_ID</span> <span class="o">??</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="na">clientSecret</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GOOGLE_CLIENT_SECRET</span> <span class="o">??</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="na">authorization</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">scope</span><span class="p">:</span>
+            <span class="dl">"</span><span class="s2">openid email profile https://www.googleapis.com/auth/youtube.readonly</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">prompt</span><span class="p">:</span> <span class="dl">"</span><span class="s2">consent</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">access_type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">offline</span><span class="dl">"</span><span class="p">,</span>
+          <span class="na">response_type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">,</span>
+        <span class="p">},</span>
+      <span class="p">},</span>
+    <span class="p">}),</span>
+  <span class="p">],</span>
+  <span class="na">pages</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">error</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">callbacks</span><span class="p">:</span> <span class="p">{</span>
+    <span class="k">async</span> <span class="nx">jwt</span><span class="p">({</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">account</span> <span class="p">})</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">account</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">token</span><span class="p">.</span><span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">account</span><span class="p">.</span><span class="nx">access_token</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">token</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="k">async</span> <span class="nx">session</span><span class="p">({</span> <span class="nx">session</span><span class="p">,</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">user</span> <span class="p">})</span> <span class="p">{</span>
+      <span class="nx">session</span><span class="p">.</span><span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">token</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">;</span>
+
+      <span class="k">return</span> <span class="nx">session</span><span class="p">;</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="k">export</span> <span class="p">{</span> <span class="nx">handler</span> <span class="k">as</span> <span class="nx">GET</span><span class="p">,</span> <span class="nx">handler</span> <span class="k">as</span> <span class="nx">POST</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getChannel</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">keyword</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
+    <span class="s2">`https://www.googleapis.com/youtube/v3/search?part=snippet&amp;type=channel&amp;q=</span><span class="p">${</span><span class="nx">keyword</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="p">{</span>
+      <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">Content-Type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">Authorization</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">session</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>테스트를 해보니 내가 구독한 정보에 대해 잘 불러왔다.</p>
+
+<p>하지만, 문제점은 프로덕션 단계에서 이를 활용하려면 아래와 같이 조건들이 필요했다.</p>
+
+<p><img src="../assets/oAuth.png" alt="Untitled" /></p>
+
+<p>저러한 조건을 다 채우더라도 승인될지의 의문과 구독한 채널의 카테고리를 필터링해서 불러오는 API도 제공하지 않는다.</p>
+
+<p>Next-auth 자체가 oAuth를 사용하기때문에 youtube API와 같은 민감한 데이터로의 접근은 프로덕션단계에서만 원활하게 작동한다.</p>
+
+<p>테스트를 하더라도 인증된 이메일만 접근 가능하다.</p>
+
+<p>이는 포기하고 API key로 Youtube API를 호출하는 방식으로 바꿔야 할 듯 하다.</p>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -662,7 +754,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-04-03 15:06:49 +0900"
+        "time": "2024-04-22 00:58:43 +0900"
     },
     "basePath": "",
     "book": {
