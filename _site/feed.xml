@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-22T01:08:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-22T23:53:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">개발일지</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="개발일지" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -276,7 +276,27 @@
 
 <p>테스트를 하더라도 인증된 이메일만 접근 가능하다.</p>
 
-<p>이는 포기하고 API key로 Youtube API를 호출하는 방식으로 바꿔야 할 듯 하다.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
+<p>이는 포기하고 API key로 Youtube API를 호출하는 방식으로 바꿔야 할 듯 하다.</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[라이트/다크 모드]]></summary></entry><entry><title type="html">DB</title><link href="http://localhost:4000/til/db.html" rel="alternate" type="text/html" title="DB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/db</id><content type="html" xml:base="http://localhost:4000/til/db.html"><![CDATA[<h2 id="mongodb">MongoDB</h2>
+
+<h3 id="overwritemodelerror">OverwriteModelError</h3>
+
+<blockquote>
+  <p>런타임 에러</p>
+</blockquote>
+
+<p>⨯ OverwriteModelError: Cannot overwrite <code class="language-plaintext highlighter-rouge">Users</code> model once compiled.</p>
+
+<p><br /></p>
+
+<blockquote>
+  <p>해결책</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="kd">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Users</span> <span class="o">||</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="dl">"</span><span class="s2">Users</span><span class="dl">"</span><span class="p">,</span> <span class="nx">userSchema</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">User</span><span class="p">;</span>
+</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[MongoDB]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
 
 <p>git config에 대한 리스트를 보고자 하는 경우에는 아래와 같은 커맨드를 입력한다.</p>
 
@@ -574,7 +594,9 @@ test 추가 3
 
     <p>ssh and GPG keys라는 탭으로 들어가서, new ssh key 버튼을 눌러 복사한 값을 넣어주면 끝.</p>
   </li>
-</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[git config 설정 확인 및 변경하기]]></summary></entry><entry><title type="html">JavaScript</title><link href="http://localhost:4000/til/javascript.html" rel="alternate" type="text/html" title="JavaScript" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/javascript</id><content type="html" xml:base="http://localhost:4000/til/javascript.html"><![CDATA[<h2 id="for-in">for in</h2>
+</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[git config 설정 확인 및 변경하기]]></summary></entry><entry><title type="html">JavaScript</title><link href="http://localhost:4000/til/javascript.html" rel="alternate" type="text/html" title="JavaScript" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/javascript</id><content type="html" xml:base="http://localhost:4000/til/javascript.html"><![CDATA[<h2 id="메서드">메서드</h2>
+
+<h3 id="for-in">for in</h3>
 
 <ul>
   <li>객체 순환</li>
@@ -597,7 +619,7 @@ test 추가 3
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h2 id="for-of">for of</h2>
+<h3 id="for-of">for of</h3>
 
 <ul>
   <li>배열 순환</li>
@@ -610,7 +632,7 @@ test 추가 3
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h2 id="foreach">forEach</h2>
+<h3 id="foreach">forEach</h3>
 
 <ul>
   <li>배열 순환</li>
@@ -622,7 +644,7 @@ test 추가 3
 <span class="nx">array</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span> <span class="c1">// 1,2,3</span>
 </code></pre></div></div>
 
-<h2 id="map">map</h2>
+<h3 id="map">map</h3>
 
 <ul>
   <li>배열 순환</li>
@@ -638,7 +660,7 @@ test 추가 3
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">double</span><span class="p">);</span> <span class="c1">// [1,2,3]</span>
 </code></pre></div></div>
 
-<h2 id="filter">filter</h2>
+<h3 id="filter">filter</h3>
 
 <ul>
   <li>배열 순환</li>
@@ -654,7 +676,7 @@ test 추가 3
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">odd</span><span class="p">);</span> <span class="c1">// [1,3]</span>
 </code></pre></div></div>
 
-<h2 id="reduce">reduce</h2>
+<h3 id="reduce">reduce</h3>
 
 <ul>
   <li>배열 순환</li>
@@ -671,7 +693,7 @@ test 추가 3
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 55</span>
 </code></pre></div></div>
 
-<h2 id="split">split</h2>
+<h3 id="split">split</h3>
 
 <ul>
   <li>문자열을 구분자 기준으로 나누어 배열로 변환</li>
@@ -684,7 +706,7 @@ test 추가 3
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span> <span class="c1">// [ 'apple', 'banana', 'orange' ]</span>
 </code></pre></div></div>
 
-<h2 id="join">join</h2>
+<h3 id="join">join</h3>
 
 <ul>
   <li>배열의 모든 요소를 쉼표나 지정된 구분 문자열로 구분하여 연결한 새 문자열을 만들어 반환</li>
@@ -697,44 +719,167 @@ test 추가 3
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elements</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// Fire-Air-Water</span>
 </code></pre></div></div>
 
-<h2 id="tosorted">toSorted</h2>
+<h3 id="tosorted">toSorted</h3>
 
 <ul>
   <li>요소들을 오름차순으로 정렬한 새로운 배열을 반환</li>
 </ul>
 
-<h2 id="toreversed">toReversed</h2>
+<h3 id="toreversed">toReversed</h3>
 
 <ul>
   <li>요소들을 내림차순으로 정렬한 새로운 배열을 반환</li>
 </ul>
 
-<h2 id="nullish-coalescing">nullish coalescing</h2>
+<h2 id="nullish-coalescing">Nullish coalescing</h2>
 
 <ul>
   <li>값이 null 이나 undefined 인지 체크</li>
 </ul>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">displayName</span> <span class="o">=</span> <span class="nx">name</span> <span class="o">??</span> <span class="dl">"</span><span class="s2">익명</span><span class="dl">"</span><span class="p">;</span>
-</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[for in]]></summary></entry><entry><title type="html">MongoDB</title><link href="http://localhost:4000/til/mongoDB.html" rel="alternate" type="text/html" title="MongoDB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/mongoDB</id><content type="html" xml:base="http://localhost:4000/til/mongoDB.html"><![CDATA[<h2 id="overwritemodelerror">OverwriteModelError</h2>
+</code></pre></div></div>
 
-<blockquote>
-  <p>런타임 에러</p>
-</blockquote>
+<h2 id="호이스팅">호이스팅</h2>
 
-<p>⨯ OverwriteModelError: Cannot overwrite <code class="language-plaintext highlighter-rouge">Users</code> model once compiled.</p>
+<p>호이스팅(Hoisting)이란, var 선언문이나 function 선언문 등을 해당 스코프의 선두로 옮긴 것처럼 동작하는 특성을 말한다.</p>
+
+<p>자바스크립트는 ES6에서 도입된 let, const를 포함하여 모든 선언(var, let, const, function, function*, class)을 호이스팅한다.</p>
 
 <p><br /></p>
 
-<blockquote>
-  <p>해결책</p>
-</blockquote>
+<p>아래는 가장 대표적인 예시이다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
-<span class="kd">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Users</span> <span class="o">||</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="dl">"</span><span class="s2">Users</span><span class="dl">"</span><span class="p">,</span> <span class="nx">userSchema</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// undefined</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">User</span><span class="p">;</span>
-</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[OverwriteModelError]]></summary></entry><entry><title type="html">네트워크</title><link href="http://localhost:4000/til/network.html" rel="alternate" type="text/html" title="네트워크" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/network</id><content type="html" xml:base="http://localhost:4000/til/network.html"><![CDATA[<h2 id="rest-api란-무엇인가">REST API란 무엇인가?</h2>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>선언하지 않은 것인데도 에러가 발생하지 않는다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">helloWorld</span><span class="p">();</span> <span class="c1">// Hello World!</span>
+
+<span class="kd">function</span> <span class="nx">helloWorld</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello World!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>선언을 하지도 않았는데 함수에 접근할 수 있다.</p>
+
+<p><br /></p>
+
+<p><b>왜 그런 것일까??</b></p>
+
+<p>자바스크립트에서의 변수는 <code class="language-plaintext highlighter-rouge">선언 단계</code> &gt; <code class="language-plaintext highlighter-rouge">초기화 단계</code>&gt; <code class="language-plaintext highlighter-rouge">할당 단계</code>에 걸쳐 생성되는데 컴파일 단계에서 함수와 변수 선언이 스캔된다.</p>
+
+<p><br /></p>
+
+<p>스캔 된 모든 함수, 변수 선언은 <code class="language-plaintext highlighter-rouge">Lexical Environment</code>라고 불리는 자바스크립트 데이터 구조 내 메모리에 추가된다.</p>
+
+<p>(이때가 스코프의 선두로 옮긴 것처럼 동작하게끔 보이는 것이고 접근 가능케 되는 것이다. )</p>
+
+<p><br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// ReferenceError: Cannot access 'greeting' before initialization</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>가끔 다른 블로그를 보면 <code class="language-plaintext highlighter-rouge">let</code> 과 <code class="language-plaintext highlighter-rouge">const</code>가 호이스팅이 안된다고 말하는 사람들이 있는데 그것은 잘못 된 것이다.</p>
+
+<p><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">var</code>는 선언 단계와 초기화 단계가 한번에 이루어진다. 그래서 <code class="language-plaintext highlighter-rouge">undefined</code>가 찍히는 것이다.</p>
+
+<p>반면,<code class="language-plaintext highlighter-rouge">let</code>과 <code class="language-plaintext highlighter-rouge">const</code>는 호이스팅이 되어 선언단계까지는 왔으나 초기화 단계가 없어서 에러를 뱉는 것이다.</p>
+
+<p>위의 주석처리를 보면 이제 이해가 갈 것이다. 이때를 <code class="language-plaintext highlighter-rouge">일시적 사각지대(Temporal Dead Zone; TDZ)</code>에 빠진다고 생각하면 된다.</p>
+
+<h2 id="클로저">클로저</h2>
+
+<p>클로저를 쉽게 이해하기 위해서는 배경지식이 필요하다.</p>
+
+<p>먼저, <code class="language-plaintext highlighter-rouge">실행 컨텍스트</code>를 알아야한다.</p>
+
+<p>함수는 호출 될 때 함수의 실행 컨텍스트가 생성됐다가 실행이 끝나면 실행 컨텍스트가 종료된다.</p>
+
+<p>이때 실행 컨텍스트의 <code class="language-plaintext highlighter-rouge">lexical environment</code>에는 함수의 지역 변수의 정보와 이 함수의 상위 스코프의 대한 정보가 들어있다. (<code class="language-plaintext highlighter-rouge">scope chain</code>)</p>
+
+<p><br /></p>
+
+<p><b>클로저란?</b></p>
+
+<p>함수가 생성 될 때 주변 환경의 상태를 기억하여(lexical environment) 나중에 호출될 때 그 값에 접근할 수 있는 것을 말한다.</p>
+
+<p>예제를 보자면,</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeCounter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="kd">function</span> <span class="nx">inner</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">inner</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nx">makeCounter</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">());</span> <span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">());</span> <span class="c1">// 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">());</span> <span class="c1">// 3</span>
+</code></pre></div></div>
+
+<p>이 코드에서 makeCounter 함수는 inner 함수를 정의하고, 이를 반환한다.</p>
+
+<p>inner 함수는 외부 함수인 makeCounter 함수 내에 정의되어 있지만, 외부 변수인 count에 접근할 수 있다.</p>
+
+<p>이렇게 반환된 inner 함수가 클로저이다.</p>
+
+<p>이제 counter 변수에는 inner 함수가 할당되어 있고, 이를 호출할 때마다 count 변수가 증가한다.</p>
+
+<p><br /></p>
+
+<p><b>정리</b></p>
+
+<p>클로저 (Closure) 함수는 외부 함수 밖에서 내부 함수가 호출 되더라도 외부 함수의 지역 변수에 접근할 수 있다 그 이유는 자신이 생성될 때의 환경 즉, Lexical Environment을 기억하고 있기 때문이다.</p>
+
+<h2 id="이벤트-루프">이벤트 루프</h2>
+
+<p>JavaScript는 단일 스레드 프로그래밍 언어이다. 즉, 단일 호출 스택이 있음을 의미한다.
+그러므로 한 번에 한 가지 일만 할 수 있다.</p>
+
+<p><img src="../assets/event.png" alt="Untitled" /></p>
+
+<p>JavaScript는 크게 <code class="language-plaintext highlighter-rouge">Memory Heap</code>과 <code class="language-plaintext highlighter-rouge">Call Stack</code>으로 이루어져 있다.</p>
+
+<ul>
+  <li>Memory Heap : 메모리 할당이 일어나는 장소</li>
+  <li>Call Stack : 코드가 실행될 경우 하나씩 stack의 형태로 쌓이는 장소</li>
+</ul>
+
+<p><br /></p>
+
+<p>Call Stack에서 실행된 비동기 함수는 <code class="language-plaintext highlighter-rouge">Web API</code>에서 처리를 하게 되고, 그동안에 Call Stack은 나머지 동기 함수들을 처리하게 된다.</p>
+
+<p><br /></p>
+
+<p>Web API는 브라우저(Chrome)에서 멀티 스레드로 구현되어 있다. 그래서 브라우저는 비동기 작업에 대해 메인 스레드를 차단하지 않고, 다른 스레드를 사용하여 동시에 처리할수 있는 것이다. (DOM, AJAX, setTimeout 등)</p>
+
+<p>작업이 완료된 비동기 함수들을 <code class="language-plaintext highlighter-rouge">Callback Queue</code>로 넘겨주게 된다.</p>
+
+<p><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">Event Loop</code>는 Call Stack과 Callback Queue를 상태를 계속 감시하며 Call Stack에 함수들이 존재하지 않는다면 Callback Queue에 있는 비동기 함수들을 Call Stack에 밀어 넣게 된다.</p>
+
+<p>그 후 Call Stack에서 비동기 함수를 실행시키게 된다.</p>
+
+<p><br /></p>
+
+<p>참고 : https://inpa.tistory.com/entry/%F0%9F%94%84-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%A3%A8%ED%94%84-%EA%B5%AC%EC%A1%B0-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC</p>
+
+<p>참고 : https://blog.toktokhan.dev/t-767eb0fa38f3</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[메서드]]></summary></entry><entry><title type="html">네트워크</title><link href="http://localhost:4000/til/network.html" rel="alternate" type="text/html" title="네트워크" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/network</id><content type="html" xml:base="http://localhost:4000/til/network.html"><![CDATA[<h2 id="rest-api란-무엇인가">REST API란 무엇인가?</h2>
 
 <p>REST API란 REST를 기반으로 만들어진 API를 의미한다. REST API를 알기 위해 REST부터 알아야 한다.</p>
 
