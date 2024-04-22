@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head><meta charset="UTF-8" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>CSS · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>Design System · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
 " /><meta
   name="generator"
@@ -58,7 +58,7 @@
 />
 
  
-    <link rel="prev" href="/" />
+    <link rel="prev" href="/til/DesignSystem.html" />
      
     <link rel="next" href="/til/db.html" />
     
@@ -142,6 +142,20 @@
         
       <!-- <p>posts</p> -->
          
+      </li>
+
+      <li
+        class="chapter"
+        data-level="1.1"
+        data-path="/til/DesignSystem.html"
+      >
+        
+        <a href="/til/DesignSystem.html" onclick="pageScrollToTop(this)">
+          CSS
+        </a>
+          
+      </li>
+       
       <li
         class="chapter active"
         data-level="1.2"
@@ -149,9 +163,9 @@
       >
         
         <a href="/til/css.html" onclick="pageScrollToTop(this)">
-          CSS
+          Design System
         </a>
-          <ul><li><a href="#텍스트에-자연스럽게-gradient-넣기" onclick="mobilePageScrollToAnchor(this)" >텍스트에 자연스럽게 gradient 넣기</a></li></ul>
+          <ul><li><a href="#introduction" onclick="mobilePageScrollToAnchor(this)" >Introduction</a></li><li><a href="#structure" onclick="mobilePageScrollToAnchor(this)" >Structure</a></li><li><a href="#foundation" onclick="mobilePageScrollToAnchor(this)" >Foundation</a></li><li><a href="#components" onclick="mobilePageScrollToAnchor(this)" >Components</a></li><li><a href="#design-language" onclick="mobilePageScrollToAnchor(this)" >Design language</a></li></ul>
   
       </li>
        
@@ -278,7 +292,7 @@
           <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i>
             
-            <a href=".">CSS</a>
+            <a href=".">Design System</a>
             
           </h1>
         </div>
@@ -291,24 +305,73 @@
       <div class="search-noresults">
         <section class="normal markdown-section">
           
-          <h1 id="/til/css">CSS</h1>
-           <h2 id="텍스트에-자연스럽게-gradient-넣기">텍스트에 자연스럽게 gradient 넣기</h2>
+          <h1 id="/til/css">Design System</h1>
+           <h2 id="introduction">Introduction</h2>
+
+<p><b>디자인 시스템의 정의</b></p>
+
+<p>“디자인 시스템은 다양한 페이지와 채널을 걸쳐 공통의 언어와 시각적 일관성을 만들고 반복되는 작업을 줄임으로써, 규모에 맞게 디자인을 관리하기 위한 표준 집합이다.”</p>
+
+<p><b>디자인 시스템의 목적</b></p>
+
+<p>제품을 처음 만들 때는 초기에 세운 규칙들이 잘 이행되고 반영됩니다. 하지만 시간이 지날수록 이런 규칙들이 어긋나고 점차 사라지는 등 불협화음이 필연적으로 발생합니다.</p>
+
+<p>새로운 프로젝트 구성원과 팀이 관여하고, 다양한 플랫폼에 걸쳐 프로젝트가 확장되면 이러한 현상이 가속되며 결국 제품의 사용자 경험에 큰 영향을 미칠 수 있습니다. 이러한 혼란을 방지하고 질서를 세우는 역할을 하는 것이 디자인 시스템입니다.</p>
+
+<p>디자인 시스템은 어떤 제품을 만들 때 표준 규칙을 세우고 이에 따라 작업을 효율적이고, 일관되며, 나아가 확장할 수 있도록 합니다.</p>
+
+<h2 id="structure">Structure</h2>
+
+<p>디자인 시스템의 구조</p>
 
 <ol>
-  <li>
-    <p>백그라운드 영역에 먼저 그라디언트를 넣어준다.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> background: linear-gradient(to bottom, #194c33, #bbb); // 예시
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>아래와 같이 속성을 넣어준다.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-webkit-background-clip: text; // 텍스트 내부에만 배경 이미지를 적용하도록 지정
--webkit-text-fill-color: transparent; // 글씨 투명하게 지정
-</code></pre></div>    </div>
-  </li>
+  <li>원칙</li>
+  <li>테마 혹은 파운데이션</li>
+  <li>컴포넌트</li>
+  <li>패턴</li>
+  <li>도구 및 유틸리티</li>
+  <li>문서화</li>
+  <li>가이드라인</li>
+  <li>프로세스 및 워크 플로우</li>
 </ol>
+
+<h2 id="foundation">Foundation</h2>
+
+<p>파운데이션은 일관된 레이아웃과 그에 따른 사용자 경험을 만드는 데 필수적인 시각적 요소입니다.</p>
+
+<ul>
+  <li>color</li>
+  <li>spacing</li>
+  <li>typography</li>
+  <li>iconography</li>
+  <li>…</li>
+</ul>
+
+<h2 id="components">Components</h2>
+
+<p>컴포넌트는 파운데이션을 기반으로 레이아웃을 구성하는 코드. 디자인시스템의 재사용 가능한 구성요소입니다.</p>
+
+<h2 id="design-language">Design language</h2>
+
+<p>디자인 언어를 잘 설정 및 통일 하여야 합니다. 가장 중요한 부분입니다.</p>
+
+<p>예를 들어,</p>
+
+<p>A 상황일 때 black_light를 사용해야 한다면 black_light의 raw color인 black_200를 사용해주세요! 라고 구체적으로 인스턴스화가 되어야 합니다.</p>
+
+<p>Bar의 이름을 iOS에서는 “Navigation Bar”, Android에서는 “App Bar”라고 합니다. 헷갈리지 않게 네이밍을 통일할 필요가 있습니다.</p>
+
+<hr />
+
+<p>도움될 만한 사이트 : https://spectrum.adobe.com/</p>
+
+<p>도움될 만한 사이트 : https://gds.gmarket.co.kr/</p>
+
+<p>참고 : https://devocean.sk.com/blog/techBoardDetail.do?ID=163710</p>
+
+<p>참고 : https://brunch.co.kr/@monodream/6</p>
+
+<p>참고 : https://gsretail.tistory.com/20</p>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -382,9 +445,9 @@ window.MathJax = {
 
 
           <a
-            href="/"
+            href="/til/DesignSystem.html"
             class="navigation navigation-prev navigation-unique"
-            aria-label="Previous page: parklego dev log"
+            aria-label="Previous page: CSS"
           >
             <i class="fa fa-angle-left"></i>
           </a>
@@ -512,7 +575,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-04-22 23:53:31 +0900"
+        "time": "2024-04-23 04:44:01 +0900"
     },
     "basePath": "",
     "book": {
