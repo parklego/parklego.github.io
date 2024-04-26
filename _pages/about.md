@@ -36,6 +36,6 @@ layout: post
 
 [과거 흔적]
 
-[티스토리](https://parklego.tistory.com)
-
 [벨로그](https://velog.io/@bathingape)
+
+[티스토리](https://parklego.tistory.com)
