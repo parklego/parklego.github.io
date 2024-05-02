@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-27T06:12:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-02T16:25:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">개발일지</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="개발일지" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -312,6 +312,8 @@
 
 <p>마이크로서비스 아키텍쳐는, 모놀리식 아키텍쳐의 단점을 보완하기 위해 만들어진 패턴으로, 최소한의 공통 모듈만을 두고, 각각의 서비스를 다른 저장소로 관리한다.</p>
 
+<p>리포지토리를 관리하는 방법은 시스템의 각 모듈을 개별 리포지토리에서 관리할 것인지, 하나의 리포지토리에서 관리할 것인지에 따라서 달라진다. 이때 나눠서 관리하는 것을 멀티리포, 하나로 관리하는 것을 모노리포라 정의한다.</p>
+
 <h4 id="멀티레포">멀티레포</h4>
 
 <p>멀티레포의 장점</p>
@@ -344,8 +346,8 @@
 
 <ol>
   <li>프로젝트 공통 항목을 처리하기 쉽다.</li>
-  <li>프로젝트 생성 단계에서 eslint, prettier 등의 설정이 이미 다 되어있다.</li>
-  <li>프로젝트의 패키지 관리를 통합해서 할 수 있다.</li>
+  <li>새 프로젝트를 만들 때 생성 비용이 적다.</li>
+  <li>프로젝트의 패키지 관리, 설정 등 통합해서 할 수 있다. (DX)</li>
   <li>멀티레포보다 의존성 관리가 우수하다.</li>
 </ol>
 
@@ -459,7 +461,21 @@
 -webkit-text-fill-color: transparent; // 글씨 투명하게 지정
 </code></pre></div>    </div>
   </li>
-</ol>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[텍스트에 자연스럽게 gradient 넣기]]></summary></entry><entry><title type="html">DB</title><link href="http://localhost:4000/til/db.html" rel="alternate" type="text/html" title="DB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/db</id><content type="html" xml:base="http://localhost:4000/til/db.html"><![CDATA[<h2 id="mongodb">MongoDB</h2>
+</ol>
+
+<h2 id="topright-bottom-left-한번에-처리하기">top,right, bottom, left 한번에 처리하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">padding</code>과 <code class="language-plaintext highlighter-rouge">margin</code>과 같이 한 줄로 표현이 가능하다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// As-is
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+
+// To-be
+inset: 0;
+</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[텍스트에 자연스럽게 gradient 넣기]]></summary></entry><entry><title type="html">DB</title><link href="http://localhost:4000/til/db.html" rel="alternate" type="text/html" title="DB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/db</id><content type="html" xml:base="http://localhost:4000/til/db.html"><![CDATA[<h2 id="mongodb">MongoDB</h2>
 
 <h3 id="overwritemodelerror">OverwriteModelError</h3>
 

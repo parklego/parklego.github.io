@@ -193,7 +193,7 @@
         <a href="/til/css.html" onclick="pageScrollToTop(this)">
           CSS
         </a>
-          <ul><li><a href="#텍스트에-자연스럽게-gradient-넣기" onclick="mobilePageScrollToAnchor(this)" >텍스트에 자연스럽게 gradient 넣기</a></li></ul>
+          <ul><li><a href="#텍스트에-자연스럽게-gradient-넣기" onclick="mobilePageScrollToAnchor(this)" >텍스트에 자연스럽게 gradient 넣기</a></li><li><a href="#topright-bottom-left-한번에-처리하기" onclick="mobilePageScrollToAnchor(this)" >top,right, bottom, left 한번에 처리하기</a></li></ul>
   
       </li>
        
@@ -351,6 +351,20 @@
 </code></pre></div>    </div>
   </li>
 </ol>
+
+<h2 id="topright-bottom-left-한번에-처리하기">top,right, bottom, left 한번에 처리하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">padding</code>과 <code class="language-plaintext highlighter-rouge">margin</code>과 같이 한 줄로 표현이 가능하다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// As-is
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+
+// To-be
+inset: 0;
+</code></pre></div></div>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -554,7 +568,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-04-27 06:12:56 +0900"
+        "time": "2024-05-02 16:25:20 +0900"
     },
     "basePath": "",
     "book": {
