@@ -49,7 +49,7 @@ function helloWorld() {
 <br/>
 
 ```javascript
-console.log(a); // ReferenceError: Cannot access 'greeting' before initialization
+console.log(a); // ReferenceError
 
 const a = 3;
 ```
