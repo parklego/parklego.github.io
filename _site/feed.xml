@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-08T01:11:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-12T02:10:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">개발일지</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="개발일지" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -1554,255 +1554,58 @@ NEXTAUTH_URL='https:localhost:3000'
 <hr />
 
 <p><a href="https://nextjs.org/learn?utm_source=next-site&amp;utm_medium=homepage-cta&amp;utm_campaign=home">next.js learn</a>
-<a href="https://youtu.be/VE8BkImUciY?si=0PfRB52RXLW6H9PS">next.js tutorial</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Next.js를 사용해야 하는 이유]]></summary></entry><entry><title type="html">Sass</title><link href="http://localhost:4000/til/sass.html" rel="alternate" type="text/html" title="Sass" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/sass</id><content type="html" xml:base="http://localhost:4000/til/sass.html"><![CDATA[<h2 id="install">Install</h2>
+<a href="https://youtu.be/VE8BkImUciY?si=0PfRB52RXLW6H9PS">next.js tutorial</a></p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Next.js를 사용해야 하는 이유]]></summary></entry><entry><title type="html">React-query</title><link href="http://localhost:4000/til/react-query.html" rel="alternate" type="text/html" title="React-query" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/react-query</id><content type="html" xml:base="http://localhost:4000/til/react-query.html"><![CDATA[<h2 id="환경설정">환경설정</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install sass
-</code></pre></div></div>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">QueryClient</span><span class="p">,</span> <span class="nx">QueryClientProvider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-query</span><span class="dl">"</span><span class="p">;</span>
 
-<h2 id="variables">Variables</h2>
+<span class="kd">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">QueryClient</span><span class="p">({</span>
+  <span class="na">defaultOptions</span><span class="p">:</span> <span class="p">{},</span>
+<span class="p">});</span>
 
-<p>기본이 되는 변수는 <code class="language-plaintext highlighter-rouge">variables.scss</code> 혹은 <code class="language-plaintext highlighter-rouge">colors.scss</code>와 같이 관리해주자.
-파일을 분리하는 것이 좋다.</p>
-
-<p>참고로 import의 순서대로 적용이 된다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// index.scss</span>
-<span class="k">@import</span> <span class="s2">"variables.scss"</span><span class="p">;</span>
-</code></pre></div></div>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// variables.scss</span>
-<span class="nv">$primary</span><span class="p">:</span> <span class="mh">#326dee</span><span class="p">;</span>
-<span class="nv">$base-padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.75rem</span><span class="p">;</span>
-
-<span class="nt">h1</span> <span class="p">{</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="nv">$primary</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>변수를 가져와 계산을 이렇게 할 수 있다.</p>
-
-<p>1.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.contact-title</span> <span class="p">{</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="nv">$primary</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="nf">calc</span><span class="p">(</span><span class="nv">$base-padding</span> <span class="o">/</span> <span class="m">4</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>2.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@use</span> <span class="s2">"sass:math"</span><span class="p">;</span>
-
-<span class="nc">.contact-title</span> <span class="p">{</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="nv">$primary</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="nf">div</span><span class="p">(</span><span class="nv">$base-padding</span><span class="o">,</span> <span class="m">4</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>디버깅하는 방법도 있다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@debug</span> <span class="s2">"hi"</span><span class="p">;</span>
-<span class="k">@debug</span> <span class="n">math</span><span class="o">.</span><span class="nf">div</span><span class="p">(</span><span class="nv">$base-padding</span><span class="o">,</span> <span class="m">4</span><span class="p">);</span>
-</code></pre></div></div>
-
-<h2 id="loop">Loop</h2>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$colors</span><span class="p">:</span> <span class="p">(</span>
-  <span class="s2">"primary"</span><span class="o">:</span> <span class="nv">$primary</span><span class="o">,</span>
-  <span class="s2">"secondary"</span><span class="o">:</span> <span class="nv">$secondary</span><span class="o">,</span>
-  <span class="s2">"error"</span><span class="o">:</span> <span class="nv">$error</span><span class="o">,</span>
-  <span class="s2">"info"</span><span class="o">:</span> <span class="nv">$info</span><span class="o">,</span>
-  <span class="s2">"blue"</span><span class="o">:</span> <span class="mh">#1919e6</span><span class="o">,</span>
-  <span class="s2">"yellow"</span><span class="o">:</span> <span class="mh">#e6e619</span><span class="o">,</span>
-  <span class="s2">"gray"</span><span class="o">:</span> <span class="mh">#808080</span><span class="o">,</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">root</span><span class="dl">"</span><span class="p">)</span><span class="o">!</span><span class="p">).</span><span class="nx">render</span><span class="p">(</span>
+  <span class="p">&lt;</span><span class="nc">React</span><span class="p">.</span><span class="nc">StrictMode</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">QueryClientProvider</span> <span class="na">client</span><span class="p">=</span><span class="si">{</span><span class="nx">client</span><span class="si">}</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nc">App</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nc">QueryClientProvider</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nc">React</span><span class="p">.</span><span class="nc">StrictMode</span><span class="p">&gt;</span>
 <span class="p">);</span>
+
 </code></pre></div></div>
 
-<p>위와 같이 colors에 대한 객체를 만들어 놨다. 그리고 아래에 html의 클래스에 넣어주고 싶다. 노가다를 해야할까?</p>
+<h2 id="usequery">useQuery</h2>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-primary"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-secondary"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-info"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-error"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-blue"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-yellow"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">isLoading</span><span class="p">,</span> <span class="nx">error</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useQuery</span><span class="p">(</span><span class="nx">queryKey</span><span class="p">,</span> <span class="nx">queryFn</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
 </code></pre></div></div>
-
-<p>이럴때 아래의 코드만 입력해주면 바로 완성이다. 리액트에서 변수를 넣을때 <code class="language-plaintext highlighter-rouge">$</code>를 넣지만 scss에서는 대신 <code class="language-plaintext highlighter-rouge">#</code>을 사용한다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @each 다음에 오는 첫번째 파라미터는 key값에 해당 두번째 파라미터는 value값에 해당한다.</span>
-<span class="k">@each</span> <span class="nv">$key</span><span class="o">,</span> <span class="nv">$val</span> <span class="n">in</span> <span class="nv">$colors</span> <span class="p">{</span>
-  <span class="nc">.text-</span><span class="si">#{</span><span class="nv">$key</span><span class="si">}</span> <span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="nv">$val</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>만약에 이런 경우에는 어떻게 할 수 있을까?</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-primary-light-1"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-primary-light-3"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-primary-light-5"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-secondary-light-1"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-secondary-light-3"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">className=</span><span class="s">"text-secondary-light-5"</span><span class="nt">&gt;</span>hi<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-
-<p>for문으로 원하는 구간을 만들 수 있다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@each</span> <span class="nv">$key</span><span class="o">,</span> <span class="nv">$val</span> <span class="n">in</span> <span class="nv">$colors</span> <span class="p">{</span>
-  <span class="nc">.text-</span><span class="si">#{</span><span class="nv">$key</span><span class="si">}</span> <span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="nv">$val</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="m">9</span> <span class="p">{</span>
-    <span class="nc">.text-</span><span class="si">#{</span><span class="nv">$key</span><span class="si">}</span><span class="nc">-light-</span><span class="si">#{</span><span class="nv">$i</span><span class="si">}</span> <span class="p">{</span>
-      <span class="c1">// someting</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="conditional">Conditional</h2>
-
-<p>for문을 쓴다고?? 그러면 if문도 쓸 수 있지 않을까?? 당연 가능.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  @if ($val != black and $val != white) {
-   // something
-  }
-  @else {
-   // something
-  }
-</code></pre></div></div>
-
-<h2 id="parent-selectors">Parent Selectors</h2>
-
-<p>styled-component와 같이 <code class="language-plaintext highlighter-rouge">&amp;</code>를 사용해주면 된다.</p>
-
-<h2 id="mixin">Mixin</h2>
 
 <ul>
-  <li>Mixin은 스타일 블록을 정의하고, 필요할 때 호출하여 사용할 수 있는 기능이다.</li>
-  <li>@include 키워드를 사용하여 호출합니다.</li>
+  <li>
+    <p>queryKey</p>
+
+    <p>키값에 따라 데이터를 캐싱처리 한다.</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 문자열</span>
+<span class="nx">useQuery</span><span class="p">(</span><span class="dl">'</span><span class="s1">todos</span><span class="dl">'</span><span class="p">,</span> <span class="p">...)</span>
+
+<span class="c1">// 배열</span>
+<span class="nx">useQuery</span><span class="p">([</span><span class="dl">'</span><span class="s1">todos</span><span class="dl">'</span><span class="p">],</span> <span class="p">...)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>queryFn</p>
+
+    <p>fetching 함수를 넘기면 된다.</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">useQuery</span><span class="p">([</span><span class="dl">"</span><span class="s2">todos</span><span class="dl">"</span><span class="p">],</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">somethingfetching</span><span class="p">()</span> <span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
 
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">btn</span><span class="p">(</span><span class="nv">$bg-color</span><span class="o">:</span> <span class="mh">#e2e2e2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// js 디폴트 파라미터 느낌</span>
-  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="nl">border</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="nv">$base-padding</span><span class="p">;</span>
-  <span class="nl">background-color</span><span class="p">:</span> <span class="nv">$bg-color</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<h2 id="useinfinitequery">useInfiniteQuery</h2>
 
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">btn</span><span class="p">(</span><span class="no">orange</span><span class="p">);</span> <span class="c1">// 사용할 곳에 추가</span>
-</code></pre></div></div>
+<p>continue</p>
 
-<h2 id="extend">@extend</h2>
+<hr />
 
-<p>기존 스타일을 상속받으면서 추가적인 스타일을 정의할 때 사용한다.</p>
+<p>도움되는 링크</p>
 
-<blockquote>
-  <p>mixin vs extend</p>
-
-  <p>Mixin은 스타일 블록을 정의하고 호출하여 재사용할 때 사용되고, Extend는 기존 스타일을 다른 선택자에 확장하여 재사용할 때 사용됩니다. Mixin은 새로운 스타일을 생성하는 반면 Extend는 기존 스타일을 공유하여 사용합니다.</p>
-</blockquote>
-
-<h2 id="function">Function</h2>
-
-<p>scss에서 제공하는 내장함수들도 많다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@function</span> <span class="nf">test</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nv">$complement</span><span class="p">:</span> <span class="nf">complement</span><span class="p">(</span><span class="nv">$color</span><span class="p">);</span> <span class="c1">// 주어진 색상의 보색을 반환하는 함수</span>
-
-  <span class="k">@return</span> <span class="nv">$complement</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">color</span><span class="p">:</span> <span class="nf">test</span><span class="p">(</span><span class="no">orange</span><span class="p">);</span> <span class="c1">// 사용할 곳에 추가</span>
-</code></pre></div></div>
-
-<h2 id="making-utility-classes">Making Utility Classes</h2>
-
-<p>bootstrap 이나 tailwind css를 보면 <code class="language-plaintext highlighter-rouge">w-100</code>, <code class="language-plaintext highlighter-rouge">p-3</code>과 같이 간단하게 클래스를 만드는 경우를 볼 수 있다.</p>
-
-<p>그걸 만들어 보는 것이다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$utilities</span><span class="p">:</span> <span class="p">(</span>
-  <span class="s2">"padding"</span><span class="o">:</span> <span class="p">(</span>
-    <span class="s2">"prefix"</span><span class="o">:</span> <span class="s2">"p"</span><span class="o">,</span>
-    <span class="s2">"values"</span><span class="o">:</span> <span class="p">(</span>
-      <span class="s2">"0"</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
-      <span class="s2">"1"</span><span class="o">:</span> <span class="nv">$base-padding</span><span class="o">,</span>
-      <span class="s2">"2"</span><span class="o">:</span> <span class="nv">$base-padding</span> <span class="o">*</span> <span class="m">2</span><span class="o">,</span>
-      <span class="s2">"3"</span><span class="o">:</span> <span class="nv">$base-padding</span> <span class="o">*</span> <span class="m">3</span><span class="o">,</span>
-      <span class="s2">"4"</span><span class="o">:</span> <span class="nv">$base-padding</span> <span class="o">*</span> <span class="m">4</span><span class="o">,</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="p">)</span><span class="o">,</span>
-  <span class="s2">"margin"</span><span class="o">:</span> <span class="p">(</span>
-    <span class="s2">"prefix"</span><span class="o">:</span> <span class="s2">"m"</span><span class="o">,</span>
-    <span class="s2">"values"</span><span class="o">:</span> <span class="p">(</span>
-      <span class="s2">"0"</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
-      <span class="s2">"1"</span><span class="o">:</span> <span class="nv">$base-margin</span><span class="o">,</span>
-      <span class="s2">"2"</span><span class="o">:</span> <span class="nv">$base-margin</span> <span class="o">*</span> <span class="m">2</span><span class="o">,</span>
-      <span class="s2">"3"</span><span class="o">:</span> <span class="nv">$base-margin</span> <span class="o">*</span> <span class="m">3</span><span class="o">,</span>
-      <span class="s2">"4"</span><span class="o">:</span> <span class="nv">$base-margin</span> <span class="o">*</span> <span class="m">4</span><span class="o">,</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="p">)</span><span class="o">,</span>
-<span class="p">);</span>
-</code></pre></div></div>
-
-<p>루프를 통해서 만든다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@each</span> <span class="nv">$property</span><span class="o">,</span> <span class="nv">$map</span> <span class="n">in</span> <span class="nv">$utilities</span> <span class="p">{</span>
-  <span class="nv">$prefix</span><span class="p">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$map</span><span class="o">,</span> <span class="s2">"prefix"</span><span class="p">);</span> <span class="c1">// p, m</span>
-  <span class="nv">$values</span><span class="p">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$map</span><span class="o">,</span> <span class="s2">"values"</span><span class="p">);</span>
-
-  <span class="k">@each</span> <span class="nv">$k</span><span class="o">,</span> <span class="nv">$v</span> <span class="n">in</span> <span class="nv">$values</span> <span class="p">{</span>
-    <span class="nc">.</span><span class="si">#{</span><span class="nv">$prefix</span><span class="si">}</span><span class="nc">-</span><span class="si">#{</span><span class="nv">$k</span><span class="si">}</span> <span class="p">{</span>
-      <span class="si">#{</span><span class="nv">$property</span><span class="si">}</span><span class="nd">:</span> <span class="si">#{</span><span class="nv">$v</span><span class="si">}</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="media-queries">Media Queries</h2>
-
-<p><code class="language-plaintext highlighter-rouge">@content</code>는 mixin 내에 추가적인 스타일을 전달할 수 있다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breakpoint</span><span class="p">:</span> <span class="p">(</span>
-  <span class="s2">"xs"</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
-  <span class="s2">"sm"</span><span class="o">:</span> <span class="m">480px</span><span class="o">,</span>
-  <span class="s2">"md"</span><span class="o">:</span> <span class="m">720px</span><span class="o">,</span>
-  <span class="s2">"lg"</span><span class="o">:</span> <span class="m">960px</span><span class="o">,</span>
-  <span class="s2">"xl"</span><span class="o">:</span> <span class="m">1200px</span><span class="o">,</span>
-<span class="p">);</span>
-
-<span class="k">@mixin</span> <span class="nf">xs</span> <span class="p">{</span>
-  <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoint</span><span class="o">,</span> <span class="s2">"xs"</span><span class="p">))</span> <span class="p">{</span>
-    <span class="k">@content</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">@mixin</span> <span class="nf">xl</span> <span class="p">{</span>
-  <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoint</span><span class="o">,</span> <span class="s2">"xl"</span><span class="p">))</span> <span class="p">{</span>
-    <span class="k">@content</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>사용하고 싶은 클래스에 넣으면 된다.</p>
-
-<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">xl</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// 참고로 매개변수가 없을 경우에 ()를 생략할 수 있다. 아래는 위와 동일한 코드</span>
-<span class="k">@include</span> <span class="nd">xl</span> <span class="p">{</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[Install]]></summary></entry></feed>
+<p>https://github.com/ssi02014/react-query-tutorial</p>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[환경설정]]></summary></entry></feed>

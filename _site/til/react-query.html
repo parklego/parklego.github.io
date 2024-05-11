@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head><meta charset="UTF-8" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>About · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>React-query · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
 " /><meta
   name="generator"
@@ -58,9 +58,9 @@
 />
 
  
-    <link rel="prev" href="/" />
+    <link rel="prev" href="/til/next.html" />
      
-    <link rel="next" href="/pages/library" />
+    <link rel="next" href="/til/sass.html" />
     
   </head>
 
@@ -110,9 +110,11 @@
       
       <!-- <p>pages</p> -->
          
+      </li>
+
       <li
-        class="chapter active"
-        data-level="1.2"
+        class="chapter"
+        data-level="1.1"
         data-path="/pages/about"
       >
         
@@ -120,7 +122,6 @@
           About
         </a>
           
-  
       </li>
        
       </li>
@@ -267,18 +268,17 @@
           
       </li>
        
-      </li>
-
       <li
-        class="chapter"
-        data-level="1.1"
+        class="chapter active"
+        data-level="1.2"
         data-path="/til/react-query.html"
       >
         
         <a href="/til/react-query.html" onclick="pageScrollToTop(this)">
           React-query
         </a>
-          
+          <ul><li><a href="#환경설정" onclick="mobilePageScrollToAnchor(this)" >환경설정</a></li><li><a href="#usequery" onclick="mobilePageScrollToAnchor(this)" >useQuery</a></li><li><a href="#useinfinitequery" onclick="mobilePageScrollToAnchor(this)" >useInfiniteQuery</a></li></ul>
+  
       </li>
        
       </li>
@@ -334,7 +334,7 @@
           <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i>
             
-            <a href=".">About</a>
+            <a href=".">React-query</a>
             
           </h1>
         </div>
@@ -347,40 +347,62 @@
       <div class="search-noresults">
         <section class="normal markdown-section">
           
-          <h1 id="/pages/about">About</h1>
-           <p>안녕하세요, 반갑습니다! 😊</p>
+          <h1 id="/til/react-query">React-query</h1>
+           <h2 id="환경설정">환경설정</h2>
 
-<p>이곳은 제가 개발과 관련된 내용을 간단히 기록하는 곳입니다. 주로 TIL에 대한 내용입니다.</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">QueryClient</span><span class="p">,</span> <span class="nx">QueryClientProvider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-query</span><span class="dl">"</span><span class="p">;</span>
 
-<p><br /></p>
+<span class="kd">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">QueryClient</span><span class="p">({</span>
+  <span class="na">defaultOptions</span><span class="p">:</span> <span class="p">{},</span>
+<span class="p">});</span>
 
-<p>[ 나의 인기글 ]</p>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">root</span><span class="dl">"</span><span class="p">)</span><span class="o">!</span><span class="p">).</span><span class="nx">render</span><span class="p">(</span>
+  <span class="p">&lt;</span><span class="nc">React</span><span class="p">.</span><span class="nc">StrictMode</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nc">QueryClientProvider</span> <span class="na">client</span><span class="p">=</span><span class="si">{</span><span class="nx">client</span><span class="si">}</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nc">App</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nc">QueryClientProvider</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nc">React</span><span class="p">.</span><span class="nc">StrictMode</span><span class="p">&gt;</span>
+<span class="p">);</span>
 
-<p><a href="https://velog.io/@bathingape/JavaScript-var-let-const-%EC%B0%A8%EC%9D%B4%EC%A0%90">var, let, const 차이점</a></p>
+</code></pre></div></div>
 
-<p>이때 첫 포스터였는데 16만명이 방문한 글이라 뜻깊은 포스터</p>
+<h2 id="usequery">useQuery</h2>
 
-<p><br /></p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">isLoading</span><span class="p">,</span> <span class="nx">error</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useQuery</span><span class="p">(</span><span class="nx">queryKey</span><span class="p">,</span> <span class="nx">queryFn</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+</code></pre></div></div>
 
-<p>[ 개발하면서 보면 좋은 자료들 링크 모음 ]</p>
+<ul>
+  <li>
+    <p>queryKey</p>
 
-<p><a href="https://2022.stateofjs.com/ko-KR/">stateofjs</a></p>
+    <p>키값에 따라 데이터를 캐싱처리 한다.</p>
 
-<p><a href="https://programmers.co.kr/pages/survey">프로그래머스리포트</a></p>
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 문자열</span>
+<span class="nx">useQuery</span><span class="p">(</span><span class="dl">'</span><span class="s1">todos</span><span class="dl">'</span><span class="p">,</span> <span class="p">...)</span>
 
-<p><a href="https://fe-developers.kakaoent.com/">카카오FE기술블로그</a></p>
+<span class="c1">// 배열</span>
+<span class="nx">useQuery</span><span class="p">([</span><span class="dl">'</span><span class="s1">todos</span><span class="dl">'</span><span class="p">],</span> <span class="p">...)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>queryFn</p>
 
-<p><a href="https://techblog.woowahan.com/">우아한기술블로그</a></p>
+    <p>fetching 함수를 넘기면 된다.</p>
 
-<p><a href="https://ui.toast.com/posts/ko">toastUI</a></p>
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">useQuery</span><span class="p">([</span><span class="dl">"</span><span class="s2">todos</span><span class="dl">"</span><span class="p">],</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">somethingfetching</span><span class="p">()</span> <span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
 
-<p><br /></p>
+<h2 id="useinfinitequery">useInfiniteQuery</h2>
 
-<p>[과거 흔적]</p>
+<p>continue</p>
 
-<p><a href="https://velog.io/@bathingape">벨로그</a></p>
+<hr />
 
-<p><a href="https://parklego.tistory.com">티스토리</a></p>
+<p>도움되는 링크</p>
+
+<p>https://github.com/ssi02014/react-query-tutorial</p>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -454,17 +476,17 @@ window.MathJax = {
 
 
           <a
-            href="/"
+            href="/til/next.html"
             class="navigation navigation-prev navigation-unique"
-            aria-label="Previous page: parklego dev log"
+            aria-label="Previous page: Next.js"
           >
             <i class="fa fa-angle-left"></i>
           </a>
            
           <a
-            href="/pages/library"
+            href="/til/sass.html"
             class="navigation navigation-next navigation-unique"
-            aria-label="Next page: 라이브러리 추천"
+            aria-label="Next page: Sass"
           >
             <i class="fa fa-angle-right"></i>
           </a>
@@ -482,11 +504,11 @@ window.MathJax = {
         "depth": 1,
         
         "next": {
-            "title": "라이브러리 추천",
+            "title": "Sass",
             "level": "1.2",
             "depth": 1,
-            "path": "_pages/library.md",
-            "ref": "_pages/library.md",
+            "path": "_posts/2024-03-01-sass.md",
+            "ref": "_posts/2024-03-01-sass.md",
             "articles": []
         },
         
@@ -578,7 +600,7 @@ window.MathJax = {
         "gitbook": "*"
     },
     "file": {
-        "path": "_pages/about.md",
+        "path": "_posts/2024-03-01-react-query.md",
         "mtime": "2024-03-01 00:00:00 +0900",
         "type": "markdown"
     },
