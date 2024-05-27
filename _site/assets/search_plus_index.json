@@ -8,6 +8,11 @@
     "keywords": "library",
     "url": "/pages/library",
     "body": "use-debounce hook 형태로 간단하게 디바운스 기능을 구현하는 라이브러리 공식문서 Tui-editor 편집기를 사용하면 텍스트 또는 WYSIWYG를 사용하여 Markdown 문서를 편집할 수 있으며 구문 강조, 스크롤 동기화, 실시간 미리 보기 및 차트 기능이 함께 제공하는 라이브러리 공식문서 Frogress 1% 이하의 수를 표현하거나 그라디언트를 넣을 경우 자연스럽게 보이게 하기 위한 progress bar 라이브러리 공식문서 SweetAlert2 아이콘, 애니메이션 등 예쁜 alert 라이브러리 공식문서 Hamburger-react 햄버거 버튼 라이브러리 공식문서 React Spinners spinners and loader 라이브러리 공식문서 React-toastify 간단한 toast 라이브러리 공식문서 React-hot-toast 간단한 toast 라이브러리2 공식문서 React-icons 간단한 icons 라이브러리 공식문서 Swiper swiper 라이브러리 공식문서"
+  },"/pages/resources": {
+    "title": "리소스 추천",
+    "keywords": "resources",
+    "url": "/pages/resources",
+    "body": "iconfinder icon들을 png나 svg로 간단하게 찾아볼 수 있는 사이트 공식문서"
   },"/til/think.html": {
     "title": "개발일지",
     "keywords": "til",
