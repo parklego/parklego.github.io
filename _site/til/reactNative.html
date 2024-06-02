@@ -403,6 +403,15 @@
     <p>@ IOS 앱 개발을 위해 설치</p>
   </li>
   <li>
+    <p>루비 설치</p>
+
+    <p>@ iOS 앱 개발을 위해서는 CocoaPods라는 의존성 관리 도구 필요</p>
+
+    <p>@ CocoaPods는 Ruby로 작성되어 있음</p>
+
+    <p>@ rbenv를 설치해서 관리</p>
+  </li>
+  <li>
     <p>코코아팟 설치</p>
 
     <p>@ 오브젝트-c로 구현된 네이티브 모듈 빌드를 위해 설치</p>
@@ -419,6 +428,35 @@
 <p>최종 빌드 및 배포를 위해서는 안드로이드 스튜디오와 Xcode를 사용해야 한다.</p>
 
 <p>플러터의 경우에는 네이티브언어가 없으면 자체 엔진으로 네이티브 도구를 이용하지 않고 빌드가 가능하다.</p>
+
+<p><br /></p>
+
+<blockquote>
+  <p>설정</p>
+</blockquote>
+
+<p>silicon mac은 기본 경로를 opt/homebrew로 가져가야 한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arch -arm64e /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+</code></pre></div></div>
+
+<p>이제 모든 brew 명령어 앞에 arch -arm64e를 붙여야 한다. alias를 등록하자.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>open ~/.zshrc
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alias brew="arch -arm64e brew"
+</code></pre></div></div>
+
+<p>silicon mac에서 homebrew 기본 경로를 /usr/local에서 /opt/homebrew로 변경해야한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH=/opt/homebrew/bin:$PATH
+</code></pre></div></div>
+
+<p>변경사항을 적용 시켜준다. 그리고 터미널을 재시작하자.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source ~/.zshrc
+</code></pre></div></div>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -622,7 +660,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-06-02 21:25:23 +0900"
+        "time": "2024-06-03 01:33:31 +0900"
     },
     "basePath": "",
     "book": {
