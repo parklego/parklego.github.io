@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head><meta charset="UTF-8" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>CSS · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>Errors · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
 " /><meta
   name="generator"
@@ -62,9 +62,9 @@
   content="dql4LA2z0t-L6Llmn2FauSf77ThLjSN-jQsz_-BC2sI"
 />
 
-    <link rel="prev" href="/til/bundler.html" />
+    <link rel="prev" href="/til/web-Accessibility.html" />
      
-    <link rel="next" href="/til/db.html" />
+    <link rel="next" href="/til/reactNative.html" />
     
   </head>
 
@@ -202,17 +202,18 @@
           
       </li>
        
+      </li>
+
       <li
-        class="chapter active"
-        data-level="1.2"
+        class="chapter"
+        data-level="1.1"
         data-path="/til/css.html"
       >
         
         <a href="/til/css.html" onclick="pageScrollToTop(this)">
           CSS
         </a>
-          <ul><li><a href="#텍스트에-자연스럽게-gradient-넣기" onclick="mobilePageScrollToAnchor(this)" >텍스트에 자연스럽게 gradient 넣기</a></li><li><a href="#topright-bottom-left-한번에-처리하기" onclick="mobilePageScrollToAnchor(this)" >top,right, bottom, left 한번에 처리하기</a></li></ul>
-  
+          
       </li>
        
       </li>
@@ -327,18 +328,17 @@
           
       </li>
        
-      </li>
-
       <li
-        class="chapter"
-        data-level="1.1"
+        class="chapter active"
+        data-level="1.2"
         data-path="/til/errors.html"
       >
         
         <a href="/til/errors.html" onclick="pageScrollToTop(this)">
           Errors
         </a>
-          
+          <ul><li><a href="#yarn-install-이후-node_module이-생성되지-않을-때" onclick="mobilePageScrollToAnchor(this)" >yarn install 이후 node_module이 생성되지 않을 때</a></li></ul>
+  
       </li>
        
       </li>
@@ -380,7 +380,7 @@
           <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i>
             
-            <a href=".">CSS</a>
+            <a href=".">Errors</a>
             
           </h1>
         </div>
@@ -393,38 +393,15 @@
       <div class="search-noresults">
         <section class="normal markdown-section">
           
-          <h1 id="/til/css">CSS</h1>
-           <h2 id="텍스트에-자연스럽게-gradient-넣기">텍스트에 자연스럽게 gradient 넣기</h2>
+          <h1 id="/til/errors">Errors</h1>
+           <h3 id="yarn-install-이후-node_module이-생성되지-않을-때">yarn install 이후 node_module이 생성되지 않을 때</h3>
 
 <ol>
-  <li>
-    <p>백그라운드 영역에 먼저 그라디언트를 넣어준다.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> background: linear-gradient(to bottom, #194c33, #bbb); // 예시
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>아래와 같이 속성을 넣어준다.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-webkit-background-clip: text; // 텍스트 내부에만 배경 이미지를 적용하도록 지정
--webkit-text-fill-color: transparent; // 글씨 투명하게 지정
-</code></pre></div>    </div>
-  </li>
+  <li><code class="language-plaintext highlighter-rouge">yarn cache clean</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.yarnrc.yml</code> 파일을 루트 디렉토리에 생성한다.</li>
+  <li>위의 파일에 <code class="language-plaintext highlighter-rouge">nodeLinker: node-modules</code> 코드를 입력해준다.</li>
+  <li>다시 install 후, <code class="language-plaintext highlighter-rouge">yarn start</code></li>
 </ol>
-
-<h2 id="topright-bottom-left-한번에-처리하기">top,right, bottom, left 한번에 처리하기</h2>
-
-<p><code class="language-plaintext highlighter-rouge">padding</code>과 <code class="language-plaintext highlighter-rouge">margin</code>과 같이 한 줄로 표현이 가능하다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// As-is
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-
-// To-be
-inset: 0;
-</code></pre></div></div>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -498,17 +475,17 @@ window.MathJax = {
 
 
           <a
-            href="/til/bundler.html"
+            href="/til/web-Accessibility.html"
             class="navigation navigation-prev navigation-unique"
-            aria-label="Previous page: Bundler"
+            aria-label="Previous page: 웹 접근성"
           >
             <i class="fa fa-angle-left"></i>
           </a>
            
           <a
-            href="/til/db.html"
+            href="/til/reactNative.html"
             class="navigation navigation-next navigation-unique"
-            aria-label="Next page: DB"
+            aria-label="Next page: React-Native"
           >
             <i class="fa fa-angle-right"></i>
           </a>
@@ -526,11 +503,11 @@ window.MathJax = {
         "depth": 1,
         
         "next": {
-            "title": "DB",
+            "title": "React-Native",
             "level": "1.2",
             "depth": 1,
-            "path": "_posts/2024-03-01-db.md",
-            "ref": "_posts/2024-03-01-db.md",
+            "path": "_posts/2024-06-02-reactNative.md",
+            "ref": "_posts/2024-06-02-reactNative.md",
             "articles": []
         },
         
@@ -622,7 +599,7 @@ window.MathJax = {
         "gitbook": "*"
     },
     "file": {
-        "path": "_posts/2024-03-01-css.md",
+        "path": "_posts/2024-06-02-errors.md",
         "mtime": "2024-03-01 00:00:00 +0900",
         "type": "markdown"
     },

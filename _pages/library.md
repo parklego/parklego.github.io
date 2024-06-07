@@ -65,3 +65,9 @@ spinners and loader 라이브러리
 swiper 라이브러리
 
 [공식문서](https://swiperjs.com/get-started)
+
+## Faker
+
+dummy data를 만들기 위한 라이브러리
+
+[공식문서](https://fakerjs.dev/)
