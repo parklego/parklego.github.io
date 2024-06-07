@@ -225,7 +225,7 @@
         <a href="/til/db.html" onclick="pageScrollToTop(this)">
           DB
         </a>
-          <ul><li><a href="#mongodb" onclick="mobilePageScrollToAnchor(this)" >MongoDB</a><ul><li><a href="#overwritemodelerror" onclick="mobilePageScrollToAnchor(this)" >OverwriteModelError</a></li></ul></li></ul>
+          
   
       </li>
        
@@ -394,27 +394,7 @@
         <section class="normal markdown-section">
           
           <h1 id="/til/db">DB</h1>
-           <h2 id="mongodb">MongoDB</h2>
-
-<h3 id="overwritemodelerror">OverwriteModelError</h3>
-
-<blockquote>
-  <p>런타임 에러</p>
-</blockquote>
-
-<p>⨯ OverwriteModelError: Cannot overwrite <code class="language-plaintext highlighter-rouge">Users</code> model once compiled.</p>
-
-<p><br /></p>
-
-<blockquote>
-  <p>해결책</p>
-</blockquote>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
-<span class="kd">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Users</span> <span class="o">||</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="dl">"</span><span class="s2">Users</span><span class="dl">"</span><span class="p">,</span> <span class="nx">userSchema</span><span class="p">);</span>
-
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">User</span><span class="p">;</span>
-</code></pre></div></div>
+           
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -618,7 +598,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-06-07 17:26:46 +0900"
+        "time": "2024-06-07 18:17:35 +0900"
     },
     "basePath": "",
     "book": {

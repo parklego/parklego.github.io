@@ -337,7 +337,7 @@
         <a href="/til/errors.html" onclick="pageScrollToTop(this)">
           Errors
         </a>
-          <ul><li><a href="#yarn-install-이후-node_module이-생성되지-않을-때" onclick="mobilePageScrollToAnchor(this)" >yarn install 이후 node_module이 생성되지 않을 때</a></li></ul>
+          <ul><li><a href="#yarn-install-이후-node_module이-생성되지-않을-때" onclick="mobilePageScrollToAnchor(this)" >yarn install 이후 node_module이 생성되지 않을 때</a></li><li><a href="#mongodb-overwritemodelerror" onclick="mobilePageScrollToAnchor(this)" >MongoDB OverwriteModelError</a></li></ul>
   
       </li>
        
@@ -402,6 +402,16 @@
   <li>위의 파일에 <code class="language-plaintext highlighter-rouge">nodeLinker: node-modules</code> 코드를 입력해준다.</li>
   <li>다시 install 후, <code class="language-plaintext highlighter-rouge">yarn start</code></li>
 </ol>
+
+<h3 id="mongodb-overwritemodelerror">MongoDB OverwriteModelError</h3>
+
+<p>⨯ OverwriteModelError: Cannot overwrite <code class="language-plaintext highlighter-rouge">Users</code> model once compiled.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="kd">const</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Users</span> <span class="o">||</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="dl">"</span><span class="s2">Users</span><span class="dl">"</span><span class="p">,</span> <span class="nx">userSchema</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">User</span><span class="p">;</span>
+</code></pre></div></div>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -605,7 +615,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-06-07 17:26:46 +0900"
+        "time": "2024-06-07 18:17:35 +0900"
     },
     "basePath": "",
     "book": {
