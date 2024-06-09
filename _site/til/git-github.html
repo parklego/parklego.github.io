@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head><meta charset="UTF-8" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>Git/Github · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>Git · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
 " /><meta
   name="generator"
@@ -237,9 +237,9 @@
       >
         
         <a href="/til/git-github.html" onclick="pageScrollToTop(this)">
-          Git/Github
+          Git
         </a>
-          <ul><li><a href="#git-config-설정-확인-및-변경하기" onclick="mobilePageScrollToAnchor(this)" >git config 설정 확인 및 변경하기</a></li><li><a href="#jekyll" onclick="mobilePageScrollToAnchor(this)" >Jekyll</a><ul><li><a href="#github-pages-배포-및-테마적용" onclick="mobilePageScrollToAnchor(this)" >GitHub Pages 배포 및 테마적용</a></li><li><a href="#siteamp-파일-생성" onclick="mobilePageScrollToAnchor(this)" >siteamp 파일 생성</a></li></ul></li><li><a href="#commit-깔끔하게-남기기" onclick="mobilePageScrollToAnchor(this)" >commit 깔끔하게 남기기</a></li><li><a href="#ssh-key-생성" onclick="mobilePageScrollToAnchor(this)" >ssh key 생성</a></li></ul>
+          <ul><li><a href="#git-config-설정-확인-및-변경하기" onclick="mobilePageScrollToAnchor(this)" >git config 설정 확인 및 변경하기</a></li><li><a href="#commit-깔끔하게-남기기" onclick="mobilePageScrollToAnchor(this)" >commit 깔끔하게 남기기</a></li><li><a href="#ssh-key-생성" onclick="mobilePageScrollToAnchor(this)" >ssh key 생성</a></li></ul>
   
       </li>
        
@@ -332,6 +332,20 @@
       <li
         class="chapter"
         data-level="1.1"
+        data-path="/til/jekyll.html"
+      >
+        
+        <a href="/til/jekyll.html" onclick="pageScrollToTop(this)">
+          Jekyll
+        </a>
+          
+      </li>
+       
+      </li>
+
+      <li
+        class="chapter"
+        data-level="1.1"
         data-path="/til/errors.html"
       >
         
@@ -380,7 +394,7 @@
           <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i>
             
-            <a href=".">Git/Github</a>
+            <a href=".">Git</a>
             
           </h1>
         </div>
@@ -393,7 +407,7 @@
       <div class="search-noresults">
         <section class="normal markdown-section">
           
-          <h1 id="/til/git github">Git/Github</h1>
+          <h1 id="/til/git github">Git</h1>
            <h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
 
 <p>git config에 대한 리스트를 보고자 하는 경우에는 아래와 같은 커맨드를 입력한다.</p>
@@ -411,92 +425,6 @@ git config <span class="nt">--global</span> user.email <span class="s2">"hbd9425
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> core.quotepath <span class="nb">false</span>
 </code></pre></div></div>
-
-<h2 id="jekyll">Jekyll</h2>
-
-<h3 id="github-pages-배포-및-테마적용">GitHub Pages 배포 및 테마적용</h3>
-
-<blockquote>
-  <p>사전 준비</p>
-</blockquote>
-
-<ul>
-  <li>Ruby 설치</li>
-  <li>Jekyll 설치</li>
-  <li>테마 선택
-    <ul>
-      <li><a href="http://jamstackthemes.dev">jamstackthemes.dev</a></li>
-      <li><a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a></li>
-    </ul>
-  </li>
-  <li>코드블럭 선택
-    <ul>
-      <li><a href="https://spsarolkar.github.io/rouge-theme-preview/">https://spsarolkar.github.io/rouge-theme-preview/</a>
-<br /></li>
-    </ul>
-  </li>
-</ul>
-
-<blockquote>
-  <p>배포 및 테마 적용하기</p>
-</blockquote>
-
-<ol>
-  <li>
-    <p>github repository 생성</p>
-
-    <ul>
-      <li>repository명은 github 아이디.github.io로 생성할 것</li>
-      <li>repository는 public 으로 할 것</li>
-      <li>ex) parklego.github.io</li>
-    </ul>
-  </li>
-  <li>
-    <p>bundle 명령어 실행</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
-bundle exec jekyll serve
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>블로그 설정</p>
-    <ul>
-      <li>_conif.yml 파일에서 제목이나 이름 등을 변경</li>
-      <li>Gemfile 플러그인 설치하는 곳</li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="siteamp-파일-생성">siteamp 파일 생성</h3>
-
-<ol>
-  <li>
-    <p>Gemfile 파일에서 아래 코드 추가</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-sitemap'
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>_config.yml 파일에서 아래 코드 추가</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
-   -jekyll - sitemap;
-</code></pre></div>    </div>
-  </li>
-  <li>Terminal 에서 <code class="language-plaintext highlighter-rouge">bundle</code> 입력.</li>
-  <li>
-    <p>Terminal 에서 아래 명령어 입력</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll-sitemap
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>지킬 서버 재실행</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
-</code></pre></div>    </div>
-  </li>
-</ol>
 
 <h2 id="commit-깔끔하게-남기기">commit 깔끔하게 남기기</h2>
 
@@ -896,7 +824,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-06-07 18:17:35 +0900"
+        "time": "2024-06-09 21:49:55 +0900"
     },
     "basePath": "",
     "book": {

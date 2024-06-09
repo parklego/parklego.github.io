@@ -51,10 +51,6 @@ const { data, isLoading, error } = useQuery(queryKey, queryFn, options);
   useQuery(["todos"], () => somethingfetching() ));
   ```
 
-## useInfiniteQuery
-
-continue
-
 ---
 
 도움되는 링크

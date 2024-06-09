@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-07T18:17:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-09T21:49:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">개발일지</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="개발일지" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -475,7 +475,7 @@ left: 0;
 
 // To-be
 inset: 0;
-</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[텍스트에 자연스럽게 gradient 넣기]]></summary></entry><entry><title type="html">DB</title><link href="http://localhost:4000/til/db.html" rel="alternate" type="text/html" title="DB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/db</id><content type="html" xml:base="http://localhost:4000/til/db.html"><![CDATA[]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Git/Github</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git/Github" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
+</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[텍스트에 자연스럽게 gradient 넣기]]></summary></entry><entry><title type="html">DB</title><link href="http://localhost:4000/til/db.html" rel="alternate" type="text/html" title="DB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/db</id><content type="html" xml:base="http://localhost:4000/til/db.html"><![CDATA[]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Git</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
 
 <p>git config에 대한 리스트를 보고자 하는 경우에는 아래와 같은 커맨드를 입력한다.</p>
 
@@ -492,92 +492,6 @@ git config <span class="nt">--global</span> user.email <span class="s2">"hbd9425
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> core.quotepath <span class="nb">false</span>
 </code></pre></div></div>
-
-<h2 id="jekyll">Jekyll</h2>
-
-<h3 id="github-pages-배포-및-테마적용">GitHub Pages 배포 및 테마적용</h3>
-
-<blockquote>
-  <p>사전 준비</p>
-</blockquote>
-
-<ul>
-  <li>Ruby 설치</li>
-  <li>Jekyll 설치</li>
-  <li>테마 선택
-    <ul>
-      <li><a href="http://jamstackthemes.dev">jamstackthemes.dev</a></li>
-      <li><a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a></li>
-    </ul>
-  </li>
-  <li>코드블럭 선택
-    <ul>
-      <li><a href="https://spsarolkar.github.io/rouge-theme-preview/">https://spsarolkar.github.io/rouge-theme-preview/</a>
-<br /></li>
-    </ul>
-  </li>
-</ul>
-
-<blockquote>
-  <p>배포 및 테마 적용하기</p>
-</blockquote>
-
-<ol>
-  <li>
-    <p>github repository 생성</p>
-
-    <ul>
-      <li>repository명은 github 아이디.github.io로 생성할 것</li>
-      <li>repository는 public 으로 할 것</li>
-      <li>ex) parklego.github.io</li>
-    </ul>
-  </li>
-  <li>
-    <p>bundle 명령어 실행</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
-bundle exec jekyll serve
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>블로그 설정</p>
-    <ul>
-      <li>_conif.yml 파일에서 제목이나 이름 등을 변경</li>
-      <li>Gemfile 플러그인 설치하는 곳</li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="siteamp-파일-생성">siteamp 파일 생성</h3>
-
-<ol>
-  <li>
-    <p>Gemfile 파일에서 아래 코드 추가</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-sitemap'
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>_config.yml 파일에서 아래 코드 추가</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
-   -jekyll - sitemap;
-</code></pre></div>    </div>
-  </li>
-  <li>Terminal 에서 <code class="language-plaintext highlighter-rouge">bundle</code> 입력.</li>
-  <li>
-    <p>Terminal 에서 아래 명령어 입력</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll-sitemap
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>지킬 서버 재실행</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
-</code></pre></div>    </div>
-  </li>
-</ol>
 
 <h2 id="commit-깔끔하게-남기기">commit 깔끔하게 남기기</h2>
 
@@ -1579,10 +1493,6 @@ NEXTAUTH_URL='https:localhost:3000'
 </code></pre></div>    </div>
   </li>
 </ul>
-
-<h2 id="useinfinitequery">useInfiniteQuery</h2>
-
-<p>continue</p>
 
 <hr />
 

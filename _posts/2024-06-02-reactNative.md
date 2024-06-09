@@ -118,3 +118,59 @@ npx react-native doctor // 점검
 ✖ xcode에 대한 에러
 
 - ios폴더에서 `pod install`
+
+### 코어 컴포넌트
+
+## Text
+
+- 텍스트를 표현하기 위한 컴포넌트
+- onPress 속성이 있어서 버튼과 같이 기능을 수행할 수 있지만, 시각 효과는 없다.
+
+## SafeAreaView
+
+- iOS 기기의 노치(notch) 영역이나 Android 기기의 상태 표시줄, 내비게이션 바 등의 영역을 피해서 콘텐츠를 렌더링할 수 있도록 도와주는 컴포넌트
+
+## ScrollView
+
+- 콘텐츠가 화면 크기보다 클 때 스크롤을 통해 모든 콘텐츠를 볼 수 있게 해주는 컴포넌트
+- 해당 컨텐츠를 wrapper 형식으로 감싸면 된다.
+
+## Button
+
+- 리액트와 다르게 onPress 속성을 사용한다.
+- title 속성은 버튼의 텍스트를 나타낸다. 단, 필수 값이다.
+
+## TouchableOpacity
+
+- 터치가 일어나면, 컴포넌트 바탕색의 투명도를 변경한다.
+
+## TouchableHighlight
+
+- 터치가 일어나면, 컴포넌트의 배경색을 변경한다.
+
+## TextInput
+
+- 입력된 텍스트는 value 속성값으로 얻을 수 있다.
+- 텍스트가 입력될 때, onChangeText 이벤트를 실행한다.
+- editable false로 disable 처리 할 수 있다.
+- 텍스트입력이 모두 끝나면 onEndEditing 이벤트를 호출한다.
+- 자식요소를 가지지 못한다.
+
+### 내장 APIs
+
+## Alert API
+
+- 알림 컴포넌트
+- title 속성 필수값
+
+## StyleSheet API
+
+- 스타일을 적용하기 위한 API
+- 캐시된 스타일 객체를 생성할 수 있다.
+
+### 스타일링
+
+- 코어 컴포넌트 중 `View` 가 들어간 컴포넌트는 `backgroundColor` 속성을, `Text` 컴포넌트는 `color` 속성을 사용한다.
+- 정적 스타일의 경우 StyleSheet.create 방식으로 구현하는 것이 효과적이다.
+- 동적 스타일의 경우 인라인 스타일 방식으로 구현하는 것이 일반적이다.
+- 스타일 속성에 배열로 담아서 정적,동적 스타일링을 결합하는 형식으로 사용하면 된다.

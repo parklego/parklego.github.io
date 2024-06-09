@@ -15,4 +15,7 @@ permalink: /
 <!-- Memo
 1. \_posts의 파일 이름은 날짜와 타이틀 모두 적어야함.
    ex) 2024-03-01-title.md
-2. 파일이름의 타이틀이 url의 경로가 되므로, 소문자 영어로 만들 것. -->
+2. 파일이름의 타이틀이 url의 경로가 되므로, 소문자 영어로 만들 것.
+3. local server :
+  bundle exec jekyll serve
+-->

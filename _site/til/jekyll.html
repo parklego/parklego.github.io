@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head><meta charset="UTF-8" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>About · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>Jekyll · parklego dev log</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Build Jekyll site with the GitBook style.
 " /><meta
   name="generator"
@@ -62,9 +62,9 @@
   content="dql4LA2z0t-L6Llmn2FauSf77ThLjSN-jQsz_-BC2sI"
 />
 
-    <link rel="prev" href="/" />
+    <link rel="prev" href="/til/web-Accessibility.html" />
      
-    <link rel="next" href="/pages/library" />
+    <link rel="next" href="/til/errors.html" />
     
   </head>
 
@@ -114,9 +114,11 @@
       
       <!-- <p>pages</p> -->
          
+      </li>
+
       <li
-        class="chapter active"
-        data-level="1.2"
+        class="chapter"
+        data-level="1.1"
         data-path="/pages/about"
       >
         
@@ -124,7 +126,6 @@
           About
         </a>
           
-  
       </li>
        
       </li>
@@ -327,18 +328,17 @@
           
       </li>
        
-      </li>
-
       <li
-        class="chapter"
-        data-level="1.1"
+        class="chapter active"
+        data-level="1.2"
         data-path="/til/jekyll.html"
       >
         
         <a href="/til/jekyll.html" onclick="pageScrollToTop(this)">
           Jekyll
         </a>
-          
+          <ul><li><a href="#github-pages-배포-및-테마적용" onclick="mobilePageScrollToAnchor(this)" >GitHub Pages 배포 및 테마적용</a></li><li><a href="#siteamp-파일-생성" onclick="mobilePageScrollToAnchor(this)" >siteamp 파일 생성</a></li></ul>
+  
       </li>
        
       </li>
@@ -394,7 +394,7 @@
           <h1>
             <i class="fa fa-circle-o-notch fa-spin"></i>
             
-            <a href=".">About</a>
+            <a href=".">Jekyll</a>
             
           </h1>
         </div>
@@ -407,40 +407,90 @@
       <div class="search-noresults">
         <section class="normal markdown-section">
           
-          <h1 id="/pages/about">About</h1>
-           <p>안녕하세요, 반갑습니다! 😊</p>
+          <h1 id="/til/jekyll">Jekyll</h1>
+           <h3 id="github-pages-배포-및-테마적용">GitHub Pages 배포 및 테마적용</h3>
 
-<p>이곳은 제가 개발과 관련된 내용을 간단히 기록하는 곳입니다. 주로 TIL에 대한 내용입니다.</p>
+<blockquote>
+  <p>사전 준비</p>
+</blockquote>
 
-<p><br /></p>
+<ul>
+  <li>Ruby 설치</li>
+  <li>Jekyll 설치</li>
+  <li>테마 선택
+    <ul>
+      <li><a href="http://jamstackthemes.dev">jamstackthemes.dev</a></li>
+      <li><a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a></li>
+    </ul>
+  </li>
+  <li>코드블럭 선택
+    <ul>
+      <li><a href="https://spsarolkar.github.io/rouge-theme-preview/">https://spsarolkar.github.io/rouge-theme-preview/</a>
+<br /></li>
+    </ul>
+  </li>
+</ul>
 
-<p>[ 나의 인기글 ]</p>
+<blockquote>
+  <p>배포 및 테마 적용하기</p>
+</blockquote>
 
-<p><a href="https://velog.io/@bathingape/JavaScript-var-let-const-%EC%B0%A8%EC%9D%B4%EC%A0%90">var, let, const 차이점</a></p>
+<ol>
+  <li>
+    <p>github repository 생성</p>
 
-<p>이때 첫 포스터였는데 16만명이 방문한 글이라 뜻깊은 포스터</p>
+    <ul>
+      <li>repository명은 github 아이디.github.io로 생성할 것</li>
+      <li>repository는 public 으로 할 것</li>
+      <li>ex) parklego.github.io</li>
+    </ul>
+  </li>
+  <li>
+    <p>bundle 명령어 실행</p>
 
-<p><br /></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+bundle exec jekyll serve
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>블로그 설정</p>
+    <ul>
+      <li>_conif.yml 파일에서 제목이나 이름 등을 변경</li>
+      <li>Gemfile 플러그인 설치하는 곳</li>
+    </ul>
+  </li>
+</ol>
 
-<p>[ 개발하면서 보면 좋은 자료들 링크 모음 ]</p>
+<h3 id="siteamp-파일-생성">siteamp 파일 생성</h3>
 
-<p><a href="https://2022.stateofjs.com/ko-KR/">stateofjs</a></p>
+<ol>
+  <li>
+    <p>Gemfile 파일에서 아래 코드 추가</p>
 
-<p><a href="https://programmers.co.kr/pages/survey">프로그래머스리포트</a></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-sitemap'
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>_config.yml 파일에서 아래 코드 추가</p>
 
-<p><a href="https://fe-developers.kakaoent.com/">카카오FE기술블로그</a></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
+   -jekyll - sitemap;
+</code></pre></div>    </div>
+  </li>
+  <li>Terminal 에서 <code class="language-plaintext highlighter-rouge">bundle</code> 입력.</li>
+  <li>
+    <p>Terminal 에서 아래 명령어 입력</p>
 
-<p><a href="https://techblog.woowahan.com/">우아한기술블로그</a></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install jekyll-sitemap
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>지킬 서버 재실행</p>
 
-<p><a href="https://ui.toast.com/posts/ko">toastUI</a></p>
-
-<p><br /></p>
-
-<p>[과거 흔적]</p>
-
-<p><a href="https://velog.io/@bathingape">벨로그</a></p>
-
-<p><a href="https://parklego.tistory.com">티스토리</a></p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre></div>    </div>
+  </li>
+</ol>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -514,17 +564,17 @@ window.MathJax = {
 
 
           <a
-            href="/"
+            href="/til/web-Accessibility.html"
             class="navigation navigation-prev navigation-unique"
-            aria-label="Previous page: parklego dev log"
+            aria-label="Previous page: 웹 접근성"
           >
             <i class="fa fa-angle-left"></i>
           </a>
            
           <a
-            href="/pages/library"
+            href="/til/errors.html"
             class="navigation navigation-next navigation-unique"
-            aria-label="Next page: 라이브러리 추천"
+            aria-label="Next page: Errors"
           >
             <i class="fa fa-angle-right"></i>
           </a>
@@ -542,11 +592,11 @@ window.MathJax = {
         "depth": 1,
         
         "next": {
-            "title": "라이브러리 추천",
+            "title": "Errors",
             "level": "1.2",
             "depth": 1,
-            "path": "_pages/library.md",
-            "ref": "_pages/library.md",
+            "path": "_posts/2024-06-02-errors.md",
+            "ref": "_posts/2024-06-02-errors.md",
             "articles": []
         },
         
@@ -638,7 +688,7 @@ window.MathJax = {
         "gitbook": "*"
     },
     "file": {
-        "path": "_pages/about.md",
+        "path": "_posts/2024-06-01-jekyll.md",
         "mtime": "2024-03-01 00:00:00 +0900",
         "type": "markdown"
     },
