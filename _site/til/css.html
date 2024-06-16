@@ -211,7 +211,7 @@
         <a href="/til/css.html" onclick="pageScrollToTop(this)">
           CSS
         </a>
-          <ul><li><a href="#텍스트에-자연스럽게-gradient-넣기" onclick="mobilePageScrollToAnchor(this)" >텍스트에 자연스럽게 gradient 넣기</a></li><li><a href="#topright-bottom-left-한번에-처리하기" onclick="mobilePageScrollToAnchor(this)" >top,right, bottom, left 한번에 처리하기</a></li></ul>
+          <ul><li><a href="#텍스트에-자연스럽게-gradient-넣기" onclick="mobilePageScrollToAnchor(this)" >텍스트에 자연스럽게 gradient 넣기</a></li><li><a href="#topright-bottom-left-한번에-처리하기" onclick="mobilePageScrollToAnchor(this)" >top,right, bottom, left 한번에 처리하기</a></li><li><a href="#자식-태그-스크롤-할-때-부모-태그-스크롤-막기" onclick="mobilePageScrollToAnchor(this)" >자식 태그 스크롤 할 때 부모 태그 스크롤 막기</a></li></ul>
   
       </li>
        
@@ -439,6 +439,17 @@ left: 0;
 // To-be
 inset: 0;
 </code></pre></div></div>
+
+<h2 id="자식-태그-스크롤-할-때-부모-태그-스크롤-막기">자식 태그 스크롤 할 때 부모 태그 스크롤 막기</h2>
+
+<p>기본적으로 한 박스 안의 스크롤이 끝나면 부모 요소의 스크롤로 넘어간다.</p>
+
+<p>이것을 scroll chaining 스크롤 체이닝이라고 한다.</p>
+
+<p>이 스크롤 체이닝을 막고싶은 경우 사용하는 속성이 바로 overscroll-behavior이다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">overscroll-behavior</span><span class="o">:</span> <span class="nt">contain</span><span class="o">;</span>
+</code></pre></div></div>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -642,7 +653,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-06-16 20:40:26 +0900"
+        "time": "2024-06-16 21:00:11 +0900"
     },
     "basePath": "",
     "book": {
