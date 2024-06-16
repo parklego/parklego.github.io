@@ -129,6 +129,8 @@ npx react-native doctor // 점검
 ## SafeAreaView
 
 - iOS 기기의 노치(notch) 영역이나 Android 기기의 상태 표시줄, 내비게이션 바 등의 영역을 피해서 콘텐츠를 렌더링할 수 있도록 도와주는 컴포넌트
+- Android는 직접적으로 padding 등을 제어 할 수 있으나, Ios는 불가능하기에
+  작업을 할때 추가적인 view를 넣고 작업하는 것이 좋다.
 
 ## ScrollView
 
@@ -167,6 +169,21 @@ npx react-native doctor // 점검
 
 - 스타일을 적용하기 위한 API
 - 캐시된 스타일 객체를 생성할 수 있다.
+
+## Platform API
+
+- 현재 앱이 어느 OS에서 동작하고 있는지 구분하는 API
+- `Platform.OS` 속성을 통해 확인할 수 있다.
+- `Platform.select` 속성을 통해 OS별로 다른 스타일을 적용할 수 있다.
+
+  ```css
+  padding: Platform.select({ios: 10, android: 20, });
+  ```
+
+## Dimensions API
+
+- 디바이스의 크기와 화면의 크기를 구분하는 API
+- `Dimensions.get('window')` 속성을 통해 확인할 수 있다.
 
 ### 스타일링
 
