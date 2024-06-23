@@ -60,6 +60,12 @@ spinners and loader 라이브러리
 
 [공식문서](https://react-icons.github.io/react-icons/)
 
+## react-native-vector-icons
+
+리액트 네이티브 버전 icon 라이브러리
+
+[공식문서](https://oblador.github.io/react-native-vector-icons/)
+
 ## Swiper
 
 swiper 라이브러리

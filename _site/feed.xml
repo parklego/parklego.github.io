@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-16T21:00:11+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-23T21:18:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">parklego dev log</title><subtitle>Build Jekyll site with the GitBook style.
 </subtitle><author><name>parklego</name></author><entry><title type="html">개발일지</title><link href="http://localhost:4000/til/think.html" rel="alternate" type="text/html" title="개발일지" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/think</id><content type="html" xml:base="http://localhost:4000/til/think.html"><![CDATA[<h2 id="라이트다크-모드">라이트/다크 모드</h2>
 
 <p>최근에 create-react-app을 더 이상 사용하지 않는다는 소식을 들었다. 그래서 다음에는 vite를 이용해보고자 했는데 드디어 사용해보게 되었다.</p>
@@ -445,7 +445,76 @@
   "build:js": "node build.js",
   "build:ts": "tsc --emitDeclarationOnly"
 }
-</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[esbuild]]></summary></entry><entry><title type="html">CSS</title><link href="http://localhost:4000/til/css.html" rel="alternate" type="text/html" title="CSS" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/css</id><content type="html" xml:base="http://localhost:4000/til/css.html"><![CDATA[<h2 id="텍스트에-자연스럽게-gradient-넣기">텍스트에 자연스럽게 gradient 넣기</h2>
+</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[esbuild]]></summary></entry><entry><title type="html">CSS</title><link href="http://localhost:4000/til/css.html" rel="alternate" type="text/html" title="CSS" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/css</id><content type="html" xml:base="http://localhost:4000/til/css.html"><![CDATA[<h2 id="css-우선-순위">css 우선 순위</h2>
+
+<p>!important 선언 &gt; 인라인 스타일 &gt; id 선택자 &gt; class 선택자 &gt; 태그 선택자 &gt; 전체 선택자</p>
+
+<h2 id="css-결합자">css 결합자</h2>
+
+<ol>
+  <li>
+    <p>자식 결합자</p>
+
+    <ul>
+      <li>
+        <p>선택자 요소의 자식 요소를 선택하는 선택자.</p>
+
+        <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* ul태그의 자식 li태그 선택 */</span>
+<span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>하위 결합자</p>
+
+    <ul>
+      <li>
+        <p>선택자 하위 요소를 선택하는 선택자.</p>
+
+        <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* ul태그의 하위 요소인 모든 li태그 선택 */</span>
+<span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>인접 형제 결합자</p>
+
+    <ul>
+      <li>
+        <p>형제 요소 중 바로 옆(아래) 요소를 하나를 선택하는 선택자.</p>
+
+        <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* a 클래스를 가지는 li태그 바로 아래 요소 하나 선택 */</span>
+<span class="nt">ul</span><span class="nc">.a</span> <span class="o">+</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>일반 형제 결합자</p>
+
+    <ul>
+      <li>
+        <p>모든 형제 요소를 선택하는 선택자.</p>
+
+        <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* a 클래스를 가지는 ul태그 아래 모든 li태그 선택 */</span>
+<span class="nt">ul</span><span class="nc">.a</span> <span class="o">~</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="텍스트에-자연스럽게-gradient-넣기">텍스트에 자연스럽게 gradient 넣기</h2>
 
 <ol>
   <li>
@@ -486,7 +555,7 @@ inset: 0;
 <p>이 스크롤 체이닝을 막고싶은 경우 사용하는 속성이 바로 overscroll-behavior이다.</p>
 
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">overscroll-behavior</span><span class="o">:</span> <span class="nt">contain</span><span class="o">;</span>
-</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[텍스트에 자연스럽게 gradient 넣기]]></summary></entry><entry><title type="html">DB</title><link href="http://localhost:4000/til/db.html" rel="alternate" type="text/html" title="DB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/db</id><content type="html" xml:base="http://localhost:4000/til/db.html"><![CDATA[]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Git</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
+</code></pre></div></div>]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[css 우선 순위]]></summary></entry><entry><title type="html">DB</title><link href="http://localhost:4000/til/db.html" rel="alternate" type="text/html" title="DB" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/db</id><content type="html" xml:base="http://localhost:4000/til/db.html"><![CDATA[]]></content><author><name>parklego</name></author><category term="til" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Git</title><link href="http://localhost:4000/til/git-github.html" rel="alternate" type="text/html" title="Git" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/til/git%20github</id><content type="html" xml:base="http://localhost:4000/til/git-github.html"><![CDATA[<h2 id="git-config-설정-확인-및-변경하기">git config 설정 확인 및 변경하기</h2>
 
 <p>git config에 대한 리스트를 보고자 하는 경우에는 아래와 같은 커맨드를 입력한다.</p>
 

@@ -158,6 +158,25 @@ npx react-native doctor // 점검
 - 텍스트입력이 모두 끝나면 onEndEditing 이벤트를 호출한다.
 - 자식요소를 가지지 못한다.
 
+## ImageBackground
+
+- 이미지를 배경으로 사용하는 컴포넌트
+- width,height 값 필수 (`flex : 1` 로 간결하게 사용 가능)
+- 이름에 View가 없지만, Image 컴포넌트를 자식으로 가지고 있다.
+
+## Image
+
+- 이미지를 표현하기 위한 컴포넌트
+- `ImageBackground`, `Image` 는 아래와 같이 사용한다.
+
+  ```
+  // 1. 앱의 자원
+  <Image source={require('./src/assets/images/bg.jpg')}/>
+
+  // 2. 앱의 자원이 아닌 다른 원격지 서버에서
+   <Image source={ { uri: 'https://www.example.com/bg.jpg' }}/>
+  ```
+
 ### 내장 APIs
 
 ## Alert API
@@ -191,3 +210,52 @@ npx react-native doctor // 점검
 - 정적 스타일의 경우 StyleSheet.create 방식으로 구현하는 것이 효과적이다.
 - 동적 스타일의 경우 인라인 스타일 방식으로 구현하는 것이 일반적이다.
 - 스타일 속성에 배열로 담아서 정적,동적 스타일링을 결합하는 형식으로 사용하면 된다.
+
+### 폰트 설정
+
+## 직접 설치
+
+- 안드로이드
+
+  - 프로젝트 루트에서 `android/app/src/main/assets/fonts`에 폰트 파일을 추가
+
+  - 라이브러리에 의한 폰트가 필요한 경우
+
+    android/app/build.gradle 파일 하단에 아래 코드를 작성한다.
+
+    ```
+    // react-native-vector-icons 라이브러리 사용하는 경우
+    apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+    ```
+
+- ios
+
+  1.  Xcode로 현재 프로젝트의 ios폴더를 연다.
+  2.  Fonts폴더를 만들고 필요한 폰트 파일들을 넣는다.
+  3.  Info.plist - Fonts provided by application 에서
+      필요한 폰트파일들을 전부 추가해준다.
+  4.  ios 폴더에서 `npx pod-install` 해준다.
+  5.  Metro서버 재가동하고, ios 재빌드 해준다.
+
+## 라이브러리 이용
+
+`react-native-asset` 라는 라이브러리를 사용하여 폰트를 적용한다.
+
+- 기본 설정
+
+```
+// react-native.config.js
+   module.exports = {
+      project: {
+         ios: {},
+         android: {},
+      },
+      assets: ['./src/assets/fonts/'], // 폰트 폴더
+   };
+```
+
+- 실행
+
+```
+npx react-native-asset
+```

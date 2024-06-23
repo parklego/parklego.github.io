@@ -365,7 +365,7 @@
         <a href="/til/reactNative.html" onclick="pageScrollToTop(this)">
           React-Native
         </a>
-          <ul><li><a href="#개발환경-셋팅" onclick="mobilePageScrollToAnchor(this)" >개발환경 셋팅</a></li><li><a href="#코어-컴포넌트" onclick="mobilePageScrollToAnchor(this)" >코어 컴포넌트</a></li><li><a href="#내장-apis" onclick="mobilePageScrollToAnchor(this)" >내장 APIs</a></li><li><a href="#스타일링" onclick="mobilePageScrollToAnchor(this)" >스타일링</a></li></ul>
+          <ul><li><a href="#개발환경-셋팅" onclick="mobilePageScrollToAnchor(this)" >개발환경 셋팅</a></li><li><a href="#코어-컴포넌트" onclick="mobilePageScrollToAnchor(this)" >코어 컴포넌트</a></li><li><a href="#내장-apis" onclick="mobilePageScrollToAnchor(this)" >내장 APIs</a></li><li><a href="#스타일링" onclick="mobilePageScrollToAnchor(this)" >스타일링</a></li><li><a href="#폰트-설정" onclick="mobilePageScrollToAnchor(this)" >폰트 설정</a></li></ul>
   
       </li>
        
@@ -598,6 +598,30 @@ npx react-native doctor // 점검
   <li>자식요소를 가지지 못한다.</li>
 </ul>
 
+<h2 id="imagebackground">ImageBackground</h2>
+
+<ul>
+  <li>이미지를 배경으로 사용하는 컴포넌트</li>
+  <li>width,height 값 필수 (<code class="language-plaintext highlighter-rouge">flex : 1</code> 로 간결하게 사용 가능)</li>
+  <li>이름에 View가 없지만, Image 컴포넌트를 자식으로 가지고 있다.</li>
+</ul>
+
+<h2 id="image">Image</h2>
+
+<ul>
+  <li>이미지를 표현하기 위한 컴포넌트</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ImageBackground</code>, <code class="language-plaintext highlighter-rouge">Image</code> 는 아래와 같이 사용한다.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 1. 앱의 자원
+&lt;Image source={require('./src/assets/images/bg.jpg')}/&gt;
+
+// 2. 앱의 자원이 아닌 다른 원격지 서버에서
+ &lt;Image source={ { uri: 'https://www.example.com/bg.jpg' }}/&gt;
+</code></pre></div>    </div>
+  </li>
+</ul>
+
 <h3 id="내장-apis">내장 APIs</h3>
 
 <h2 id="alert-api">Alert API</h2>
@@ -642,6 +666,68 @@ npx react-native doctor // 점검
   <li>동적 스타일의 경우 인라인 스타일 방식으로 구현하는 것이 일반적이다.</li>
   <li>스타일 속성에 배열로 담아서 정적,동적 스타일링을 결합하는 형식으로 사용하면 된다.</li>
 </ul>
+
+<h3 id="폰트-설정">폰트 설정</h3>
+
+<h2 id="직접-설치">직접 설치</h2>
+
+<ul>
+  <li>
+    <p>안드로이드</p>
+
+    <ul>
+      <li>
+        <p>프로젝트 루트에서 <code class="language-plaintext highlighter-rouge">android/app/src/main/assets/fonts</code>에 폰트 파일을 추가</p>
+      </li>
+      <li>
+        <p>라이브러리에 의한 폰트가 필요한 경우</p>
+
+        <p>android/app/build.gradle 파일 하단에 아래 코드를 작성한다.</p>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// react-native-vector-icons 라이브러리 사용하는 경우
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>ios</p>
+
+    <ol>
+      <li>Xcode로 현재 프로젝트의 ios폴더를 연다.</li>
+      <li>Fonts폴더를 만들고 필요한 폰트 파일들을 넣는다.</li>
+      <li>Info.plist - Fonts provided by application 에서
+필요한 폰트파일들을 전부 추가해준다.</li>
+      <li>ios 폴더에서 <code class="language-plaintext highlighter-rouge">npx pod-install</code> 해준다.</li>
+      <li>Metro서버 재가동하고, ios 재빌드 해준다.</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="라이브러리-이용">라이브러리 이용</h2>
+
+<p><code class="language-plaintext highlighter-rouge">react-native-asset</code> 라는 라이브러리를 사용하여 폰트를 적용한다.</p>
+
+<ul>
+  <li>기본 설정</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// react-native.config.js
+   module.exports = {
+      project: {
+         ios: {},
+         android: {},
+      },
+      assets: ['./src/assets/fonts/'], // 폰트 폴더
+   };
+</code></pre></div></div>
+
+<ul>
+  <li>실행</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx react-native-asset
+</code></pre></div></div>
 </section>
       </div><div class="search-results">
     <div class="has-results">
@@ -845,7 +931,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-06-16 21:00:11 +0900"
+        "time": "2024-06-23 21:18:42 +0900"
     },
     "basePath": "",
     "book": {
