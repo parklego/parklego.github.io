@@ -177,6 +177,15 @@ npx react-native doctor // 점검
    <Image source={ { uri: 'https://www.example.com/bg.jpg' }}/>
   ```
 
+## FlatList
+
+- FlatList는 많은 양의 스크롤이 필요한 리스트 아이템을 보여주고자 할 때 유용하게 사용되는 RN 컴포넌트
+- FlatList는 map보다 더 많은 기능을 내포하고 있어서 RN에서 더 많이 쓰이는 컴포넌트
+- props
+  - data는 만들고자 하는 리스트의 source를 담는 props
+  - renderItem은 data로 받은 소스들 그 각각의 item들을 render 시켜주는 콜백함수
+  - keyExtractor는 key값 (item 각각 고유의 key값)
+
 ### 내장 APIs
 
 ## Alert API
